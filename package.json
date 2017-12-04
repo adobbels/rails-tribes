@@ -1,5 +1,7 @@
 {
   "name": "_rails-tribes",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "yarn": "^1.3.2"
+  }
 }
