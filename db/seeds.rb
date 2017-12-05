@@ -246,3 +246,17 @@ House.create!(
   )
 puts "***--- HOUSE #12 DONE ---***"
 puts "***--- SEEDS DONE ---***"
+
+puts "** Creation des Reviews **"
+Review.create!(
+  content_review: "bonjour, je suis le premier commentaire",
+  title_review: "Test review",
+  rating: 3,
+  profile_id: 2 ,
+  house_id: 7 ,
+  )
+
+puts "** ** Creation des bookings ** **"
+Booking.create!(
+  start_date: "12/05/2017",
+  )
