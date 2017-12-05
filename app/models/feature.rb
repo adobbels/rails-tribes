@@ -1,3 +1,3 @@
 class Feature < ApplicationRecord
-  has_many :feature
+  has_many :house_options
 end
