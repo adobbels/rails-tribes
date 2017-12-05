@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  has_many :review
-  has_many :booking
+  has_many :reviews
+  has_many :bookings
 end
