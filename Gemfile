@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'pundit'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'pry-byebug'
