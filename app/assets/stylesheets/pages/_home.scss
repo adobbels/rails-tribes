@@ -1,1 +1,70 @@
-// Specific CSS for your home-page
+
+.image-home {
+  margin: 40px 20px;
+  height: 75vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover;
+}
+
+.text-image-home {
+text-align: center;
+background-color: white;
+margin: 20px;
+padding: 25px;
+height: 225px;
+position:relative;
+}
+
+.text-right  {
+  position: absolute;
+  bottom: 70px;
+  text-align: center;
+
+
+}
+
+.features {
+  position: relative;
+  padding-left: 60px;
+}
+
+.features-logo {
+position: absolute;
+left: 2px;
+
+
+}
+
+.colonne1 {
+  position: relative;
+}
+
+.colonne1 h3 {
+  position: absolute;
+  top: 30px;
+  left: 75px;
+  text-align: center;
+}
+
+.colonne1 p {
+  position: absolute;
+  top: 190px;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.our-vision {
+  text-align: center;
+}
+
+.our-vision h3 {
+
+}
+
+.our-vision p {
+text-align: center;
+background-color: white;
+margin: 20px;
+padding: 20px;
+}
