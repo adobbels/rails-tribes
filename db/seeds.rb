@@ -20,19 +20,19 @@ Feature.create!(name: "Television")
 Feature.create!(name: "Wifi")
 Feature.create!(name: "Pets allowed")
 
-puts "***--- USER & PROFILE HOUSE MANAGER CREATION ---***"# USER & PROFILE CREATION
+puts "***--- USER & PROFILE CREATION ---***"# USER & PROFILE CREATION
 
 puts "***--- HOUSE MANAGER #1 CREATION ---***"
   user = User.create!(
-    first_name: "Aurélien",
-    last_name: "Dobbels",
     email: "aurelien@gmail.com",
     password: "123456",
-    phone_number: "+352.661.14.24.31",
-    birthday: "12/10/1982"
+    admin: true,
   )
   prof = Profile.create!(
-    category: "HouseManager",
+    first_name: "Aurélien",
+    last_name: "Dobbels",
+    phone_number: "+352.661.14.24.31",
+    birthday: "12/10/1982",
     address: "10 rue de Gand",
     post_code: 59800,
     city: "Lille",
@@ -43,15 +43,15 @@ puts "***--- HOUSE MANAGER #1 CREATION ---***"
 
 puts "***--- HOUSE MANAGER #2 CREATION ---***"
   user = User.create!(
-    first_name: "Thomas",
-    last_name: "Huncker",
     email: "thomas@gmail.com",
     password: "123456",
-    phone_number: "+33.6.12.34.56.78",
-    birthday: 10/01/1992
+    admin: true,
   )
   prof = Profile.create!(
-    category: "HouseManager",
+    first_name: "Thomas",
+    last_name: "Huncker",
+    phone_number: "+33.6.12.34.56.78",
+    birthday: "10/01/1992",
     address: "10 rue des postes",
     post_code: 59000,
     city: "Lille",
@@ -62,15 +62,15 @@ puts "***--- HOUSE MANAGER #2 CREATION ---***"
 
 puts "***--- TENANT #1 CREATION ---***"
   user = User.create!(
-    first_name: "Antoine",
-    last_name: "Staumont",
     email: "antoine@gmail.com",
     password: "123456",
-    phone_number: "+33.6.98.76.54.32",
-    birthday: 20/02/1978
+    admin: false,
   )
   prof = Profile.create!(
-    category: "",
+    first_name: "Antoine",
+    last_name: "Staumont",
+    phone_number: "+33.6.98.76.54.32",
+    birthday: "20/02/1978",
     address: "10 rue de cambrai",
     post_code: 59000,
     city: "Lille",
@@ -79,17 +79,16 @@ puts "***--- TENANT #1 CREATION ---***"
     user_id: user.id,
   )
 
-puts "***--- VISITOR #1 CREATION ---***"
+puts "***--- TENANT #2 CREATION ---***"
   user = User.create!(
-    first_name: "Maxime",
-    last_name: "Godart-Haupet",
     email: "maxime@gmail.com",
     password: "123456",
-    phone_number: "+33.6.54.73.08.12",
-    birthday: 24/07/1995
   )
   prof = Profile.create!(
-    category: "",
+    first_name: "Maxime",
+    last_name: "Godart-Haupet",
+    phone_number: "+33.6.54.73.08.12",
+    birthday: "24/07/1995",
     address: "45 rue de Marquillies",
     post_code: 59000,
     city: "Lille",
