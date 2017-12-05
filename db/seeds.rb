@@ -56,7 +56,7 @@ puts "***--- HOUSE MANAGER #2 CREATION ---***"
     post_code: 59000,
     city: "Lille",
     country: "France",
-    remote_photo_url: "",
+    remote_photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512480876/profil_wkcgwb.png",
     user_id: user.id,
   )
 
@@ -83,6 +83,7 @@ puts "***--- TENANT #2 CREATION ---***"
   user = User.create!(
     email: "maxime@gmail.com",
     password: "123456",
+    admin: false,
   )
   prof = Profile.create!(
     first_name: "Maxime",
