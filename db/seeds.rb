@@ -99,7 +99,6 @@ puts "***--- TENANT #2 CREATION ---***"
   )
 
 puts "***--- HOUSE CREATION ---***"# USER & PROFILE CREATION
-
 House.create!(
     name:"Lorem ipsum dolor sit amet 1",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -109,8 +108,9 @@ House.create!(
     post_code:"59000",
     city:"Lille",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2016/11/ROYAL_ROULOTTE_PARIS_16_DECORATION_RENOVATION_APPARTEMENT_08.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2016/11/ROYAL_ROULOTTE_PARIS_16_DECORATION_RENOVATION_APPARTEMENT_08.jpg",
   )
+puts "***--- HOUSE #1 DONE ---***"
 
 House.create!(
     name:"Lorem ipsum dolor sit amet",
@@ -121,9 +121,9 @@ House.create!(
     post_code:"59800",
     city:"Lille",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_01.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_01.jpg",
   )
-
+puts "***--- HOUSE #2 DONE ---***"
 House.create!(
     name:"consectetur adipiscing elit.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
@@ -133,9 +133,9 @@ House.create!(
     post_code:"59000",
     city:"Lille",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2015/11/ROYAL_ROULOTTE_MONTREUIL_CUISINE_06.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2015/11/ROYAL_ROULOTTE_MONTREUIL_CUISINE_06.jpg",
   )
-
+puts "***--- HOUSE #3 DONE ---***"
 House.create!(
     name:"consectetur adipiscing elit.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
@@ -145,9 +145,9 @@ House.create!(
     post_code:"59800",
     city:"Lille",
     country: "France",
-    remote_photo_url:"https://static.wixstatic.com/media/8aa29f_455ec9f18e2944339b2acb6145f6db9c~mv2_d_4096_2725_s_4_2.jpg/v1/fill/w_2083,h_1386,al_c,q_90,usm_0.66_1.00_0.01/8aa29f_455ec9f18e2944339b2acb6145f6db9c~mv2_d_4096_2725_s_4_2.webp",
+    remote_photos_url:"https://static.wixstatic.com/media/8aa29f_455ec9f18e2944339b2acb6145f6db9c~mv2_d_4096_2725_s_4_2.jpg/v1/fill/w_2083,h_1386,al_c,q_90,usm_0.66_1.00_0.01/8aa29f_455ec9f18e2944339b2acb6145f6db9c~mv2_d_4096_2725_s_4_2.webp",
   )
-
+puts "***--- HOUSE #4 DONE ---***"
 House.create!(
     name:"Lorem ipsum dolor sit amet.",
     description:"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
@@ -157,9 +157,9 @@ House.create!(
     post_code:"59130",
     city:"Lambersart",
     country: "France",
-    remote_photo_url:"https://static.wixstatic.com/media/8aa29f_ffcbbdc54bcb4e31a62fb67b840bc094~mv2_d_3264_2448_s_4_2.jpg/v1/fill/w_1848,h_1386,al_c,q_90,usm_0.66_1.00_0.01/8aa29f_ffcbbdc54bcb4e31a62fb67b840bc094~mv2_d_3264_2448_s_4_2.webp",
+    remote_photos_url:"https://static.wixstatic.com/media/8aa29f_ffcbbdc54bcb4e31a62fb67b840bc094~mv2_d_3264_2448_s_4_2.jpg/v1/fill/w_1848,h_1386,al_c,q_90,usm_0.66_1.00_0.01/8aa29f_ffcbbdc54bcb4e31a62fb67b840bc094~mv2_d_3264_2448_s_4_2.webp",
   )
-
+puts "***--- HOUSE #5 DONE ---***"
 House.create!(
     name:"Lorem ipsum dolor sit amet.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere purus ac ex volutpat, ut lobortis ligula.",
@@ -169,10 +169,9 @@ House.create!(
     post_code:"591100",
     city:"La Madeleine",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2017/01/ROYAL_ROULOTTE_RENOVATION_DECORATION_MAISON_HOME_DECOR_FRANCE_PARIS_RAMBOUILLET_47.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2017/01/ROYAL_ROULOTTE_RENOVATION_DECORATION_MAISON_HOME_DECOR_FRANCE_PARIS_RAMBOUILLET_47.jpg",
   )
-
-
+puts "***--- HOUSE #6 DONE ---***"
 House.create!(
     name:"vitae porttitor elit dui vitae felis.",
     description:"Nunc ornare auctor nibh, ac pellentesque neque ultricies rhoncus. Cras vehicula, odio eget pharetra varius, metus turpis efficitur erat, quis sagittis eros massa et leo.",
@@ -183,9 +182,9 @@ House.create!(
     city:"Marcq-en-Baroeul
 ",
     country: "France",
-    remote_photo_url:"https://static.wixstatic.com/media/8aa29f_8ea8a57efadd4c85845833fb0a9ebe27~mv2.jpg/v1/fill/w_640,h_637,al_c,q_90/8aa29f_8ea8a57efadd4c85845833fb0a9ebe27~mv2.webp",
+    remote_photos_url:"https://static.wixstatic.com/media/8aa29f_8ea8a57efadd4c85845833fb0a9ebe27~mv2.jpg/v1/fill/w_640,h_637,al_c,q_90/8aa29f_8ea8a57efadd4c85845833fb0a9ebe27~mv2.webp",
   )
-
+puts "***--- HOUSE #7 DONE ---***"
 House.create!(
     name:"Maecenas porttitor lorem et accumsan vulputate",
     description:"Nulla molestie aliquet turpis, in ultrices sem egestas consequat. Morbi feugiat fermentum neque, sed rhoncus magna faucibus eget. Nulla eleifend lacus vitae placerat ornare.",
@@ -195,9 +194,9 @@ House.create!(
     post_code:"59700",
     city:"Marcq-en-Baroeul",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_05.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_05.jpg",
   )
-
+puts "***--- HOUSE #8 DONE ---***"
 House.create!(
     name:"Curabitur faucibus arcu orci",
     description:"Vivamus ipsum massa, mollis id viverra tincidunt, rutrum sit amet magna. Suspendisse nibh risus, scelerisque id molestie vitae, tincidunt euismod lorem. Nam lacinia vestibulum velit nec congue. Aliquam scelerisque tortor eu odio iaculis viverra.",
@@ -207,9 +206,9 @@ House.create!(
     post_code:"59420",
     city:"Mouvaux",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2016/06/ROYAL_ROULOTTE_RENOVATION_DECORATION_RUE_DIEU_CANAL_SAINT_MARTIN_PARIS_10_12.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2016/06/ROYAL_ROULOTTE_RENOVATION_DECORATION_RUE_DIEU_CANAL_SAINT_MARTIN_PARIS_10_12.jpg",
   )
-
+puts "***--- HOUSE #9 DONE ---***"
 House.create!(
     name:"Lorem ipsum dolor sit amet 1",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -219,9 +218,9 @@ House.create!(
     post_code:"59290",
     city:"Wasquehal",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2016/11/ROYAL_ROULOTTE_PARIS_16_DECORATION_RENOVATION_APPARTEMENT_08.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2016/11/ROYAL_ROULOTTE_PARIS_16_DECORATION_RENOVATION_APPARTEMENT_08.jpg",
   )
-
+puts "***--- HOUSE #10 DONE ---***"
 House.create!(
     name:"Lorem ipsum dolor sit amet",
     description:"Aliquam sit amet tortor nisi. Proin interdum turpis vitae enim varius, et interdum eros ullamcorper. Morbi venenatis ac odio et luctus. Etiam ultricies diam ipsum, tempor fringilla ante suscipit ac.",
@@ -231,9 +230,9 @@ House.create!(
     post_code:"59700",
     city:"Marcq-en-Baroeul",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_01.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_01.jpg",
   )
-
+puts "***--- HOUSE #11 DONE ---***"
 House.create!(
     name:"consectetur adipiscing elit.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
@@ -243,5 +242,7 @@ House.create!(
     post_code:"59910",
     city:"Bondues",
     country: "France",
-    remote_photo_url:"http://royalroulotte.com/wp-content/uploads/2015/11/ROYAL_ROULOTTE_MONTREUIL_CUISINE_06.jpg",
+    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2015/11/ROYAL_ROULOTTE_MONTREUIL_CUISINE_06.jpg",
   )
+puts "***--- HOUSE #12 DONE ---***"
+puts "***--- SEEDS DONE ---***"
