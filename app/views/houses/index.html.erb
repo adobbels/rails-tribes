@@ -1,27 +1,64 @@
-<h1 class="display-2 text-bold mb-2">Houses#index</h1>
-<p>Find me in app/views/houses/index.html.erb</p>
 
-<% @houses.each do |house| %>
-  <p>id: <%= house.id %></p>
-  <p>name: <%= house.name %></p>
-  <p><%= link_to "Voir la House", house_path(house) %></p>
-<% end %>
+<div class="banner-index-house" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1512565241/Luxembourg_Pont_Adolphe_wdj5oc.jpg');">
+  <div class="titre-houses">
+    <h1>LILLE</h1>
+  </div>
+</div>
+<div class="container-flats">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="card-flat-index">
+        <%= render 'shared/card' %>
+        div.info
+          <div class="info-1">
+            <h4><strong>test</strong></h4>
+            <p>1234€</p>
+          </div>
+          <div class="info-2">
+            <p>Le Quartier Gourmet</p>
+            <p>capacity: 10 persons</p>
+
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="card-flat-index">
+        <%= render 'shared/card' %>
+        <h5>test</h5>
+        <p>1234€</p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="card-flat-index">
+        <%= render 'shared/card' %>
+        <h5>test</h5>
+        <p>1234€</p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="card-flat-index">
+        <%= render 'shared/card' %>
+        <h5>test</h5>
+        <p>1234€</p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="card-flat-index">
+        <%= render 'shared/card' %>
+        <h5>test</h5>
+        <p>1234€</p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="card-flat-index">
+        <%= render 'shared/card' %>
+        <h5>test</h5>
+        <p>1234€</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<div id="map" style="width: 100%; height: 250px;"></div>
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @markers.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
-      }
-    });
-  <% end %>
-<% end %>
+
