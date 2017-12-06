@@ -1,7 +1,8 @@
 class HousePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      scope.all
+      #scope = House
     end
   end
 end

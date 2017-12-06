@@ -1,6 +1,7 @@
 class HousesController < ApplicationController
   def index
-    @houses = House.all
+    # @houses = House.all
+    @houses = policy_scope(House )
   end
 
   def show
