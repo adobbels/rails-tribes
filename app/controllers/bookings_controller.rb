@@ -19,21 +19,25 @@ class BookingsController < ApplicationController
     @booking.house = @house
     @booking.profile = @profile
     authorize @booking
+
     if @profile.nil?
       flash[:alert] = 'Please complete your profile before booking.'
-      redirect_to new_profile_path(@profile)
-    else
-      if @profile.attributes.each do |key, value|
-        if value.nil?
-          flash[:alert] = 'Please complete your profile before booking.'
-          redirect_to edit_profile_path(@profile)
-        else
-          flash[:alert] = 'Booking was successfully created.'
-          redirect_to profile_path(@profile)
-        end
-      end
+      return redirect_to new_profile_path(@profile)
+    end
+
+    @profile.attributes.each do |key, value|
+      if value.nil?
+        flash[:alert] = 'Please complete your profile before booking.'
+        return redirect_to edit_profile_path(@profile)
       end
     end
+
+
+    if @booking.save
+      flash[:notice] = 'Booking was successfully created.'
+      redirect_to house_path(@house)
+    end
+
   end
 
   def edit
