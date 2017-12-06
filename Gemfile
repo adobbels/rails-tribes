@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'pundit'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'country_select'
 
 group :development, :test do
   gem 'pry-byebug'
