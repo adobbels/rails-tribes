@@ -1,5 +1,8 @@
 class HousesController < ApplicationController
   def index
+    @houses = policy_scope(House)
+    authorize @houses
+
     @houses = House.where.not(latitude: nil, longitude: nil)
 
     @markers = Gmaps4rails.build_markers(@houses) do |house, marker|
@@ -11,6 +14,7 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
+    authorize @house
 
     @house_coordinates = { lat: @house.latitude, lng: @house.longitude }
     @markers = Gmaps4rails.build_markers(@house) do |house, marker|
@@ -22,12 +26,17 @@ class HousesController < ApplicationController
 
   def new
     @house = House.new
-    @house.save
+    authorize @house
   end
 
   def create
     @house = House.new(house_params)
-    @house.save
+    authorize(@house)
+    if @house.save
+      redirect_to @house
+    else
+      render :new
+    end
   end
 
   def edit

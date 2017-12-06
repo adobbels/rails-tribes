@@ -1,18 +1,23 @@
 class ProfilesController < ApplicationController
+  # before_action :skip_pundit, only: :new
   def index
     @profiles = Profile.all
   end
 
   def show
     @profile = current_user.profile
+    authorize @profile
   end
 
   def new
     @profile = Profile.new
+    # authorize @profile
+    skip_authorization
   end
 
   def create
     @profile = Profile.new(profile_params)
+    skip_authorization
     @profile.user = current_user
     if @profile.save
       flash[:notice] = 'Profile was successfully created.'

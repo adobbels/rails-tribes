@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @house = House.find(params[:house_id])
     @review = Review.new
+    authorize @review
     if user_signed_in?
       if current_user.profile.present?
       else
@@ -18,6 +19,15 @@ class ReviewsController < ApplicationController
     @profile = current_user.profile
     @house = House.find(params[:house_id])
     @review = Review.new(review_params)
+
+    #@review = current_user.reviews.build(review_params)
+    #authorize @review
+
+    #respond_to do |format|
+    #if @review.save
+      #format.html{ redirect_to @review, notice:'Your review has been recored with successfull'}
+      #format.json{ render :show, status: :created, location: @review }
+
     @review.house = @house
     @review.profile = @profile
     if @review.save
