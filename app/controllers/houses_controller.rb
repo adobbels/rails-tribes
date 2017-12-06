@@ -1,13 +1,27 @@
 class HousesController < ApplicationController
   def index
-    # @houses = House.all
     @houses = policy_scope(House)
     authorize @houses
+
+    @houses = House.where.not(latitude: nil, longitude: nil)
+
+    @markers = Gmaps4rails.build_markers(@houses) do |house, marker|
+      marker.lat house.latitude
+      marker.lng house.longitude
+      # marker.infowindow render_to_string(partial: "/houses/map_box", locals: { house: house })
+    end
   end
 
   def show
     @house = House.find(params[:id])
     authorize @house
+
+    @house_coordinates = { lat: @house.latitude, lng: @house.longitude }
+    @markers = Gmaps4rails.build_markers(@house) do |house, marker|
+      marker.lat house.latitude
+      marker.lng house.longitude
+      # marker.infowindow render_to_string(partial: "/houses/map_box", locals: { house: house })
+    end
   end
 
   def new
@@ -37,6 +51,5 @@ class HousesController < ApplicationController
   private
   def house_params
   params.require(:house).permit(:name, :price, :capacity, :description, :photos, :address, :post_code, :city, :country)
-  # To be updated
   end
 end
