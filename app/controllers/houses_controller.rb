@@ -1,11 +1,13 @@
 class HousesController < ApplicationController
   def index
     # @houses = House.all
-    @houses = policy_scope(House )
+    @houses = policy_scope(House)
+    authorize @houses
   end
 
   def show
     @house = House.find(params[:id])
+    authorize @house
   end
 
   def new
