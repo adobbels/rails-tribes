@@ -1,2 +1,86 @@
-<h1>Houses#show</h1>
-<p>Find me in app/views/houses/show.html.erb</p>
+<div class="banner-home"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @house.photos, height: 300 %>')">
+      <h1><%= @house.name %></h1>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 ">
+      <p><%= link_to 'Add a review', new_house_review_path(@house), class: 'btn btn-primary' %></p>
+      <p><%= @house.price %> euros/month</p>
+      <% @booking = Booking.new %>
+      <%= simple_form_for [@house, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <div class="row text-align">
+          <div class="col-xs-5">
+            <%= f.submit "I want a call back!", class: "btn btn-primary" %>
+          </div>
+          <div class="col-xs-5 ">
+            <%= f.submit "I want to book it", class: "btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<h1>Description</h1>
+<p><%= @house.description %></p>
+<h1>Price</h1>
+<p>€ <%= @house.price %></p>
+<h1>Capacity</h1>
+<p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity %> </p>
+<h1>Amenities</h1>
+<i class="fa fa-paw" aria-hidden="true"></i>
+<i class="fa fa-wifi" aria-hidden="true"></i>
+<i class="fa fa-television" aria-hidden="true"></i>
+<i class="fa fa-shower" aria-hidden="true"></i>
+<h1>Reviews</h1>
+  <% @reviews = @house.reviews%>
+  <% if @house.reviews %>
+  <% @reviews.each do |review| %>
+
+    <div class="message">
+    <%= cl_image_tag review.profile.photo, class: "avatar-large"%>
+    <div class="message-body">
+      <p><strong><%=review.profile.city.capitalize%></strong></p>
+      <p><%=review.created_at%></p>
+    </div>
+    <div class="message-body">
+      <p><strong><%= review.title_review%></strong></p>
+      <p><%=review.content_review%></p>
+    </div>
+    <div class="message-status">
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
+
+
+<%= @markers %>
+<div id="map" style="width: 100%; height: 250px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @markers.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
+  <% end %>
+<% end %>
+
+
+
+
+
