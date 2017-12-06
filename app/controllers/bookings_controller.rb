@@ -6,9 +6,13 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @house = Booking.new
+    authorize @booking
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    authorize(@house)
   end
 
   def edit

@@ -1,5 +1,5 @@
 module FormValidation
-  def
-
+  def form_is_empty?(profil)
+    if profil.
   end
 end
