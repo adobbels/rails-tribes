@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container_login banner-flat" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
   <div class="review_card">
     <div class="zone_form">
@@ -9,3 +10,13 @@
     </div>
   </div>
 </div>
+=======
+<h1>Reviews#new</h1>
+<p>Find me in app/views/reviews/new.html.erb</p>
+<%= simple_form_for [@house, @review] do |f| %>
+        <%= f.input :title_review %>
+        <%= f.input :content_review %>
+        <%= f.input :rating, collection: 0..5 %>
+        <%= f.submit "add a review", class: "btn btn-primary" %>
+<% end %>
+>>>>>>> 3103fa7e6720fb213f50b0ff2ab02afa6602bc8a
