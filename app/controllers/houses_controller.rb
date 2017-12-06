@@ -1,12 +1,23 @@
 class HousesController < ApplicationController
   def index
-    @houses = House.all
+    @houses = House.where.not(latitude: nil, longitude: nil)
+
+    @markers = Gmaps4rails.build_markers(@houses) do |house, marker|
+      marker.lat house.latitude
+      marker.lng house.longitude
+      # marker.infowindow render_to_string(partial: "/houses/map_box", locals: { house: house })
+    end
   end
 
   def show
     @house = House.find(params[:id])
+
     @house_coordinates = { lat: @house.latitude, lng: @house.longitude }
-    @alert_message = "You are viewing #{@house.name}"
+    @markers = Gmaps4rails.build_markers(@house) do |house, marker|
+      marker.lat house.latitude
+      marker.lng house.longitude
+      # marker.infowindow render_to_string(partial: "/houses/map_box", locals: { house: house })
+    end
   end
 
   def new
