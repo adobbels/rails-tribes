@@ -60,6 +60,13 @@
 
 <h1>Map</h1>
 
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    const coord = <%= raw @house_coordinates.to_json %>;
+    alert('House coordinates are ' + coord.lat + ', ' + coord.lng);
+  <% end %>
+<% end %>
+
 
 
 

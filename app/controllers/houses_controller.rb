@@ -5,6 +5,8 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
+    @house_coordinates = { lat: @house.latitude, lng: @house.longitude }
+    @alert_message = "You are viewing #{@house.name}"
   end
 
   def new
