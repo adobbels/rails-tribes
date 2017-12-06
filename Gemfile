@@ -16,13 +16,13 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'country_select'
-
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'jquery-rails'
 gem 'pundit'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
-gem 'activeadmin', github: 'activeadmin/activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'country_select'
 
 group :development, :test do
   gem 'pry-byebug'

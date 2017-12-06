@@ -29,6 +29,5 @@ class HousesController < ApplicationController
   private
   def house_params
   params.require(:house).permit(:name, :price, :capacity, :description, :photos, :address, :post_code, :city, :country)
-  # To be updated
   end
 end
