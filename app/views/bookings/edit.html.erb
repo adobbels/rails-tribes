@@ -1,2 +1,7 @@
 <h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<%= simple_form_for [@house, @booking] do |f| %>
+  <%= f.input :start_date, as: :date, html5: true %>
+
+  <%= f.submit "Update!", class: "btn btn-primary" %>
+<% end %>
+
