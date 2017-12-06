@@ -29,7 +29,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-      @profile = current_user.profile
+    @profile = current_user.profile
+    authorize @profile
     if @profile.update(profile_params)
       flash[:notice] = 'Profile was successfully updated.'
       redirect_to profile_path(@profile)
@@ -41,6 +42,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = current_user.profile
+    authorize @profile
   end
 
   def destroy
@@ -51,6 +53,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-  params.require(:profile).permit(:first_name, :last_name, :address, :city, :post_code, :phone_number, :country, :birth_date, :photo, :photo_cache)
+  params.require(:profile).permit(:first_name, :last_name, :address, :city, :post_code, :phone_number, :country, :birthday, :photo, :photo_cache)
   end
 end

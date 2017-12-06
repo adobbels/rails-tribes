@@ -2,8 +2,14 @@
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :address %>
-  <%= f.input :post_code %>
-  <%= f.input :city %>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :post_code %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :city %>
+    </div>
+  </div>
   <%= f.input :phone_number %>
   <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
                               end_year: Date.today.year - 12,

@@ -1,12 +1,14 @@
 <h1 class="display-2 text-bold mb-2">Houses#index</h1>
 <p>Find me in app/views/houses/index.html.erb</p>
 
-<% @houses.each do |house| %>
-  <p>id: <%= house.id %></p>
-  <p>name: <%= house.name %></p>
-  <p><%= link_to "Voir la House", house_path(house) %></p>
-<% end %>
 
+<% @houses.each do |house| %>
+
+<p>id: <%= house.id %></p>
+<p>name: <%= house.name %></p>
+<p><%= link_to "Voir la House", house_path(house) %></p>
+
+<% end %>
 
 <div id="map" style="width: 100%; height: 250px;"></div>
 
@@ -25,3 +27,4 @@
     });
   <% end %>
 <% end %>
+
