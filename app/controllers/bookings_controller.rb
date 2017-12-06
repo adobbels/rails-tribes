@@ -8,43 +8,32 @@ class BookingsController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
     @house = Booking.new
     authorize @booking
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    authorize(@house)
-=======
+    @profile = current_user.profile
     @house = House.find(params[:house_id])
-    @booking = Booking.new
-  end
-
-  def create
-    if user_signed_in?
-      if current_user.profile.present?
-        @profile = current_user.profile
-        @house = House.find(params[:house_id])
-        @booking = Booking.new(booking_params)
-        @booking.house = @house
-        @booking.profile = @profile
-          if @booking.save
-            redirect_to profile_path(@profile)
-            flash[:notice] = 'Booking was successfully created.'
-          else
-            redirect_to new_profile_path
-            flash[:alert] = 'Please create a profile before booking.'
-          end
-      else
-        redirect_to new_profile_path
-        flash[:alert] = 'Please create a profile before booking.'
-      end
+    @booking = Booking.new(booking_params)
+    @booking.house = @house
+    @booking.profile = @profile
+    authorize @booking
+    if @profile.nil?
+      flash[:alert] = 'Please complete your profile before booking.'
+      redirect_to new_profile_path(@profile)
     else
-      redirect_to user_session_path
-      flash[:alert] = 'Please log-in before booking.'
+      if @profile.attributes.each do |key, value|
+        if value.nil?
+          flash[:alert] = 'Please complete your profile before booking.'
+          redirect_to edit_profile_path(@profile)
+        else
+          flash[:alert] = 'Booking was successfully created.'
+          redirect_to profile_path(@profile)
+        end
+      end
+      end
     end
->>>>>>> 633ae5fea776ceb1dcd1dff8fa5f62138a228468
   end
 
   def edit
@@ -62,8 +51,6 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path
   end
-
-  private
 
   private
 
