@@ -1,13 +1,13 @@
 .banner-home {
   color: white;
- text-align: center;
-  height: 75vh;
+  text-align: center;
+  height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-   display: flex;
+  display: flex;
   justify-content: center;
   position: relative;
-background-position: 25% 75%;
+  background-position: 25% 75%;
 
 }
 .banner-home h1 {
@@ -52,8 +52,5 @@ background-position: 25% 75%;
   top: 4.5em;
   left: 6em;
 }
-input[type="submit"] {
-  background: none;
-  border: solid 0.2em;
-  padding: 1em 1.5em;
-}
+
+
