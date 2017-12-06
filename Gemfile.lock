@@ -27,6 +27,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.1.4)
       actionpack (= 5.1.4)
@@ -92,6 +93,13 @@ GEM
       aws_cf_signer
       rest-client
     coderay (1.1.2)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     countries (2.1.2)
       i18n_data (~> 0.8.0)
@@ -120,8 +128,10 @@ GEM
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     has_scope (0.7.1)
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
@@ -205,6 +215,7 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.1.4)
       sprockets-rails (>= 2.0.0)
+    rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -302,10 +313,13 @@ DEPENDENCIES
   bootstrap-sass
   carrierwave (~> 0.11.2)
   cloudinary
+  coffee-rails
   country_select
   devise
   figaro
   font-awesome-sass
+  geocoder
+  gmaps4rails
   inherited_resources!
   jbuilder (~> 2.0)
   jquery-rails
@@ -316,6 +330,7 @@ DEPENDENCIES
   puma
   pundit
   rails (= 5.1.4)
+  rails-assets-underscore!
   redis
   sass-rails
   simple_form
