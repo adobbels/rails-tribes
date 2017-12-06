@@ -12,12 +12,17 @@ class HousesController < ApplicationController
 
   def new
     @house = House.new
-    @house.save
+    authorize @house
   end
 
   def create
     @house = House.new(house_params)
-    @house.save
+    authorize(@house)
+    if @house.save
+      redirect_to @house
+    else
+      render :new
+    end
   end
 
   def edit
