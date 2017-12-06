@@ -2,12 +2,19 @@
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :address %>
-  <%= f.input :post_code %>
-  <%= f.input :city %>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :post_code %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :city %>
+    </div>
+  </div>
   <%= f.input :phone_number %>
   <%= f.input :birthday %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
+  <% fail %>
   <%= f.submit %>
 <% end %>
 
