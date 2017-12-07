@@ -1,125 +1,75 @@
 <div class="banner-home"
   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= cl_image_path @house.photos, height: 300 %>')">
-      <h1 class="display-2 text-bold mb-2"><%= @house.name %></h1>
+  <h1 class="display-2 text-bold mb-2"><%= @house.name %></h1>
 </div>
-
-
-
-<div class="container text-center" style="background-color: lightblue">
-  <div class="row">
-      <p><%= link_to 'Add a review', new_house_review_path(@house), class: 'btn btn-rounded btn-secondary' %></p>
-    <div class="col-xs-12" style="display: flex; align-content: flex-start;">
-      <div style="display: flex; align-items: center">
-        <h4 class="col-xs-6">Monthly price</h4>
-        <p class="col-xs-6">€<%= @house.price %></p>
+<div class="main-container">
+  <div class="description-container">
+    <div class="row">
+      <div class=" col-xs-12 col-md-8 col-lg-6">
+        <div class="liste">
+          <h1>Description</h1>
+          <p><%= @house.description %></p>
+        </div>
+        <div class="liste">
+          <h1>Price</h1>
+          <p>€ <%= @house.price %></p>
+        </div>
+        <div class="liste">
+          <h1>Capacity</h1>
+          <p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity %> </p>
+        </div>
+        <div class="liste">
+          <h1>Amenities</h1>
+          <i class="fa fa-paw" aria-hidden="true"></i>
+          <i class="fa fa-wifi" aria-hidden="true"></i>
+          <i class="fa fa-television" aria-hidden="true"></i>
+          <i class="fa fa-shower" aria-hidden="true"></i>
+        </div>
+        <h1>Reviews</h1>
+        <% @reviews = @house.reviews%>
+        <% if @house.reviews %>
+          <% @reviews.each do |review| %>
+            <div class="message">
+              <%= cl_image_tag review.profile.photo, class: "avatar-navbar"%>
+              <div class="message-body">
+                <p><strong><%=review.profile.city.capitalize%></strong></p>
+                <p><%=review.created_at%></p>
+              </div>
+              <div class="message-body" >
+                <p><strong><%= review.title_review%></strong></p>
+                <p><%=review.content_review%></p>
+              </div>
+              <div class="message-status">
+              </div>
+            </div>
+          <%end%>
+        <%end%>
       </div>
-      <% @booking = Booking.new %>
-      <%= simple_form_for [@house, @booking] do |f| %>
-      <h4>Month check-in</h4>
-        <%= f.input :start_date, html5: true , label: false %>
-        <%= f.submit "I want a call back!", class: "btn btn-primary" %>
-        <%= f.submit "I want to book it", class: "btn btn-danger" %>
-      <% end %>
     </div>
   </div>
+
+  <div id="formbooking">
+      <%= render "shared/formshowhouse" %>
+    </div>
 </div>
-
-<h1>Description</h1>
-<p><%= @house.description %></p>
-<h1>Price</h1>
-<p>€ <%= @house.price %></p>
-<h1>Capacity</h1>
-<p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity %> </p>
-<h1>Amenities</h1>
-<i class="fa fa-paw" aria-hidden="true"></i>
-<i class="fa fa-wifi" aria-hidden="true"></i>
-<i class="fa fa-television" aria-hidden="true"></i>
-<i class="fa fa-shower" aria-hidden="true"></i>
-<h1>Reviews</h1>
-  <% @reviews = @house.reviews%>
-  <% if @house.reviews %>
-  <% @reviews.each do |review| %>
-
-    <div class="message">
-    <%= cl_image_tag review.profile.photo, class: "avatar-large"%>
-    <div class="message-body">
-      <p><strong><%=review.profile.city.capitalize%></strong></p>
-      <p><%=review.created_at%></p>
-    </div>
-    <div class="message-body">
-      <p><strong><%= review.title_review%></strong></p>
-      <p><%=review.content_review%></p>
-    </div>
-    <div class="message-status">
-    </div>
-  </div>
-  <% end %>
-<% end %>
-
-
-
-<%= @markers %>
-<div id="map" style="width: 100%; height: 250px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @markers.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
+<div class="map_show">
+  <% @markers %>
+  <div id="map" style="width: 100%; height: 250px;"></div>
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
         handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
+        } else if (markers.length == 1) {
         handler.getMap().setZoom(14);
-      }
-    });
-  <% end %>
-<% end %>
-
-
-<div class="container text-center" style="background-color: lightblue">
-  <div class="row">
-    <div class="col-xs-12">
-      <p><%= link_to 'Add a review', new_house_review_path(@house), class: 'btn btn-rounded btn-secondary' %></p>
-      <div style="display: flex; align-items: center">
-        <h4 class="col-xs-6">Monthly price</h4>
-        <p class="col-xs-6">€<%= @house.price %></p>
-      </div>
-      <% @booking = Booking.new %>
-      <%= simple_form_for [@house, @booking] do |f| %>
-      <h4>Month check-in</h4>
-        <%= f.input :start_date, html5: true , label: false %>
-        <%= f.submit "I want a call back!", class: "btn btn-primary" %>
-        <%= f.submit "I want to book it", class: "btn btn-danger" %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="container padding-bottom-3x mb-2">
-  <div class="row">
-    <div class="col-md-6">
-      <form class="login-box" method="post">
-        <div class="row margin-bottom-1x">
-      <p><%= link_to 'Add a review', new_house_review_path(@house), class: 'btn btn-rounded btn-secondary' %></p>
-          <div class="col-xs-10 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Facebook login</a></div>
-          <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div>
-        </div>
-        <h4 class="margin-bottom-1x">Or using form below</h4>
-        <div class="form-group input-group">
-          <input class="form-control" type="email" placeholder="Email" required><span class="input-group-addon"><i class="icon-mail"></i></span>
-        </div>
-        <div class="form-group input-group">
-          <input class="form-control" type="password" placeholder="Password" required><span class="input-group-addon"><i class="icon-lock"></i></span>
-        </div>
-        <div class="text-center text-sm-right">
-          <button class="btn btn-primary margin-bottom-none" type="submit">Login</button>
-        </div>
-      </form>
-    </div>
+        }
+        });
+      <%end%>
+    <% end %>
   </div>
 </div>

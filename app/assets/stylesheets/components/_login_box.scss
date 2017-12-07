@@ -1,0 +1,15 @@
+#formbooking {
+  flex: 0 0 550px;
+  height: 30vh;
+  margin-top: 15px;
+  position: sticky;
+  top: 0;
+}
+
+.main-container {
+  display: flex;
+  margin: 15px;
+}
+.liste {
+ border-bottom: 1px solid rgba(220,224,244,0.4);
+}
