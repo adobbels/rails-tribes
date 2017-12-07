@@ -8,6 +8,11 @@ class BookingMailerPreview < ActionMailer::Preview
     booking =  Booking.last
     BookingMailer.no_creation_confirmation(booking)
   end
+
+  def to_be_paid
+    booking =  Booking.last
+    BookingMailer.to_be_paid(booking)
+  end
 end
 
 # testing url

@@ -8,13 +8,13 @@ class BookingAdminMailer < ApplicationMailer
     )
   end
 
-    def admin_no_creation_confirmation(booking)
+  def admin_no_creation_confirmation(booking)
     @booking = booking
 
     mail(
       to:       "adobbels@gmail.com",
       subject:  "A problem with your booking for #{@booking.house.name} !"
     )
-
   end
+
 end
