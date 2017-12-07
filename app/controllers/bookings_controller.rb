@@ -59,6 +59,17 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  # def edit
+  #   booking = Booking.find(params[:booking])
+  #   authorize booking
+  #   booking.status = "accept"
+  #   booking.save
+  #   flash[:notice] = 'Booking Accepted'
+  #   redirect_to admin_bookings_path
+  # end
+
+
+
   private
 
   def booking_params
