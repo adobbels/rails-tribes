@@ -22,6 +22,8 @@ gem 'jquery-rails'
 gem 'pundit'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
 
 gem "geocoder"
 gem "coffee-rails"
