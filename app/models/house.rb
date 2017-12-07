@@ -1,7 +1,7 @@
 class House < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode, if: :address_changed?
-  mount_uploader :photos, PhotoUploader
+  has_attachments :photos, maximum: 15
 
   has_many :bookings
   has_many :house_options

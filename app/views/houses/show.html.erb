@@ -1,7 +1,8 @@
 <div class="banner-home"
   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path @house.photos, height: 300 %>')">
-  <h1 class="display-2 text-bold mb-2"><%= @house.name %></h1>
+
+         url('<%= cl_image_path @house.photos[0].path, height: 300 %>')">
+      <h1 class="display-2 text-bold mb-2"><%= @house.name %></h1>
 </div>
 <div class="main-container">
   <div class="description-container">
