@@ -1,16 +1,13 @@
-<form class="login-box" id ="formbooking" method="post" >
-  <h4 class="margin-bottom-1x" style="border-bottom: 1px solid rgba(220,224,244,0.4); padding-bottom: 10px;">€ <%= @house.price %> / month</h4>
-  <% @booking = Booking.new %>
-  <%= simple_form_for [@house, @booking] do |f| %>
-    <div class="form-group input-group">
-      <%= f.input :start_date, as: :date, html5: true %>
-    </div>
+<% @booking = Booking.new %>
 
-    <div class=" text-sm-right">
-      <button class="btn btn-primary margin-bottom-none" type="submit">I WANT TO CALL BACK !</button>
-      <button class="btn btn-primary margin-bottom-none" type="submit">I WANT TO BOOK IT !</button>
-    </div>
-  <%end%>
-</form>
+<%= simple_form_for [@house, @booking], class: 'login-box' do |f| %>
+  <h4 class="margin-bottom-1x" style="border-bottom: 1px solid rgba(220,224,244,0.4); padding-bottom: 10px;">€ <%= @house.price %> / month</h4>
+  <%= f.input :start_date, as: :date, html5: true, label: false %>
+  <%= link_to 'I WANT TO CALL BACK !', "/", class: 'btn btn-primary' %>
+  <%= f.submit "I WANT TO BOOK IT !", class: "btn btn-danger margin-bottom-none" %>
+<%end%>
+
+
+
 
 
