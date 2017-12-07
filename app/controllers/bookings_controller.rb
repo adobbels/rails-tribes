@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @house = Booking.new
+    @booking = Booking.new
     authorize @booking
   end
 
@@ -34,7 +34,9 @@ class BookingsController < ApplicationController
 
 
     if @booking.save
+      # fail
       flash[:notice] = 'Booking was successfully created.'
+      fail
       redirect_to house_path(@house)
     end
 
