@@ -1,7 +1,10 @@
 class HousesController < ApplicationController
   def index
+
     @houses = policy_scope(House)
     authorize @houses
+    skip_authorization
+
 
     @houses = House.where.not(latitude: nil, longitude: nil)
 
@@ -14,7 +17,8 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
-    authorize @house
+    #authorize @house
+    skip_authorization
 
     @house_coordinates = { lat: @house.latitude, lng: @house.longitude }
     @markers = Gmaps4rails.build_markers(@house) do |house, marker|

@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     end
 
     @profile.attributes.each do |key, value|
-      if value.nil?
+      if value.nil? && key != "biography"
         flash[:alert] = 'Please complete your profile before booking.'
         return redirect_to edit_profile_path(@profile)
       end
@@ -35,6 +35,9 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = 'Booking was successfully created.'
+      redirect_to house_path(@house)
+    else
+      flash[:alert] = 'Booking has been not created'
       redirect_to house_path(@house)
     end
 
