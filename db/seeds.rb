@@ -37,7 +37,7 @@ puts "***--- HOUSE MANAGER #1 CREATION ---***"
     post_code: 59800,
     city: "Lille",
     country: "France",
-    remote_photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512130127/fpoonxdaz3et6ngzu82d.png",
+    photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512130127/fpoonxdaz3et6ngzu82d.png",
     user_id: user.id,
   )
 
@@ -56,7 +56,7 @@ puts "***--- HOUSE MANAGER #2 CREATION ---***"
     post_code: 59000,
     city: "Lille",
     country: "France",
-    remote_photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512480876/profil_wkcgwb.png",
+    photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512480876/profil_wkcgwb.png",
     user_id: user.id,
   )
 
@@ -75,7 +75,7 @@ puts "***--- TENANT #1 CREATION ---***"
     post_code: 59000,
     city: "Lille",
     country: "France",
-    remote_photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512142844/h1jmpwfacbmnb5bagah0.jpg",
+    photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512142844/h1jmpwfacbmnb5bagah0.jpg",
     user_id: user.id,
   )
 
@@ -94,7 +94,7 @@ puts "***--- TENANT #2 CREATION ---***"
     post_code: 59000,
     city: "Lille",
     country: "France",
-    remote_photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512134866/grywolnslhab6bkayc3n.jpg",
+    photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512134866/grywolnslhab6bkayc3n.jpg",
     user_id: user.id,
   )
 
@@ -108,7 +108,11 @@ House.create!(
     post_code:"59000",
     city:"Lille",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2016/11/ROYAL_ROULOTTE_PARIS_16_DECORATION_RENOVATION_APPARTEMENT_08.jpg",
+    photo_urls:[
+                "http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_01.jpg",
+                "http://house-pictures.net/wp-content/uploads/2014/06/stone-house-with-swimming-pool-flat-roof-pictures-16.jpg",
+                "http://www.luxehouses.com.au/_admn/wp-content/uploads/2014/06/171.jpg"
+                ]
   )
 puts "***--- HOUSE #1 DONE ---***"
 sleep 2
@@ -122,7 +126,9 @@ House.create!(
     post_code:"59800",
     city:"Lille",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_01.jpg",
+    photo_urls:[
+                "http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_01.jpg"
+                ]
   )
 puts "***--- HOUSE #2 DONE ---***"
 sleep 2
@@ -135,7 +141,9 @@ House.create!(
     post_code:"59800",
     city:"Lille",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2015/11/ROYAL_ROULOTTE_MONTREUIL_CUISINE_06.jpg",
+    photo_urls:[
+                "http://house-pictures.net/wp-content/uploads/2014/06/stone-house-with-swimming-pool-flat-roof-pictures-16.jpg"
+                ]
   )
 puts "***--- HOUSE #3 DONE ---***"
 sleep 2
@@ -148,7 +156,9 @@ House.create!(
     post_code:"59800",
     city:"Lille",
     country: "France",
-    remote_photos_url:"https://static.wixstatic.com/media/8aa29f_455ec9f18e2944339b2acb6145f6db9c~mv2_d_4096_2725_s_4_2.jpg/v1/fill/w_2083,h_1386,al_c,q_90,usm_0.66_1.00_0.01/8aa29f_455ec9f18e2944339b2acb6145f6db9c~mv2_d_4096_2725_s_4_2.webp",
+    photo_urls:[
+                "http://house-pictures.net/wp-content/uploads/2014/06/stone-house-with-swimming-pool-flat-roof-pictures-16.jpg"
+                ]
   )
 puts "***--- HOUSE #4 DONE ---***"
 sleep 2
@@ -161,7 +171,9 @@ House.create!(
     post_code:"59130",
     city:"Lambersart",
     country: "France",
-    remote_photos_url:"https://static.wixstatic.com/media/8aa29f_ffcbbdc54bcb4e31a62fb67b840bc094~mv2_d_3264_2448_s_4_2.jpg/v1/fill/w_1848,h_1386,al_c,q_90,usm_0.66_1.00_0.01/8aa29f_ffcbbdc54bcb4e31a62fb67b840bc094~mv2_d_3264_2448_s_4_2.webp",
+    photo_urls:[
+                "http://www.planete-deco.fr/wp-content/uploads/2017/02/FS1.jpg"
+                ]
   )
 puts "***--- HOUSE #5 DONE ---***"
 sleep 2
@@ -174,7 +186,9 @@ House.create!(
     post_code:"59110",
     city:"La Madeleine",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2017/01/ROYAL_ROULOTTE_RENOVATION_DECORATION_MAISON_HOME_DECOR_FRANCE_PARIS_RAMBOUILLET_47.jpg",
+    photo_urls:[
+                "http://www.planete-deco.fr/wp-content/uploads/2017/02/FS1.jpg"
+                ]
   )
 puts "***--- HOUSE #6 DONE ---***"
 sleep 2
@@ -185,10 +199,11 @@ House.create!(
     capacity: "8",
     address:"74 Avenue du Maréchal Foch",
     post_code:"59700",
-    city:"Marcq-en-Baroeul
-",
+    city:"Marcq-en-Baroeul",
     country: "France",
-    remote_photos_url:"https://static.wixstatic.com/media/8aa29f_8ea8a57efadd4c85845833fb0a9ebe27~mv2.jpg/v1/fill/w_640,h_637,al_c,q_90/8aa29f_8ea8a57efadd4c85845833fb0a9ebe27~mv2.webp",
+    photo_urls:[
+                "http://www.book-a-flat.com/photo/paris/12040/thumbnail/salon.jpg"
+                ]
   )
 puts "***--- HOUSE #7 DONE ---***"
 sleep 2
@@ -201,7 +216,9 @@ House.create!(
     post_code:"59700",
     city:"Marcq-en-Baroeul",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_05.jpg",
+    photo_urls:[
+                "http://www.book-a-flat.com/photo/paris/12040/thumbnail/salon.jpg"
+                ]
   )
 puts "***--- HOUSE #8 DONE ---***"
 sleep 2
@@ -214,7 +231,9 @@ House.create!(
     post_code:"59420",
     city:"Mouvaux",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2016/06/ROYAL_ROULOTTE_RENOVATION_DECORATION_RUE_DIEU_CANAL_SAINT_MARTIN_PARIS_10_12.jpg",
+    photo_urls:[
+                "http://www.book-a-flat.com/photo/paris/12040/thumbnail/salon.jpg"
+                ]
   )
 puts "***--- HOUSE #9 DONE ---***"
 sleep 2
@@ -227,7 +246,9 @@ House.create!(
     post_code:"59290",
     city:"Wasquehal",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2016/11/ROYAL_ROULOTTE_PARIS_16_DECORATION_RENOVATION_APPARTEMENT_08.jpg",
+    photo_urls:[
+                "http://www.herworldplus.com/sites/default/files/20646-11997.jpg"
+                ]
   )
 puts "***--- HOUSE #10 DONE ---***"
 sleep 2
@@ -240,7 +261,9 @@ House.create!(
     post_code:"59700",
     city:"Marcq-en-Baroeul",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2017/09/ROYAL_ROULOTTE_PARIS_9_IX_RENOVATION_DECORATION_APPARTEMENT_01.jpg",
+    photo_urls:[
+                "http://www.herworldplus.com/sites/default/files/20646-11997.jpg"
+                ]
   )
 puts "***--- HOUSE #11 DONE ---***"
 sleep 2
@@ -253,7 +276,9 @@ House.create!(
     post_code:"59910",
     city:"Bondues",
     country: "France",
-    remote_photos_url:"http://royalroulotte.com/wp-content/uploads/2015/11/ROYAL_ROULOTTE_MONTREUIL_CUISINE_06.jpg",
+    photo_urls:[
+                "http://www.herworldplus.com/sites/default/files/20646-11997.jpg"
+                ]
   )
 puts "***--- HOUSE #12 DONE ---***"
 sleep 2
