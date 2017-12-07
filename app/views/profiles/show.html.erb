@@ -1,2 +1,60 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="banner-bas" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
+  <div style="display: flex; align-items: flex-start;">
+    <%= cl_image_tag @profile.photo, class: "avatar-extra-large" %>
+    <h2>Welcome <%= @profile.first_name %> !</h2>
+    <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded btn-secondary' %></p>
+    </div>
+</div>
+
+<div class="container padding-bottom-3x mb-2">
+  <div class="row">
+    <div class="col-lg-9 col-md-8 push-lg-3 push-md-4">
+      <h6 class="text-muted text-normal text-uppercase">Tabs with Dropdown</h6>
+      <hr class="margin-bottom-1x">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item"><a class="nav-link active" href="#home1" data-toggle="tab" role="tab"><i class="icon-help"></i>My Journeys</a></li>
+        <li class="nav-item"><a class="nav-link" href="#payment1" data-toggle="tab" role="tab">My Payments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#profile1" data-toggle="tab" role="tab"></i>My Profile</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="home1" role="tabpanel">
+        <% current_user.profile.bookings.each do |booking|%>
+          <div style="display: flex; align-items: center">
+            <p><%= cl_image_tag booking.house.photos , class: "avatar" %></p>
+            <p><%= booking.house.city %></p>
+            <p><%= booking.start_date %></p>
+            <p><%= booking.house.name %></p>
+            <% if booking.status === "To be paid" %>
+              <%= link_to  "To be Paid",  houses_path  %>
+              <% elsif booking.status === "Paid"%>
+              <%= link_to  "End your journey",  houses_path  %>
+              <% else %>
+              <p><%= booking.status %></p>
+            <% end %>
+          </div>
+        <% end%>
+
+        </div>
+        <div class="tab-pane fade" id="payment1" role="tabpanel">
+          <p>Card Number</p>
+          <p>Expiry</p>
+          <p>Cryptogram</p>
+        </div>
+        <div class="tab-pane fade" id="profile1" role="tabpanel">
+          <p><%= @profile.first_name %></p>
+          <p><%= @profile.last_name %></p>
+          <p><%= @profile.address %></p>
+          <p><%= @profile.city %></p>
+          <p><%= @profile.post_code %></p>
+          <p><%= @profile.country %></p>
+          <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded btn-secondary' %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
