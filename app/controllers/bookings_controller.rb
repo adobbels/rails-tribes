@@ -35,7 +35,6 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = 'Booking was successfully created.'
-      fail
       redirect_to house_path(@house)
     end
 
