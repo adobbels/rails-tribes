@@ -1,0 +1,14 @@
+.banner-index-house {
+  color: white;
+  text-align: center;
+  height: 35vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  background-position: 30% 70%;
+  margin-bottom: 50px;
+
+}

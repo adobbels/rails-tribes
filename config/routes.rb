@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     resources :bookings
   end
+  # get 'accept_booking/:booking', to: 'bookings#accept', as:"accept_booking"
 end

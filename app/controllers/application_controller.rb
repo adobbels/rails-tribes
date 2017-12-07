@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?

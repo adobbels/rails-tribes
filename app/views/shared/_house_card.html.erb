@@ -1,0 +1,14 @@
+<div class="card">
+  <%= link_to  house_path(house), class:"card-clic" do %>
+    <%= image_tag house.photos, class:"card-img-top" %>
+  <% end %>
+    <div class="card-body">
+      <h4 class="card-title"><%= house.name %></h4>
+      <p class="card-text"><%= house.description.first(80) %>...</p>
+        <div class="show-this-one">
+        <%= link_to  house_path(house), class:"col-xs-offset-4 btn btn-primary btn-sm" do %>
+          Show this one
+        <% end %>
+      </div>
+    </div>
+</div>
