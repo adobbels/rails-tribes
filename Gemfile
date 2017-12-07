@@ -34,7 +34,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'country_select'
-
+gem "letter_opener", group: :development
 
 group :development, :test do
   gem 'pry-byebug'
