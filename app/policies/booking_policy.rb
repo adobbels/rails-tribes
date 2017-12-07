@@ -12,4 +12,8 @@ class BookingPolicy < ApplicationPolicy
   def new?
     create?
   end
+
+  # def accept?
+  #   user.admin == true
+  # end
 end
