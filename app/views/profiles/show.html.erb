@@ -24,38 +24,8 @@
 
 <div class="container padding-bottom-3x mb-2">
   <div class="row">
-<<<<<<< HEAD
-    <div class="col-lg-9 col-md-8 push-lg-3 push-md-4">
-      <h6 class="text-muted text-normal text-uppercase">Tabs with Dropdown</h6>
-      <hr class="margin-bottom-1x">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item"><a class="nav-link active" href="#home1" data-toggle="tab" role="tab"><i class="icon-help"></i>My Journeys</a></li>
-        <li class="nav-item"><a class="nav-link" href="#payment1" data-toggle="tab" role="tab">My Payments</a></li>
-        <li class="nav-item"><a class="nav-link" href="#profile1" data-toggle="tab" role="tab"></i>My Profile</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane fade show active" id="home1" role="tabpanel">
-        <% current_user.profile.bookings.each do |booking|%>
-          <div style="display: flex; align-items: center">
-            <p><%= cl_image_tag booking.house.photos[0].path , class: "avatar" %></p>
-            <p><%= booking.house.city %></p>
-            <p><%= booking.start_date %></p>
-            <p><%= booking.house.name %></p>
-            <% if booking.status === "To be paid" %>
-              <%= link_to  "To be Paid",  houses_path  %>
-              <% elsif booking.status === "Paid"%>
-              <%= link_to  "End your journey",  houses_path  %>
-              <%= link_to "Add a review", new_house_review_path(@house)%>
-              <% else %>
-              <p><%= booking.status %></p>
-            <% end %>
-          </div>
-        <% end%>
 
-        </div>
-=======
     <div class="col-md-12">
->>>>>>> 694aa089e218f16b5031a7e9d37d9e298f5d7d65
         <div class="panel-body">
             <div class="tab-content">
                 <div class="tab-pane fade active in" id="tab1success">
@@ -75,6 +45,7 @@
                               <%= link_to  "To be Paid",  houses_path  %>
                               <% elsif booking.status === "Paid"%>
                               <%= link_to  "End your journey",  houses_path  %>
+                              <%= link_to 'Add a review', new_house_review_path(current_user)%>
                               <% else %>
                               <p><%= booking.status %></p>
                             <% end %>
