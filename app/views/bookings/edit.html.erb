@@ -1,7 +1,14 @@
-<h1>Bookings#edit</h1>
-<%= simple_form_for [@house, @booking] do |f| %>
-  <%= f.input :start_date, as: :date, html5: true %>
+<div class="containerprof" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
+  <div class="containerformprofile">
+    <div class="row" style=" height: 600px;">
+      <div class="col-xs-12 col-md-6">
+        <%= simple_form_for [current_user, @house, @booking] do |f| %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.submit "Book it!", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <%= f.submit "Update!", class: "btn btn-primary" %>
-<% end %>
 
