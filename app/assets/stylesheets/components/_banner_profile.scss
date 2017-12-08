@@ -1,0 +1,19 @@
+.banner-profile {
+  color: white;
+  text-align: center;
+  height: 51vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-position: 25% 75%;
+  padding-top: 16px;
+  margin-bottom: 50px;
+
+
+}
+
+.banner-profile-content {
+  align-items: center;
+}
