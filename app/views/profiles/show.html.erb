@@ -28,28 +28,37 @@
         <div class="panel-body">
             <div class="tab-content">
                 <div class="tab-pane fade active in" id="tab1success">
+
                   <div class="row">
+
                     <% current_user.profile.bookings.each do |booking|%>
                       <div style="display: flex; align-items: center">
                         <p><%= cl_image_tag booking.house.photos[0].path , class: "photo-booking-profile" %></p>
-                          <div class="booking-city">
-                            <p><%= booking.house.city %></p>
-                            <p><%= booking.start_date %></p>
-                          </div>
-                          <div class="booking-house">
-                            <p><strong><%= booking.house.name %></strong></p>
-                          </div>
-                          <div class="booking-status">
-                            <% if booking.status === "To be paid" %>
-                              <%= link_to  "To be Paid",  houses_path  %>
-                              <% elsif booking.status === "Paid"%>
-                              <%= link_to  "End your journey",  houses_path  %>
-                              <% else %>
-                              <p><%= booking.status %></p>
-                            <% end %>
-                          </div>
-                        </div>
-                      <% end %>
+                      </div> <!-- Fin Photo -->
+
+                      <div class="booking-city">
+                        <p><strong><%= booking.house.name %></strong></p>
+                        <p><%= booking.house.city %></p>
+                        <p><%= booking.start_date %></p>
+                        <% if booking.status == "Pending" %>
+                          <div class="iziToast"><p>Pending</p></div>
+                        <% end %>
+                      </div>
+
+                      <div class="booking-status">
+                        <% if booking.status === "To be paid" %>
+                          <%= link_to  "To be Paid",  houses_path  %>
+                        <% elsif booking.status === "Paid"%>
+                          <%= link_to  "End your journey",  houses_path  %>
+                        <% else %>
+                          <p><%= booking.status %></p>
+
+                        <% end %>
+                      </div><!-- Fin de Booking Status -->
+
+
+                      </div> <!-- Fin du Row -->
+                      <% end %> <!-- Fin de la boucle -->
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tab2success">
