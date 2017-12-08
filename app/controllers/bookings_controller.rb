@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+
+
   def index
     @bookings = Booking.all
   end
@@ -26,21 +28,23 @@ class BookingsController < ApplicationController
     end
 
     @profile.attributes.each do |key, value|
-      if value.nil? && key != "biography"
+      if value.nil? && key != "biography" && key != "photo"
         flash[:alert] = 'Please complete your profile before booking.'
         return redirect_to edit_profile_path(@profile)
       end
     end
 
-
     if @booking.save
       flash[:notice] = 'Booking was successfully created.'
+      BookingMailer.creation_confirmation(@booking).deliver_now
+      BookingAdminMailer.admin_creation_confirmation(@booking).deliver_now
       redirect_to house_path(@house)
     else
       flash[:alert] = 'Booking has been not created'
+      BookingMailer.no_creation_confirmation(@booking).deliver_now
+      BookingAdminMailer.admin_no_creation_confirmation(@booking).deliver_now
       redirect_to house_path(@house)
     end
-
   end
 
   def edit
@@ -75,4 +79,8 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :status)
   end
+
+
+
+
 end

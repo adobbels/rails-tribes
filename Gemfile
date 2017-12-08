@@ -22,6 +22,8 @@ gem 'jquery-rails'
 gem 'pundit'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
 
 gem "geocoder"
 gem "coffee-rails"
@@ -32,7 +34,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'country_select'
-
+gem "letter_opener", group: :development
 
 group :development, :test do
   gem 'pry-byebug'
