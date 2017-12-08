@@ -8,6 +8,8 @@ class House < ApplicationRecord
   has_many :reviews
   has_many :features, through: :house_options
 
+  monetize :price_cents
+
   def full_address
     "#{address} #{post_code} #{city} #{country}"
   end
