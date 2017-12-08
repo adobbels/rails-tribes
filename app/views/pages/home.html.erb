@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
       <div class="our-vision padding-top-100 padding-bottom-50">
-        <h3>Our vision</h3>
+        <h3 class="our-vision">Our vision</h3>
         <p>Our properties are inspired by the people and world around us. Beautiful, high quality interiors that are designed especially for you.
         Discover our story and meet the people with whom you will share your journey.</p>
       </div>
@@ -92,6 +92,27 @@
     </div>
   </section>
 </div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 
 <%= render "shared/banner_bas" %>
