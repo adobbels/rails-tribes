@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
     end
 
     @profile.attributes.each do |key, value|
-      if value.nil? && key != "biography"
+      if value.nil? && key != "biography" && key != "photo"
         flash[:alert] = 'Please complete your profile before booking.'
         return redirect_to edit_profile_path(@profile)
       end
