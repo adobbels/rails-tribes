@@ -10,9 +10,20 @@
 margin-bottom: 1px;
 }
 
+.panel-body {
+  padding: 0px;
+  padding-top: 10px;
+}
+
+.panel {
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+
 .panel-heading {
   background-color: white !important;
   border-color: #ddd !important;
+  border-bottom: none;
 }
 
 .panel-success {
