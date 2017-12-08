@@ -1,23 +1,30 @@
-<div class="container">
-<%= simple_form_for(@profile) do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :address %>
+<div class="containerformprofile">
   <div class="row">
-    <div class="col-xs-6">
-      <%= f.input :post_code %>
-    </div>
-    <div class="col-xs-6">
-      <%= f.input :city %>
-    </div>
+    <%= simple_form_for(@profile) do |f| %>
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :address %>
+        <%= f.input :post_code %>
+        <%= f.input :city %>
+        <%= f.input :country %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :phone_number %>
+        <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year] %>
+        <%= f.input :biography %>
+        <%= f.input :photo, as: :attachinary %>
+        <%= f.submit %>
+      </div>
+    <%end%>
   </div>
-  <div class="col-xs-6">
-    <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year] %>
-  </div>
-  <%= f.input :country %>
-  <%= f.input :phone_number %>
-  <%= f.input :photo, as: :attachinary %>
-  <%= f.input :biography %>
-  <%= f.submit %>
-<%end%>
 </div>
+
+
+
+
+
+
+
+
+
