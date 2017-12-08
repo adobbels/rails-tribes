@@ -15,12 +15,18 @@
         <%= link_to "Profile", new_profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end  %>
       <div class="navbar-wagon-item">
+
         <div class="dropdown">
-          <% if current_user.profile %>
-            <%= cl_image_tag current_user.profile.photo.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% else %>
-            <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% end  %>
+        <% if @profile.nil? %>
+        <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+        <% elsif @profile.photo.nil? %>
+        <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+        <% elsif @profile.photo? %>
+            <%= cl_image_tag @profile.photo.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% end %>
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <% if current_user.profile %>

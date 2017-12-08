@@ -1,7 +1,14 @@
 <div class="banner-bas" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
   <div style="display: flex; align-items: flex-start;">
 
+
+  <% if @profile.photo? %>
     <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
+    <% else %>
+    <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar-extra-large"%>
+  <% end %>
+
+
     <h2>Welcome <%= @profile.first_name %> !</h2>
     <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded btn-secondary' %></p>
     </div>
