@@ -21,7 +21,7 @@
         <div class="tab-pane fade show active" id="home1" role="tabpanel">
         <% current_user.profile.bookings.each do |booking|%>
           <div style="display: flex; align-items: center">
-            <p><%= cl_image_tag booking.house.photos , class: "avatar" %></p>
+            <p><%= cl_image_tag booking.house.photos[0].path , class: "avatar" %></p>
             <p><%= booking.house.city %></p>
             <p><%= booking.start_date %></p>
             <p><%= booking.house.name %></p>
