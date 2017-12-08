@@ -29,8 +29,10 @@
               <%= link_to  "To be Paid",  houses_path  %>
               <% elsif booking.status === "Paid"%>
               <%= link_to  "End your journey",  houses_path  %>
+              <%= link_to "Add a review", new_house_review_path(:house_id)%>
               <% else %>
               <p><%= booking.status %></p>
+              <%= link_to "Add a review", new_house_review_path(:house_id)%>
             <% end %>
           </div>
         <% end%>
