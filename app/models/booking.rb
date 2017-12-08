@@ -5,6 +5,7 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
 
   before_save :check_status
+  monetize :amount_cents
 
 def check_status
   if self.status === "To be paid"
