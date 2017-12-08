@@ -1,0 +1,61 @@
+.info-group {
+  display: flex;
+  padding: 20px;
+  position: relative;
+
+
+}
+
+.bloc-info {
+margin-bottom: 1px;
+}
+
+.panel-heading {
+  background-color: white !important;
+  border-color: #ddd !important;
+}
+
+.panel-success {
+  border-color: #ddd;
+}
+
+
+
+.photo-booking-profile {
+  height: 150px;
+  width: 223px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+
+}
+
+.booking-city {
+  padding-left: 10px;
+  min-width: 100px;
+}
+
+.booking-city p {
+  font-size: 16px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+  padding-left: 14px;
+}
+.booking-house {
+
+  font-size: 16px;
+  color: rgba(0,0,0,0.7);
+}
+.booking-house {
+  padding-left: 97px;
+  color: rgba(0,0,0,0.4);
+}
+.booking-house strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+
+
+.booking-status {
+position: absolute;
+right: 8em;
+}
