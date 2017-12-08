@@ -2,14 +2,12 @@
 
 @import "config/spacing";
 
-
-
 //theme
 @import "vendor/styles";
 @import "vendor/vendor";
+@import "vendor/styles.min";
 
 // External libraries
-@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
