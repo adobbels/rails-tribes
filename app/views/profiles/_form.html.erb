@@ -1,5 +1,5 @@
 <div class="containerformprofile">
-  <div class="row">
+  <div class="row" style=" height: 600px;">
     <%= simple_form_for(@profile) do |f| %>
       <div class="col-xs-12 col-md-6">
         <%= f.input :first_name %>
@@ -7,14 +7,14 @@
         <%= f.input :address %>
         <%= f.input :post_code %>
         <%= f.input :city %>
-        <%= f.input :country %>
+        <%= f.input :country , input_html: {style: 'height:44px;'} %>
       </div>
       <div class="col-xs-12 col-md-6">
         <%= f.input :phone_number %>
-        <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year] %>
-        <%= f.input :biography %>
+        <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year] , input_html: {style: 'height:44px;'}%>
+        <%= f.input :biography , input_html: {style: 'height:200px;'} %>
         <%= f.input :photo, as: :attachinary %>
-        <%= f.submit %>
+        <%= f.button :submit, class:"btn btn-primary" %>
       </div>
     <%end%>
   </div>
