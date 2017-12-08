@@ -10,8 +10,20 @@
 margin-bottom: 1px;
 }
 
+.panel-heading {
+  background-color: white !important;
+  border-color: #ddd !important;
+}
+
+.panel-success {
+  border-color: #ddd;
+}
+
+
+
 .photo-booking-profile {
   height: 150px;
+  width: 223px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
 
 }
@@ -45,5 +57,5 @@ margin-bottom: 1px;
 
 .booking-status {
 position: absolute;
-right: 27px;
+right: 8em;
 }
