@@ -14,7 +14,7 @@
         </div>
         <div class="liste">
           <h1>Price</h1>
-          <p>€ <%= @house.price %></p>
+          <p><%= humanized_money_with_symbol(@house.price_cents) %></p>
         </div>
         <div class="liste">
           <h1>Capacity</h1>
