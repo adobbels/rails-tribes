@@ -11,7 +11,8 @@ class HousesController < ApplicationController
     @markers = Gmaps4rails.build_markers(@houses) do |house, marker|
       marker.lat house.latitude
       marker.lng house.longitude
-      # marker.infowindow render_to_string(partial: "/houses/map_box", locals: { house: house })
+      marker.infowindow "<p><img src='http://res.cloudinary.com/dwkqph9as/image/upload/c_fill,h_200/#{house.photos[0].path}' height='100'></p>"
+
     end
   end
 
