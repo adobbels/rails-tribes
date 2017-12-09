@@ -28,6 +28,7 @@ gem 'jquery-fileupload-rails'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'mail_form'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
