@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'errors/not_found'
+
+  get 'errors/internal_server_error'
+
   ActiveAdmin.routes(self)
    devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -9,7 +13,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     resources :bookings
   end
-
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
   mount Attachinary::Engine => "/attachinary"
 
   match '/contacts',     to: 'contacts#new', via: 'get'
