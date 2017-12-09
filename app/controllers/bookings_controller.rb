@@ -22,10 +22,12 @@ class BookingsController < ApplicationController
     @booking.profile = @profile
     authorize @booking
 
-    if @booking.start_date < DateTime.now
+    if @booking.start_date.nil?
+      flash[:alert] = "Please choose a date !"
+      redirect_to house_path(@house)
+    elsif @booking.start_date < DateTime.now
       flash[:alert] = "Your booking date can't be in the past !"
       redirect_to house_path(@house)
-
     else
 
       if @profile.nil?
