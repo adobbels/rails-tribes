@@ -42,6 +42,7 @@
                           <p><%= cl_image_tag booking.house.photos[0].path , class: "photo-booking-profile" %></p>
 
                           <div class="booking-city">
+
                             <p><%= booking.house.city %></p>
                             <p><%= booking.start_date %></p>
                             <% if booking.status.downcase == 'pending' %>
@@ -53,14 +54,22 @@
                             <% if booking.status.downcase == 'canceled' %>
                             <div class="iziToast iziToast-danger"><p><%= booking.status%></p></div>
                             <% end %>
+
                           </div>
 
                           <div class="booking-house">
                             <p><strong><%= booking.house.name %></strong></p>
+                            <% if booking.status.downcase == 'pending' %>
                               <div class="bouton-action">
                                 <button class="btn btn-rounded btn-secondary to-pay" type="button">To be payed</button>
                                 <button class="btn btn-rounded btn-secondary cancel" type="button">Canceled</button>
                               </div>
+                            <% end %>
+                            <% if booking.status.downcase == 'validates' %>
+                              <div class="bouton-action">
+                                <button class="btn btn-rounded btn-secondary to-pay" type="button">Denoncer mon bail</button>
+                              </div>
+                            <% end %>
                           </div>
 
                           <div class="booking-status">
