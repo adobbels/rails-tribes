@@ -12,7 +12,6 @@ class HousesController < ApplicationController
       marker.lat house.latitude
       marker.lng house.longitude
       marker.infowindow "<p><img src='http://res.cloudinary.com/dwkqph9as/image/upload/c_fill,h_200/#{house.photos[0].path}' height='100'></p>"
-      marker.icon 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
     end
   end
 
