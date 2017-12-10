@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :houses do
     resources :reviews, only: [:new, :create]
-    resources :bookings
+    resources :bookingsr, only: [:new, :show, :create]
   end
 
   mount Attachinary::Engine => "/attachinary"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207125721) do
+ActiveRecord::Schema.define(version: 20171210112234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20171207125721) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "pending"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
     t.index ["house_id"], name: "index_bookings_on_house_id"
     t.index ["profile_id"], name: "index_bookings_on_profile_id"
   end
@@ -85,7 +87,18 @@ ActiveRecord::Schema.define(version: 20171207125721) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.integer "price"
+    t.integer "price_cents", default: 0, null: false
+    t.integer "planid"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "house_id"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
+    t.jsonb "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
