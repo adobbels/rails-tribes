@@ -1,4 +1,6 @@
-<h1>Purchase of teddy <%= @order.teddy_sku %></h1>
+
+<h1>Booking of House <%=  House.find(@order.house_id).planid %></h1>
+<h2><%=  House.find(@order.house_id).planid %></h2>
 <%= form_tag order_payments_path(@order) do %>
   <article>
     <label class="amount">
@@ -14,5 +16,6 @@
     data-description="House <%= @order.house_id %>"
     data-amount="<%= @order.amount_cents %>"
     data-currency="<%= @order.amount.currency %>"></script>
+
 
 <% end %>

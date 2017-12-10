@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :houses do
     resources :reviews, only: [:new, :create]
-    resources :bookingsr, only: [:new, :show, :create]
+    resources :bookings
   end
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]

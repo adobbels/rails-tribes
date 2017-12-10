@@ -25,6 +25,7 @@
             <p><%= booking.house.city %></p>
             <p><%= booking.start_date %></p>
             <p><%= booking.house.name %></p>
+
             <% if booking.status === "To be paid" %>
               <%= form_tag orders_path do %>
                 <%= hidden_field_tag 'house_id', booking.house_id %>

@@ -21,7 +21,7 @@ class House < ApplicationRecord
   def plan_creation
   plan = Stripe::Plan.create(
   :name => "location plan for #{name} - #{id}",
-  :id => "StripePlanID_#{name.gsub(' ', '-')}-#{id}",
+  :id => "ID1",
   :interval => "month",
   :interval_count => 1,
   :currency => "eur",
