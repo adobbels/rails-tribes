@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Tribes</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <%= csrf_meta_tags %> <!-- Je ne sais plus ce que c'est -->
+    <%= action_cable_meta_tag %> <!-- Je ne sais plus ce que c'est -->
+    <%= stylesheet_link_tag 'application', media: 'all' %> <!-- Je ne sais plus ce que c'est -->
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
+    <%= display_meta_tags site: 'Tribes' %>
+
     <%= favicon_link_tag 'favicon_tribes' %>
   </head>
   <body>

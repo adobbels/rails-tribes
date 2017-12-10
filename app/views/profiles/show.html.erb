@@ -1,4 +1,7 @@
 
+<% nofollow %>
+<% noindex %>
+
 <div class="banner-profile" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
   <div class="banner-profile-content">
     <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
@@ -59,7 +62,7 @@
 
                           <div class="booking-house">
                             <p><strong><%= booking.house.name %></strong></p>
-                            <% if booking.status.downcase == 'pending' %>
+                            <% if booking.status.downcase == 'To be paid' %>
                               <div class="bouton-action">
                                 <button class="btn btn-rounded btn-secondary to-pay" type="button">To be payed</button>
                                 <button class="btn btn-rounded btn-secondary cancel" type="button">Canceled</button>
@@ -73,9 +76,9 @@
                           </div>
 
                           <div class="booking-status">
-                            <% if booking.status === "To be paid" %>
+                            <% if booking.status.downcase == "to be paid" %>
                               <%= link_to  "To be Paid",  houses_path  %>
-                              <% elsif booking.status === "Paid"%>
+                              <% elsif booking.status.downcase == "paid"%>
                               <%= link_to  "End your journey",  houses_path  %>
                               <%= link_to 'Add a review', new_house_review_path(current_user)%>
                               <% else %>
