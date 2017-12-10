@@ -1,5 +1,5 @@
 meta_product_name: "Tribes"
-meta_title: "Tribes - Colocation haut de gamme"
-meta_description: "Relevant description"
-meta_image: "opengraphhome.png"                       # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account"   # required for Twitter Cards
+meta_title: "Tribes - high-end coliving for inspired people"
+meta_description: "Facilitate the accommodation and meeting of people abroad, thanks to colinving"
+meta_image: "OpenGraphTribes.jpg"                       # should exist in `app/assets/images/`
+twitter_account: "@aureliendobbels"   # required for Twitter Cards
