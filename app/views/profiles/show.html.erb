@@ -26,15 +26,21 @@
             <p><%= booking.start_date %></p>
             <p><%= booking.house.name %></p>
             <% if booking.status === "To be paid" %>
-              <%= link_to  "To be Paid",  houses_path  %>
-              <% elsif booking.status === "Paid"%>
+              <%= form_tag orders_path do %>
+                <%= hidden_field_tag 'house_id', booking.house_id %>
+                <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+
+              <% end %>
+
+            <% elsif booking.status === "Paid"%>
               <%= link_to  "End your journey",  houses_path  %>
               <%= link_to "Add a review", new_house_review_path(:house_id)%>
-              <% else %>
+            <% else %>
               <p><%= booking.status %></p>
               <%= link_to "Add a review", new_house_review_path(:house_id)%>
             <% end %>
           </div>
+
         <% end%>
 
         </div>

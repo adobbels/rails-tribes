@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     resources :bookingsr, only: [:new, :show, :create]
   end
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+end
 
   mount Attachinary::Engine => "/attachinary"
 end
