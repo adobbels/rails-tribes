@@ -32,6 +32,8 @@ gem 'mail_form'
 
 gem 'omniauth-facebook'
 
+gem 'meta-tags'
+
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
