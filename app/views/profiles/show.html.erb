@@ -34,7 +34,9 @@
                     <% else %>
                       <% current_user.profile.bookings.each do |booking|%>
                         <div style="display: flex; align-items: center">
+                          <%= link_to  house_path, class:"card-clic" do %>
                           <p><%= cl_image_tag booking.house.photos[0].path , class: "photo-booking-profile" %></p>
+                          <% end %>
                           <div class="booking-city">
                             <p><%= booking.house.city %></p>
                             <p><%= booking.start_date %></p>

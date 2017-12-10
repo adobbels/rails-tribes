@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
     @booking.profile = @profile
     authorize @booking
 
+
     if @booking.start_date.nil?
       flash[:alert] = "Please choose a date !"
       redirect_to house_path(@house)
@@ -51,6 +52,11 @@ class BookingsController < ApplicationController
         flash[:alert] = 'Booking has been not created'
         BookingMailer.no_creation_confirmation(@booking).deliver_now
         BookingAdminMailer.admin_no_creation_confirmation(@booking).deliver_now
+        feature_ids.each do |feature_id|
+        feature = Feature.find_by(id: feature_id) if !feature_id.blank?
+        FlatOption.create(flat: @flat, feature: feature)
+
+      end
         redirect_to house_path(@house)
       end
     end
