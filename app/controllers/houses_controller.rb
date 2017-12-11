@@ -15,12 +15,14 @@ class HousesController < ApplicationController
       marker.lng house.longitude
       marker.infowindow "<p><img src='http://res.cloudinary.com/dwkqph9as/image/upload/c_fill,h_200/#{house.photos[0].path}' height='100'></p>"
     end
+
   end
 
   def show
     @house = House.find(params[:id])
     #authorize @house
     skip_authorization
+    @reviews = @house.reviews
 
     @house_coordinates = { lat: @house.latitude, lng: @house.longitude }
     @markers = Gmaps4rails.build_markers(@house) do |house, marker|
@@ -29,6 +31,10 @@ class HousesController < ApplicationController
       # marker.infowindow render_to_string(partial: "/houses/map_box", locals: { house: house })
     end
     @bookings_house = Booking.all.where(house_id: @house).where(status: "Validates")
+
+    @house_ratings = 0
+    @house.reviews.each do |review| @house_ratings += review.rating end
+      return @house_ratings
     #@house_features = @house.house_options
     @house_features = @house.features
   end
