@@ -1,13 +1,12 @@
-<div class="banner-home"
-  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
 
-<% title 'Coliving in': @house.name %>
-<% description 'See the details of this house' %>
+<% title "Coliving in #{@house.name}" %>
+<% description "See the details of this house" %>
 
+<div class="caroussel-show">
 
-         url('<%= cl_image_path @house.photos[0].path, height: 300 %>')">
-      <h1 class="display-2 text-bold mb-2"><%= @house.name %></h1>
+        <%= render 'shared/caroussel2' %>
 </div>
+
 <div class="main-container">
   <div class="description-container">
     <div class="row">
@@ -35,6 +34,29 @@
           <i class="fa fa-shower" aria-hidden="true"></i>
         </div>
         <h1>Reviews</h1>
+
+        <% if @house.reviews.count != 0 %>
+          <% stars = (@house_ratings / @house.reviews.count) %>
+            <% if stars < 5 %>
+              <% stars.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+
+            <% stars_vides = 5 - stars %>
+              <% stars_vides.times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+        <% end %>
+
+         <% if @house.reviews.count == 0 %>
+              <% 5.times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+          <% end%>
+
+
+
         <% @reviews = @house.reviews%>
         <% if @house.reviews %>
           <% @reviews.each do |review| %>
@@ -60,6 +82,10 @@
   <div id="formhousebooking" class="col-xs-12 col-md-6 ">
       <%= render "shared/formshowhouse" %>
     </div>
+</div>
+
+<div id="features">
+  <%= render "shared/feature_list" %>
 </div>
 
 <!-- Espace Biographie-->

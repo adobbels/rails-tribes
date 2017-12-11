@@ -1,0 +1,25 @@
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+
+.caroussel-show{
+  position: relative;
+}
+.w3-left.w3-hover-text-khaki {
+  position: absolute;
+  left: 7px;
+  top: 389px;
+  font-size: 50px;
+  color: white;
+}
+.w3-right.w3-hover-text-khaki {
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  right: 7px;
+  top: 389px;
+  font-size: 50px;
+  color: white;
+}
+

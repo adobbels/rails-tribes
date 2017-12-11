@@ -1,0 +1,41 @@
+
+<div class="owl-carousel dots-inside owl-loaded owl-drag" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: false }">
+
+  <div class="owl-stage-outer">
+    <div class="owl-stage" style="transform: translate3d(-1695px, 0px, 0px); transition: 0.45s; width: 2543px;">
+
+      <div class="owl-item" style="width: 847.5px;">
+        <%= cl_image_tag @house.photos[0].path %>
+
+      </div>
+
+      <div class="owl-item" style="width: 847.5px;">
+        <%= cl_image_tag @house.photos[1].path %>
+      </div>
+
+      <div class="owl-item active" style="width: 847.5px;">
+        <%= cl_image_tag @house.photos[2].path %>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="owl-nav">
+    <div class="owl-prev"></div>
+    <div class="owl-next disabled"></div>
+  </div>
+
+  <div class="owl-dots">
+    <div class="owl-dot">
+      <span></span>
+    </div>
+    <div class="owl-dot">
+      <span></span>
+    </div>
+    <div class="owl-dot active">
+      <span></span>
+    </div>
+  </div>
+
+</div>
