@@ -1,11 +1,12 @@
 .card-img-top {
   height: 260px;
-  width: 358px;
+  width: 100%;
 }
 
 .card {
-  height: 447px;
+  height: 450px;
   margin-bottom: 50px;
+  position: relative;
 }
 
 .card-clic {
@@ -17,7 +18,15 @@
 }
 
 .show-this-one {
-  margin-bottom: 10px;
+  display: flex;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  bottom: 10px;
+}
+.show-this-one a {
+  margin: auto;
 }
 
 .card-title {
