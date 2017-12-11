@@ -10,6 +10,7 @@
 }
 .card .bandeau-house {
   width: 100%;
+  height: 40px;
   padding: 0px;
   margin: 0px;
   position: absolute;
@@ -17,6 +18,16 @@
   left: 0;
   background-color: red;
 }
+
+.bandeau-house {
+  position:relative;
+}
+.bandeau-house .bandeau-house-profiles {
+  position: absolute;
+  right: 5px;
+  top: 0px;
+}
+
 .card-body {
   position: relative;
 }

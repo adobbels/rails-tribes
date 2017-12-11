@@ -15,7 +15,8 @@ class HousesController < ApplicationController
       marker.lng house.longitude
       marker.infowindow "<p><img src='http://res.cloudinary.com/dwkqph9as/image/upload/c_fill,h_200/#{house.photos[0].path}' height='100'></p>"
     end
-
+    #@bookings_house = Booking.all.where(house_id: @house).where(status: "Validates")
+      #@bookings_house = Booking.all.where(house_id: @house).where(status: "pending")
   end
 
   def show

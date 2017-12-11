@@ -4,10 +4,18 @@
   <% end %>
     <div class="card-body">
       <div class="bandeau-house">
-        <img src="">
-        <img src="">
-        <img src="">
+        <div class="bandeau-house-ratings">
+          <% house.capacity.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+        </div>
+        <div class="bandeau-house-profiles">
+        <% house.bookings.where(house_id: house).where(status: "pending").each do |booking| %>
+            <%= cl_image_tag booking.profile.photo.path, class:"avatar-large" %>
+        <% end %>
+        </div>
       </div>
+
       <h4 class="card-title"><%= house.name %></h4>
       <p class="card-text"><%= house.description.first(80) %>...</p>
         <div class="show-this-one">
