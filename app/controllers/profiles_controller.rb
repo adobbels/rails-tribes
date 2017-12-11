@@ -6,6 +6,15 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
+
+
+    # order = current_user.orders.last
+    # payment = Stripe:: .......
+
+
+
+
+
     authorize @profile
   end
 

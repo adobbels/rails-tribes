@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210145540) do
+ActiveRecord::Schema.define(version: 20171211115552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 20171210145540) do
     t.jsonb "payment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -152,6 +154,7 @@ ActiveRecord::Schema.define(version: 20171210145540) do
   add_foreign_key "bookings", "profiles"
   add_foreign_key "house_options", "features"
   add_foreign_key "house_options", "houses"
+  add_foreign_key "orders", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "houses"
   add_foreign_key "reviews", "profiles"

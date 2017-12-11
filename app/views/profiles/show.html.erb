@@ -66,4 +66,9 @@
 
 
 
+<%=  require 'stripe' %>
+<%= Stripe::Order.list(limit: 10) %>
+
+
+
 

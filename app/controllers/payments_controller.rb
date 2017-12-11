@@ -8,6 +8,7 @@ class PaymentsController < ApplicationController
   def create
     skip_authorization
 
+    #first try to retrive a customer and if not created yet, then create it
     customer = Stripe::Customer.create(
       source: params[:stripeToken],
       email:  params[:stripeEmail]
@@ -15,6 +16,7 @@ class PaymentsController < ApplicationController
 
     subscription = Stripe::Subscription.create(
       :customer => customer.id,
+      # :current_period_start => current_user.profile.bookings.last.start_date,
       :items => [
         {
           :plan => House.find(@order.house_id).planid,
@@ -29,9 +31,8 @@ class PaymentsController < ApplicationController
     # )
 
     @order.update(payment: subscription.to_json, state: 'paid')
-params[:stripeEmail] #
-fail
-    booking.status = "Paid"
+    current_user.profile.bookings.last.status = 'paid'
+    fail
     redirect_to order_path(@order)
 
     rescue Stripe::CardError => e
