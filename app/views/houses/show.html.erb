@@ -65,6 +65,9 @@
 <div id="biographies">
   <h3>Current Tenants</h3>
   <%= render "shared/biography" %>
+  <% @house.features.each do |feature| %>
+            <p><%= feature.name %></p>
+              <% end %>
 </div>
 
 
