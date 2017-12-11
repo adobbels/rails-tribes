@@ -10,7 +10,7 @@
 text-align: center;
 margin: 20px;
 padding: 25px;
-height: 226px;
+height: 225px;
 position:relative;
 }
 
@@ -20,7 +20,7 @@ position:relative;
 .text-right  {
   position: absolute;
   bottom: 70px;
-  text-align: center;
+  text-align: center !important;
 
 
 }
