@@ -11,8 +11,11 @@
       <% if current_user.profile.present? %>
         <%= link_to "Profile", profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
         <!-- # TODO ENABLE ONLY IF USER HAS PAYED THE HOUSE  -->
+
+        <% if current_user.profile.bookings.present? && current_user.profile.bookings.last.status.downcase == "paid" %>
         <%= link_to "open", open_house_path(House.first), remote: true, class: "btn btn-primary" %>
         <%= link_to "close", close_house_path(House.first), remote: true ,class: "btn btn-danger" %>
+        <% end%>
 
       <% else %>
         <%= link_to "Profile", new_profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
