@@ -16,13 +16,16 @@
           <h1>Description</h1>
           <p><%= @house.description %></p>
         </div>
+        <div class="capacity-restante">
+          <p>Remaining Capacity: <%= @house.capacity - @bookings_house.count %></p>
+        </div>
         <div class="liste">
           <h1>Price</h1>
           <p>€ <%= @house.price %></p>
         </div>
         <div class="liste">
           <h1>Capacity</h1>
-          <p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity %> </p>
+          <p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity%></p>
         </div>
         <div class="liste">
           <h1>Amenities</h1>
