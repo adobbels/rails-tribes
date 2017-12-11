@@ -34,6 +34,29 @@
           <i class="fa fa-shower" aria-hidden="true"></i>
         </div>
         <h1>Reviews</h1>
+
+        <% if @house.reviews.count != 0 %>
+          <% stars = (@house_ratings / @house.reviews.count) %>
+            <% if stars < 5 %>
+              <% stars.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+
+            <% stars_vides = 5 - stars %>
+              <% stars_vides.times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+        <% end %>
+
+         <% if @house.reviews.count == 0 %>
+              <% 5.times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+          <% end%>
+
+
+
         <% @reviews = @house.reviews%>
         <% if @house.reviews %>
           <% @reviews.each do |review| %>
