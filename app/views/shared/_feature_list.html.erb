@@ -1,0 +1,6 @@
+<div id="features-list">
+  <% @house.features.each do |feature| %>
+    <p><%=raw "<i class='fa fa-#{feature.name}' aria-hidden='true'></i>" %></p>
+  <% end %>
+</div>
+
