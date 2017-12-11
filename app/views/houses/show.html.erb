@@ -1,13 +1,12 @@
-<div class="banner-home"
-  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
 
 <% title 'Coliving in': @house.name %>
 <% description 'See the details of this house' %>
 
+<div class="caroussel-show">
 
-         url('<%= cl_image_path @house.photos[0].path, height: 300 %>')">
-      <h1 class="display-2 text-bold mb-2"><%= @house.name %></h1>
+        <%= render 'shared/caroussel2' %>
 </div>
+
 <div class="main-container">
   <div class="description-container">
     <div class="row">
