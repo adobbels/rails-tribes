@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   def create
     skip_authorization
     house = House.find(params[:house_id])
-    order  = Order.create!(house_id: house.id, amount: house.price_cents, state: 'pending')
+    order  = Order.create!(house_id: house.id, amount: house.price_cents, state: 'pending', user_id: current_user.id)
     redirect_to new_order_payment_path(order)
   end
 

@@ -32,7 +32,7 @@ class PaymentsController < ApplicationController
 
     @order.update(payment: subscription.to_json, state: 'paid')
     current_user.profile.bookings.last.status = 'paid'
-    fail
+
     redirect_to order_path(@order)
 
     rescue Stripe::CardError => e

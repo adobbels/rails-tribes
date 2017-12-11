@@ -65,9 +65,18 @@
 
 
 
+<% require 'stripe' %>
+<%= current_user.id %>
+<%= current_user.email %>
+<% h = Stripe::Order.list(limit: 3) %>
 
-<%=  require 'stripe' %>
-<%= Stripe::Order.list(limit: 10) %>
+<% Order.all.each do |order| %>
+  <% if current_user.id === order.user_id %>
+  <%= order.payment %>
+  <% end %>
+<% end %>
+
+
 
 
 
