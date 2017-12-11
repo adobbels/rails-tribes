@@ -10,9 +10,11 @@
           <% end %>
         </div>
         <div class="bandeau-house-profiles">
-        <% house.bookings.where(house_id: house).where(status: "pending").each do |booking| %>
+          <div class="profiles-absolus">
+          <% house.bookings.where(house_id: house).where(status: "pending").each do |booking| %>
             <%= cl_image_tag booking.profile.photo.path, class:"avatar-large" %>
-        <% end %>
+          <% end %>
+          </div>
         </div>
       </div>
 

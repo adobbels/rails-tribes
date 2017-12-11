@@ -20,12 +20,15 @@
 }
 
 .bandeau-house {
-  position:relative;
+  display: flex;
+  justify-content: space-between;
 }
-.bandeau-house .bandeau-house-profiles {
-  position: absolute;
-  right: 5px;
-  top: 0px;
+
+.profiles-absolus {
+  position: relative;
+}
+.profile-absolus .avatar-large {
+position: absolute;
 }
 
 .card-body {
