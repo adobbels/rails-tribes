@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
       email:  params[:stripeEmail]
     )
 
-    Stripe::Subscription.create(
+    subscription = Stripe::Subscription.create(
       :customer => customer.id,
       :items => [
         {
@@ -28,7 +28,10 @@ class PaymentsController < ApplicationController
     #   currency:     @order.amount.currency
     # )
 
-    @order.update(payment: Subscription.to_json, state: 'paid')
+    @order.update(payment: subscription.to_json, state: 'paid')
+params[:stripeEmail] #
+fail
+    booking.status = "Paid"
     redirect_to order_path(@order)
 
     rescue Stripe::CardError => e
