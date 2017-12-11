@@ -16,9 +16,10 @@ House.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-feature_tv = Feature.create!(name: "Television")
-feature_wifi = Feature.create!(name: "Wifi")
-feature_pets = Feature.create!(name: "Pets allowed")
+feature_tv = Feature.create!(name: "television")
+feature_wifi = Feature.create!(name: "wifi")
+feature_pets = Feature.create!(name: "paw")
+feature_douche = Feature.create!(name: "shower")
 
 puts "***--- USER & PROFILE CREATION ---***"# USER & PROFILE CREATION
 
