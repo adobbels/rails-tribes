@@ -10,8 +10,10 @@
       <!-- Avatar with dropdown menu -->
       <% if current_user.profile.present? %>
         <%= link_to "Profile", profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "open", "http://10.10.105.21:8080/lockaction?nukiId=216634041&Action=1&token=hP1S5i" ,class: "btn btn-primary" %>
-        <%= link_to "close", "http://10.10.105.21:8080/lockaction?nukiId=216634041&Action=2&token=hP1S5i" ,class: "btn btn-danger" %>
+        <!-- # TODO ENABLE ONLY IF USER HAS PAYED THE HOUSE  -->
+        <%= link_to "open", open_house_path(House.first), remote: true, class: "btn btn-primary" %>
+        <%= link_to "close", close_house_path(House.first), remote: true ,class: "btn btn-danger" %>
+
       <% else %>
         <%= link_to "Profile", new_profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end  %>

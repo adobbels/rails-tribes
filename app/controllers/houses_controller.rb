@@ -1,3 +1,5 @@
+require_relative '../services/nuki_service'
+
 class HousesController < ApplicationController
   def index
 
@@ -51,6 +53,14 @@ class HousesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def open
+    NukiLock.new.open
+  end
+
+  def close
+    NukiLock.new.close
   end
 
   private

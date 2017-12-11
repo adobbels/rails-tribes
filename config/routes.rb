@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :profiles
   resources :houses do
+    member do
+      get 'open', to: 'houses#open'
+      get 'close', to: 'houses#close'
+    end
     resources :reviews, only: [:new, :create]
     resources :bookings
   end
