@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Booking was successfully created.'
       BookingMailer.creation_confirmation(@booking).deliver_now
       BookingAdminMailer.admin_creation_confirmation(@booking).deliver_now
-      redirect_to house_path(@house)
+      redirect_to profile_path(@profile)
     else
       flash[:alert] = 'Booking has been not created'
       BookingMailer.no_creation_confirmation(@booking).deliver_now
