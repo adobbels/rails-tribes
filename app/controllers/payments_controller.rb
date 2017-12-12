@@ -51,13 +51,6 @@ class PaymentsController < ApplicationController
     redirect_to new_order_payment_path(@order)
   end
 
-
-  def destroy
-    SUBSCRIPTION_ID = @customer.subscriptions.last.id
-    sub = Stripe::Subscription.retrieve({SUBSCRIPTION_ID})
-    sub.delete
-  end
-
 private
 
   def set_order

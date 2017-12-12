@@ -11,7 +11,9 @@ class ProfilesController < ApplicationController
       stripe_customer_id = JSON.parse(@orders.first.payment)["customer"]
       @customer = Stripe::Customer.retrieve(stripe_customer_id)
       @invoices = @customer.invoices
-      @upcoming_invoice = Stripe::Invoice.upcoming(:customer => @customer)
+      if @upcoming_invoice
+        @upcoming_invoice = Stripe::Invoice.upcoming(:customer => @customer)
+      end
     end
     authorize @profile
   end
