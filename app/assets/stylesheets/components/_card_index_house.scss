@@ -13,8 +13,7 @@
   height: 40px;
   padding: 0px;
   margin: 0px;
-  position: absolute;
-  top: -10px;
+
   left: 0;
   background-color: red;
 }
@@ -22,17 +21,36 @@
 .bandeau-house {
   display: flex;
   justify-content: space-between;
+  height: 40px;
 }
 
 .profiles-absolus {
-  position: relative;
-}
-.profile-absolus .avatar-large {
-position: absolute;
+  height: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  ul {
+    position: relative;
+    li {
+      position: absolute;
+      top: -12px;
+      padding: 0;
+      margin: 0;
+      width: 40px;
+      height: 40px;
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+    }
+  }
 }
 
+
 .card-body {
-  position: relative;
+
+  padding: 0px;
 }
 .card-clic {
   text-decoration: none;

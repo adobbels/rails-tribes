@@ -11,9 +11,11 @@
         </div>
         <div class="bandeau-house-profiles">
           <div class="profiles-absolus">
-          <% house.bookings.where(house_id: house).where(status: "pending").each do |booking| %>
-            <%= cl_image_tag booking.profile.photo.path, class:"avatar-large" %>
-          <% end %>
+            <ul class="list-inline">
+              <% house.bookings.where(house_id: house).where(status: "pending").each_with_index do |booking, i| %>
+                <li style="right: <%= (i) * 25 %>px;"><%= cl_image_tag booking.profile.photo.path %></li>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
