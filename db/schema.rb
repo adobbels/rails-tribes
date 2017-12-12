@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20171212091605) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "pending"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
     t.index ["house_id"], name: "index_bookings_on_house_id"
     t.index ["profile_id"], name: "index_bookings_on_profile_id"
   end
@@ -74,7 +76,6 @@ ActiveRecord::Schema.define(version: 20171212091605) do
 
   create_table "houses", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
     t.integer "capacity"
     t.text "description"
     t.string "photos"
@@ -86,9 +87,23 @@ ActiveRecord::Schema.define(version: 20171212091605) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "price_cents", default: 0, null: false
+    t.string "planid"
     t.string "idlock"
     t.string "ipaddress"
     t.string "idbridge"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "house_id"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
+    t.jsonb "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -149,6 +164,7 @@ ActiveRecord::Schema.define(version: 20171212091605) do
   add_foreign_key "bookings", "profiles"
   add_foreign_key "house_options", "features"
   add_foreign_key "house_options", "houses"
+  add_foreign_key "orders", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "houses"
   add_foreign_key "reviews", "profiles"
