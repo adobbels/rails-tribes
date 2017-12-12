@@ -11,6 +11,7 @@
   <div class='container'>
     <div class="row">
       <% @houses.each do |house| %>
+
         <div class="col-lg-6 col-md-12 col-xs-12">
           <%= render "shared/house_card", house: house %>
         </div>

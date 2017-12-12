@@ -1,0 +1,22 @@
+<% if house.reviews.count != 0 %>
+     <% house_ratings = 0 %>
+      <% house.reviews.each do |review| %>
+      <% house_ratings += review.rating %>
+      <% end %>
+    <% stars = house_ratings / house.reviews.count %>
+  <% if stars < 5 %>
+    <% stars.times do %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% end %>
+    <% stars_vides = 5 - stars %>
+      <% stars_vides.times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+  <% end %>
+<% end %>
+
+<% if house.reviews.count == 0 %>
+  <% 5.times do %>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% end %>
+<% end%>

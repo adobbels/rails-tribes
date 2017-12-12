@@ -11,4 +11,6 @@ class House < ApplicationRecord
   def full_address
     "#{address} #{post_code} #{city} #{country}"
   end
+
+
 end
