@@ -1,9 +1,10 @@
 
 .image-home {
   margin: 0px 20px;
-  height: 75vh;
+  height: 35vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover;
+  background-position: center;
 }
 
 .text-image-home {
@@ -31,7 +32,7 @@ position:relative;
 }
 
 .features-logo {
-  margin: 30px;
+  margin: 50px;
   left: 2px;
 }
 
