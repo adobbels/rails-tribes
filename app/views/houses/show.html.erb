@@ -1,4 +1,4 @@
-
+<% title "Coliving in #{@house.name}" %>
 <% description "See the details of this house" %>
 <!-- Beautiful and cozy yet spacious Hollywood home. This duplex was remodeled in 2016 and is appointed with all the comforts you could ever want in a home away from home. -->
   <div class="bloc-house">
@@ -9,7 +9,7 @@
   <div class="caroussel-show">
     <%= render 'shared/caroussel2' %>
     <div class="titre-house-info">
-      <h1><%= title "Coliving in #{@house.name}" %></h1>
+      <h1><%= Coliving in #{@house.name} %></h1>
       <p><%= @house.description %></p>
     </div>
   </div>
