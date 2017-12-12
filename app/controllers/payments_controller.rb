@@ -33,7 +33,8 @@ class PaymentsController < ApplicationController
       # days_until_due: days_to_next_payment,
       items: [
         {
-          plan: House.find(@order.house_id).planid,
+          plan: "location plan for #{House.find(@order.house_id).name} - #{House.find(@order.house_id).planid}"
+          # plan: House.find(@order.house_id).planid,
         },
       ],
     )

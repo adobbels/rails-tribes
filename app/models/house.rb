@@ -20,8 +20,8 @@ class House < ApplicationRecord
 
   def plan_creation
   plan = Stripe::Plan.create(
-  :name => "location plan for #{name} - #{id}",
-  :id => "ID1",
+  :name => "location plan for #{name}",
+  :id => "location plan for #{name} - #{planid}",
   :interval => "month",
   :interval_count => 1,
   :currency => "eur",
