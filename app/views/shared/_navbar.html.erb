@@ -9,7 +9,9 @@
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
       <% if current_user.profile.present? %>
-        <%= link_to "Profile", profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+
+        <%= link_to "Profile", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
+<!-- Ajout Stripe -->
         <!-- # TODO ENABLE ONLY IF USER HAS PAYED THE HOUSE  -->
 
 
@@ -32,6 +34,7 @@
         <% end%>
         <% end %>
 
+<!-- Fin du master -->
       <% else %>
         <%= link_to "Profile", new_profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end  %>
@@ -45,7 +48,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <% if current_user.profile %>
-                <%= link_to profile_path(current_user) do %>
+                <%= link_to profile_path do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "My Profile") %>
                 <% end %>
               <% end %>
@@ -81,7 +84,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
               <% if current_user && current_user.profile %>
-                <%= link_to profile_path(current_user) do %>
+                <%= link_to profile_path do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "My Profile") %>
                 <% end %>
               <% end %>
