@@ -64,15 +64,28 @@ class HousesController < ApplicationController
   end
 
   def open
-    NukiLock.new.open
+    @house = House.find(current_user.profile.bookings.last.house_id)
+    authorize @house
+    nuki = NukiLock.new(@house.idlock, @house.idbridge, @house.ipaddress)
+    nuki.open
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def close
-    NukiLock.new.close
+    @house = House.find(current_user.profile.bookings.last.house_id)
+    authorize @house
+    nuki = NukiLock.new(@house.idlock, @house.idbridge, @house.ipaddress)
+    nuki.close
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
   def house_params
-  params.require(:house).permit(:name, :price, :capacity, :description, :photos [], :address, :post_code, :city, :country)
+    params.require(:house).permit(:name, :price, :capacity, :description, :photos [], :address, :post_code, :city, :country, :idlock, :idbridge, :ipaddress)
   end
 end
