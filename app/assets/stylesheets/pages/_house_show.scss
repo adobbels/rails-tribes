@@ -1,0 +1,23 @@
+body {
+  position: relative;
+}
+
+.bloc-house {
+position: absolute;
+z-index: 2;
+top: 440px;
+bottom: 0px;
+right:0px;
+width: 510px;
+}
+
+.titre-house-info {
+padding: 20px;
+
+}
+
+.bloc-list {
+  padding-right: 20px;
+  width: 98%;
+}
+
