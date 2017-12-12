@@ -5,9 +5,8 @@
     <div class="card-body">
       <div class="bandeau-house">
         <div class="bandeau-house-ratings">
-          <% house.capacity.times do %>
-            <i class="fa fa-star" aria-hidden="true"></i>
-          <% end %>
+
+          <%= render "shared/rating_stars", house: house %>
         </div>
         <div class="bandeau-house-profiles">
           <div class="profiles-absolus">
