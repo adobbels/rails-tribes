@@ -6,15 +6,13 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
-
-
-    # order = current_user.orders.last
-    # payment = Stripe:: .......
-
-
-
-
-
+    @orders = current_user.orders
+    if @orders.first and @orders.first.payment
+      stripe_customer_id = JSON.parse(@orders.first.payment)["customer"]
+      @customer = Stripe::Customer.retrieve(stripe_customer_id)
+      @invoices = @customer.invoices
+      @upcoming_invoice = Stripe::Invoice.upcoming(:customer => @customer)
+    end
     authorize @profile
   end
 

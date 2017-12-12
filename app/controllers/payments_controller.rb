@@ -7,37 +7,55 @@ class PaymentsController < ApplicationController
 
   def create
     skip_authorization
+    # days_to_next_payment = (current_user.profile.bookings.last.start_date - DateTime.now.strftime("%m/%d/%Y").to_date).to_i
+  # check whether or not if customer already exists in stripe
+    customers = Stripe::Customer.all
+    if customers.data.empty?
+      customer = Stripe::Customer.create(
+        source: params[:stripeToken],
+        email:  params[:stripeEmail]
+      )
+    else
 
-    #first try to retrive a customer and if not created yet, then create it
-    customer = Stripe::Customer.create(
-      source: params[:stripeToken],
-      email:  params[:stripeEmail]
-    )
+      customer = customers.data.find { |customer| customer.email == current_user.email }
+
+      unless customer
+        customer = Stripe::Customer.create(
+          source: params[:stripeToken],
+          email:  params[:stripeEmail]
+        )
+      end
+
+    end
 
     subscription = Stripe::Subscription.create(
-      :customer => customer.id,
-      # :current_period_start => current_user.profile.bookings.last.start_date,
-      :items => [
+      customer: customer.id,
+      # days_until_due: days_to_next_payment,
+      items: [
         {
-          :plan => House.find(@order.house_id).planid,
+          plan: House.find(@order.house_id).planid,
         },
       ],
     )
-    # charge = Stripe::Charge.create(
-    #   customer:     customer.id,   # You should store this customer id and re-use it.
-    #   amount:       @order.amount_cents,
-    #   description:  "Payment for House #{@order.house_id} for order #{@order.id}",
-    #   currency:     @order.amount.currency
-    # )
 
     @order.update(payment: subscription.to_json, state: 'paid')
-    current_user.profile.bookings.last.status = 'paid'
+    booking = current_user.profile.bookings.last
+    ###################### TODO Better here to have booking_id in order ####################
+    booking.status = 'paid'
+    booking.save
 
     redirect_to order_path(@order)
 
-    rescue Stripe::CardError => e
+  rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to new_order_payment_path(@order)
+  end
+
+
+  def destroy
+    SUBSCRIPTION_ID = @customer.subscriptions.last.id
+    sub = Stripe::Subscription.retrieve({SUBSCRIPTION_ID})
+    sub.delete
   end
 
 private

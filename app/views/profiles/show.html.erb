@@ -26,29 +26,49 @@
             <p><%= booking.start_date %></p>
             <p><%= booking.house.name %></p>
 
-            <% if booking.status === "To be paid" %>
+            <% if booking.status.downcase === "to be paid" %>
               <%= form_tag orders_path do %>
                 <%= hidden_field_tag 'house_id', booking.house_id %>
                 <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-
               <% end %>
 
-            <% elsif booking.status === "Paid"%>
+            <% elsif booking.status.downcase === "paid"%>
               <%= link_to  "End your journey",  houses_path  %>
               <%= link_to "Add a review", new_house_review_path(:house_id)%>
-            <% else %>
-              <p><%= booking.status %></p>
-              <%= link_to "Add a review", new_house_review_path(:house_id)%>
+            <% else  %>
+              <p><%= booking.status.capitalize %></p>
             <% end %>
           </div>
-
         <% end%>
 
         </div>
+<!-- Payments tab -->
         <div class="tab-pane fade" id="payment1" role="tabpanel">
-          <p>Next Payment</p>
-          <p>Previous Payments</p>
+          <% if @customer %>
+            <h2>Next Payment details</h2>
+              <p>Next Payment Date <%= Time.at(@upcoming_invoice["next_payment_attempt"]).strftime("%m/%d/%Y") %></p>
+              <p>Period : From <%= Time.at(@upcoming_invoice["period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(@upcoming_invoice["period_end"]).strftime("%m/%d/%Y") %></p>
+              <p>Amount due €<%= @upcoming_invoice["amount_due"] / 100 %></p>
+
+            <h2>Last Payments</h2>
+            <% @orders.each do |order| %>
+              <div>
+                <p>Payment Date : <%= order.created_at.strftime("%m/%d/%Y") %></p>
+                <p>Period : From <%= Time.at(JSON.parse(order.payment)["current_period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(JSON.parse(order.payment)["current_period_end"]).strftime("%m/%d/%Y") %></p>
+                <p>State : <%= order.state.capitalize %></p>
+              </div>
+            <% end %>
+
+            <h3>Stripe Customer Invoices</h3>
+              <% @invoices.each do |invoice| %>
+                <p><%= "Invoice number :  #{invoice.id} " %></p>
+                <p><%= "Invoice Start Periode :  #{invoice.id} " %></p>
+            <% end  %>
+          <% else %>
+          <h2>No Payment yet</h2>
+          <% end  %>
         </div>
+<!-- Profile tab -->
         <div class="tab-pane fade" id="profile1" role="tabpanel">
           <p><%= @profile.first_name %></p>
           <p><%= @profile.last_name %></p>
@@ -65,16 +85,8 @@
 
 
 
-<% require 'stripe' %>
-<%= current_user.id %>
-<%= current_user.email %>
-<% h = Stripe::Order.list(limit: 3) %>
 
-<% Order.all.each do |order| %>
-  <% if current_user.id === order.user_id %>
-  <%= order.payment %>
-  <% end %>
-<% end %>
+
 
 
 
