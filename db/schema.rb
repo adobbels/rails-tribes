@@ -11,7 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 20171211161208) do
+ActiveRecord::Schema.define(version: 20171212091605) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +91,9 @@ ActiveRecord::Schema.define(version: 20171211161208) do
     t.float "longitude"
     t.integer "price_cents", default: 0, null: false
     t.string "planid"
+    t.string "idlock"
+    t.string "ipaddress"
+    t.string "idbridge"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -102,6 +106,8 @@ ActiveRecord::Schema.define(version: 20171211161208) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+
+
   end
 
   create_table "profiles", force: :cascade do |t|

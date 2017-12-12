@@ -17,6 +17,14 @@ class HousePolicy < ApplicationPolicy
     user.admin
   end
 
+  def open?
+    true
+  end
+
+  def close?
+    true
+  end
+
   private
 
   def user_is_owner_or_admin?
