@@ -127,7 +127,7 @@ sleep 2
 House.create!(
     name:"Lorem ipsum dolor sit amet",
     description:"Aliquam sit amet tortor nisi. Proin interdum turpis vitae enim varius, et interdum eros ullamcorper. Morbi venenatis ac odio et luctus. Etiam ultricies diam ipsum, tempor fringilla ante suscipit ac.",
-    price_cents: "850",
+    price_cents: "85000",
     capacity: "8",
     address:"73 rue Royale",
     post_code:"59800",
@@ -152,7 +152,7 @@ sleep 2
 House.create!(
     name:"consectetur adipiscing elit.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
-    price_cents: "900",
+    price_cents: "90000",
     capacity: "4",
     address:"23 rue Nationale",
     post_code:"59800",
@@ -174,7 +174,7 @@ sleep 2
 House.create!(
     name:"consectetur adipiscing elit.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
-    price_cents: "770",
+    price_cents: "77000",
     capacity: "3",
     address:"23 rue de Metz",
     post_code:"59800",
@@ -194,7 +194,7 @@ sleep 2
 House.create!(
     name:"Lorem ipsum dolor sit amet.",
     description:"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
-    price_cents: "825",
+    price_cents: "82500",
     capacity: "4",
     address:"23 Avenue de l'Hippodrome",
     post_code:"59130",
@@ -217,7 +217,7 @@ sleep 2
 House.create!(
     name:"Lorem ipsum dolor sit amet.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere purus ac ex volutpat, ut lobortis ligula.",
-    price_cents: "725",
+    price_cents: "72500",
     capacity: "8",
     address:"23 rue Godefroy",
     post_code:"59110",
@@ -240,7 +240,7 @@ sleep 2
 House.create!(
     name:"vitae porttitor elit dui vitae felis.",
     description:"Nunc ornare auctor nibh, ac pellentesque neque ultricies rhoncus. Cras vehicula, odio eget pharetra varius, metus turpis efficitur erat, quis sagittis eros massa et leo.",
-    price_cents: "775",
+    price_cents: "77500",
     capacity: "8",
     address:"74 Avenue du Maréchal Foch",
     post_code:"59700",
@@ -269,7 +269,7 @@ sleep 2
 House.create!(
     name:"Maecenas porttitor lorem et accumsan vulputate",
     description:"Nulla molestie aliquet turpis, in ultrices sem egestas consequat. Morbi feugiat fermentum neque, sed rhoncus magna faucibus eget. Nulla eleifend lacus vitae placerat ornare.",
-    price_cents: "900",
+    price_cents: "90000",
     capacity: "8",
     address:"103 avenue Foch",
     post_code:"59700",
@@ -288,7 +288,7 @@ sleep 2
 House.create!(
     name:"Curabitur faucibus arcu orci",
     description:"Vivamus ipsum massa, mollis id viverra tincidunt, rutrum sit amet magna. Suspendisse nibh risus, scelerisque id molestie vitae, tincidunt euismod lorem. Nam lacinia vestibulum velit nec congue. Aliquam scelerisque tortor eu odio iaculis viverra.",
-    price_cents: "690",
+    price_cents: "69000",
     capacity: "8",
     address:"19 rue Alsace Lorraine",
     post_code:"59420",
@@ -310,7 +310,7 @@ sleep 2
 House.create!(
     name:"Lorem ipsum dolor sit amet 1",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    price_cents: "780",
+    price_cents: "78000",
     capacity: "6",
     address:"16 rue Voltaire",
     post_code:"59290",
@@ -335,7 +335,7 @@ sleep 2
 House.create!(
     name:"Lorem ipsum dolor sit amet",
     description:"Aliquam sit amet tortor nisi. Proin interdum turpis vitae enim varius, et interdum eros ullamcorper. Morbi venenatis ac odio et luctus. Etiam ultricies diam ipsum, tempor fringilla ante suscipit ac.",
-    price_cents: "860",
+    price_cents: "86000",
     capacity: "8",
     address:"73 rue Eugène Jacquet",
     post_code:"59700",
@@ -359,7 +359,7 @@ sleep 2
 House.create!(
     name:"consectetur adipiscing elit.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
-    price_cents: "790",
+    price_cents: "79000",
     capacity: "4",
     address:"23 allée des Mésanges",
     post_code:"59910",
@@ -378,7 +378,7 @@ sleep 2
 puts "***--- SEEDS DONE ---***"
 
 House.all.each do |house|
-  if house.latitude.nil?
+  if house.latitude.nil? || house.longitude.nil?
     house.geocode
     house.save!
     puts "house " + house.id.to_s + " geocoded: lat: " + house.latitude.to_s + ", lng: " + house.longitude.to_s
