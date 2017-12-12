@@ -21,6 +21,7 @@
   display: flex;
   justify-content: space-between;
   height: 40px;
+  align-items: center;
 }
 
 .profiles-absolus {
@@ -48,8 +49,9 @@
 
 
 .card-body {
-
   padding: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .card-clic {
   text-decoration: none;
