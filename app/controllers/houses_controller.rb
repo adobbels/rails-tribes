@@ -81,6 +81,7 @@ class HousesController < ApplicationController
     authorize @house
     nuki = NukiLock.new(@house.idlock, @house.idbridge, @house.ipaddress)
     nuki.close
+
     respond_to do |format|
       format.js
     end

@@ -1,20 +1,20 @@
 <div class="containerformprofile">
-  <div class="row" style=" height: 600px;">
+  <div class="row" style=" height: 550px;">
     <%= simple_form_for(@profile) do |f| %>
       <div class="col-xs-12 col-md-6">
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :address %>
-        <%= f.input :post_code %>
-        <%= f.input :city %>
-        <%= f.input :country , input_html: {style: 'height:44px;'} %>
+        <%= f.input :first_name , input_html: {style: 'height:35px;'} %>
+        <%= f.input :last_name  , input_html: {style: 'height:35px;'}%>
+        <%= f.input :address , input_html: {style: 'height:35px;'}%>
+        <%= f.input :post_code , input_html: {style: 'height:35px;'}%>
+        <%= f.input :city , input_html: {style: 'height:35px;'}%>
+        <%= f.input :country , input_html: {style: 'height:35px;'} %>
       </div>
       <div class="col-xs-12 col-md-6">
-        <%= f.input :phone_number %>
-        <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year] , input_html: {style: 'height:44px;'}%>
+        <%= f.input :phone_number , input_html: {style: 'height:35px;'}%>
+        <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year] , input_html: {style: 'height:35px;'}%>
         <%= f.input :biography , input_html: {style: 'height:200px;'} %>
-        <%= f.input :photo, as: :attachinary %>
-        <%= f.button :submit, class:"btn btn-primary" %>
+        <%= f.input :photo, as: :attachinary , input_html: {style: 'height:35px;'}%>
+        <%= f.button :submit, class:"btn btn-primary" , input_html: {style: 'height:35px;'}%>
       </div>
     <%end%>
   </div>
