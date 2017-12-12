@@ -12,10 +12,15 @@ class PagesController < ApplicationController
   end
 
 
-  def cancel_subscription
+  def cancel_check
+  end
 
+  def cancel_subscription
     @profile = current_user.profile
     @orders = current_user.orders
+    booking = current_user.profile.bookings.last
+    booking.status = 'Cancelled'
+    booking.save
     stripe_customer_id = JSON.parse(@orders.first.payment)["customer"]
     @customer = Stripe::Customer.retrieve(stripe_customer_id)
     subscription_to_cancel_id = @customer.subscriptions.first.id

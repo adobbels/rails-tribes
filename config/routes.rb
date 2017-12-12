@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'pages/cancel_subscription'
+  get 'pages/cancel_check'
   resource :profile
   resources :houses do
     resources :reviews, only: [:new, :create]

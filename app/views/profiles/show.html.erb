@@ -33,7 +33,7 @@
               <% end %>
 
             <% elsif booking.status.downcase === "paid"%>
-              <%= link_to  "End your journey",  pages_cancel_subscription_path  %>
+              <%= link_to  "End your journey",  pages_cancel_check_path  %>
               <%= link_to "Add a review", new_house_review_path(:house_id)%>
             <% else  %>
               <p><%= booking.status.capitalize %></p>
@@ -46,6 +46,7 @@
         <div class="tab-pane fade" id="payment1" role="tabpanel">
           <% if @customer %>
             <h2>Next Payment details</h2>
+
               <% if @upcoming_invoice%>
                 <p>Next Payment Date <%= Time.at(@upcoming_invoice["next_payment_attempt"]).strftime("%m/%d/%Y") %></p>
                 <p>Period : From <%= Time.at(@upcoming_invoice["period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(@upcoming_invoice["period_end"]).strftime("%m/%d/%Y") %></p>
