@@ -10,122 +10,94 @@
   </div>
 </div>
 
-<div class="container">
-<div class='row'>
-  <div class="col-md-12">
-    <div class="panel with-nav-tabs panel-success">
-      <div class="panel-heading">
 
-        <ul class="nav nav-tabs">
-            <li class="active nav-item"><a href="#tab1success" data-toggle="tab" aria-expanded="true" class='nav-link'>My journeys</a></li>
-            <li class=""><a href="#tab2success" data-toggle="tab" aria-expanded="false" class='nav-link'>My payments</a></li>
-            <li class=""><a href="#tab3success" data-toggle="tab" aria-expanded="false" class='nav-link'>My profile</a></li>
-            <li class=""><a href="#tab4success" data-toggle="tab" aria-expanded="false" class='nav-link'>Chat</a></li>
-            <li class=""><a href="#tab4success" data-toggle="tab" aria-expanded="false" class='nav-link'>Door Management</a></li>
-        </ul>
+<div class="container padding-bottom-3x mb-2">
+  <div class="row">
+    <div class="col-lg-9 col-md-8 push-lg-3 push-md-4">
+      <h6 class="text-muted text-normal text-uppercase">Tabs with Dropdown</h6>
+      <hr class="margin-bottom-1x">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item"><a class="nav-link active" href="#home1" data-toggle="tab" role="tab"><i class="icon-help"></i>My Journeys</a></li>
+        <li class="nav-item"><a class="nav-link" href="#payment1" data-toggle="tab" role="tab">My Payments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#profile1" data-toggle="tab" role="tab"></i>My Profile</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="home1" role="tabpanel">
+        <% current_user.profile.bookings.each do |booking|%>
+          <div style="display: flex; align-items: center">
+            <p><%= cl_image_tag booking.house.photos[0].path , class: "avatar" %></p>
+            <p><%= booking.house.city %></p>
+            <p><%= booking.start_date %></p>
+            <p><%= booking.house.name %></p>
 
+            <% if booking.status.downcase === "to be paid" %>
+              <%= form_tag orders_path do %>
+                <%= hidden_field_tag 'house_id', booking.house_id %>
+                <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+              <% end %>
+
+            <% elsif booking.status.downcase === "paid"%>
+              <%= link_to  "End your journey",  pages_cancel_check_path  %>
+              <%= link_to "Add a review", new_house_review_path(:house_id)%>
+            <% else  %>
+              <p><%= booking.status.capitalize %></p>
+            <% end %>
+          </div>
+        <% end%>
+
+        </div>
+<!-- Payments tab -->
+        <div class="tab-pane fade" id="payment1" role="tabpanel">
+          <% if @customer %>
+            <h2>Next Payment details</h2>
+
+              <% if @upcoming_invoice%>
+                <p>Next Payment Date <%= Time.at(@upcoming_invoice["next_payment_attempt"]).strftime("%m/%d/%Y") %></p>
+                <p>Period : From <%= Time.at(@upcoming_invoice["period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(@upcoming_invoice["period_end"]).strftime("%m/%d/%Y") %></p>
+                <p>Amount due €<%= @upcoming_invoice["amount_due"] / 100 %></p>
+              <% else  %>
+                <p>No further payments to come</p>
+              <% end  %>
+            <h2>Last Payments</h2>
+            <% @orders.each do |order| %>
+              <div>
+                <p>Payment Date : <%= order.created_at.strftime("%m/%d/%Y") %></p>
+                <p>Period : From <%= Time.at(JSON.parse(order.payment)["current_period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(JSON.parse(order.payment)["current_period_end"]).strftime("%m/%d/%Y") %></p>
+                <p>State : <%= order.state.capitalize %></p>
+              </div>
+            <% end %>
+
+            <h3>Stripe Customer Invoices</h3>
+              <% @invoices.each do |invoice| %>
+                <p><%= "Invoice number :  #{invoice.id} " %></p>
+                <p><%= "Invoice Start Periode :  #{invoice.id} " %></p>
+            <% end  %>
+          <% else %>
+          <h2>No Payment yet</h2>
+          <% end  %>
+        </div>
+<!-- Profile tab -->
+        <div class="tab-pane fade" id="profile1" role="tabpanel">
+          <p><%= @profile.first_name %></p>
+          <p><%= @profile.last_name %></p>
+          <p><%= @profile.address %></p>
+          <p><%= @profile.city %></p>
+          <p><%= @profile.post_code %></p>
+          <p><%= @profile.country %></p>
+          <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded btn-secondary' %></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-
-<div class="container padding-bottom-3x mb-2">
-  <div class="row">
-    <div class="col-md-12">
-        <div class="panel-body">
-            <div class="tab-content">
-                <div class="tab-pane fade active in" id="tab1success">
-                  <div class="row">
-                    <% if current_user.profile.bookings.first.nil? %>
-                      <p>No booking yet</p>
-                    <% else %>
-                      <% current_user.profile.bookings.each do |booking|%>
-                        <div class="booking-dashboard">
-                          <%= link_to  house_path, class:"card-clic" do %>
-                          <p><%= cl_image_tag booking.house.photos[0].path , class: "photo-booking-profile" %></p>
-                          <% end %>
-
-                          <div class="booking-city">
-
-                            <p><%= booking.house.city %></p>
-                            <p><%= booking.start_date %></p>
-                            <% if booking.status.downcase == 'pending' %>
-                            <div class="iziToast"><p><%= booking.status%></p></div>
-                            <% end %>
-                            <% if booking.status.downcase == 'validates' %>
-                            <div class="iziToast iziToast-success"><p><%= booking.status%></p></div>
-                            <% end %>
-                            <% if booking.status.downcase == 'canceled' %>
-                            <div class="iziToast iziToast-danger"><p><%= booking.status%></p></div>
-                            <% end %>
-
-                          </div>
-
-                          <div class="booking-house">
-                            <p><strong><%= booking.house.name %></strong></p>
-                            <% if booking.status.downcase == 'To be paid' %>
-                              <div class="bouton-action">
-                                <button class="btn btn-rounded btn-secondary to-pay" type="button">To be payed</button>
-                                <button class="btn btn-rounded btn-secondary cancel" type="button">Canceled</button>
-                              </div>
-                            <% end %>
-                            <% if booking.status.downcase == 'validates' %>
-                              <div class="bouton-action">
-                                <button class="btn btn-rounded btn-secondary to-pay" type="button">Denoncer mon bail</button>
-                              </div>
-                            <% end %>
-                          </div>
-
-                          <div class="booking-status">
-                            <% if booking.status.downcase == "to be paid" %>
-                              <%= link_to  "To be Paid",  houses_path  %>
-                              <% elsif booking.status.downcase == "paid"%>
-                              <%= link_to  "End your journey",  houses_path  %>
-                              <%= link_to 'Add a review', new_house_review_path(current_user)%>
-                              <% else %>
-                              <p><%= booking.status %></p>
-                            <% end %>
-                          </div><!-- Fin de booking-status -->
-
-                        </div><!--Fin de booking-dashboard -->
-                      <% end %>
-                    <% end %>
-                  </div> <!-- Fin de la Row -->
-                </div> <!--Fin de tab-pane -->
-
-              <!-- Changement d'onglet -->
-                <div class="tab-pane fade" id="tab2success">
-                  <p>Card Number</p>
-                  <p>Expiry</p>
-                  <p>Cryptogram</p>
-                </div>
-                <div class="tab-pane fade" id="tab3success">
-                  <p><%= @profile.first_name %></p>
-                  <p><%= @profile.last_name %></p>
-                  <p><%= @profile.address %></p>
-                  <p><%= @profile.city %></p>
-                  <p><%= @profile.post_code %></p>
-                  <p><%= @profile.country %></p>
-                  <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded btn-secondary' %></p>
-                </div>
-                <div class="tab-pane fade" id="tab4success">
-                  <p>Card Number</p>
-                  <p>Expiry</p>
-                  <p>Cryptogram</p>
-                </div>
-
-                <div class="tab-pane fade" id="tab5success">
-                  <p>Card Number</p>
-                  <p>Expiry</p>
-                  <p>Cryptogram</p>
-                </div>
 
 
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
+
+
+
+
+
+
+
 
 

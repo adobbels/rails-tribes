@@ -8,7 +8,9 @@ Rails.application.routes.draw do
    devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
-  resources :profiles
+  get 'pages/cancel_subscription'
+  get 'pages/cancel_check'
+  resource :profile
   resources :houses do
     member do
       get 'open', to: 'houses#open'
@@ -17,8 +19,15 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     resources :bookings
   end
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+end
+
+
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
+
   mount Attachinary::Engine => "/attachinary"
 
   match '/contacts',     to: 'contacts#new', via: 'get'

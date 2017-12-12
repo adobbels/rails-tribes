@@ -9,12 +9,18 @@
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
       <% if current_user.profile.present? %>
-        <%= link_to "Profile", profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+
+        <%= link_to "Profile", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
+<!-- Ajout Stripe -->
         <!-- # TODO ENABLE ONLY IF USER HAS PAYED THE HOUSE  -->
 
-        <% if current_user.profile.bookings.present? && current_user.profile.bookings.last.status.downcase == "paid" %>
+
+        <% if current_user.profile.bookings.present? && current_user.profile.bookings.last.status.downcase == "paid" && %>
+        <% @house = House.find(current_user.profile.bookings.last.house_id) %>
+        <% if @house.idlock.present? && @house.idbridge.present? && @house.ipaddress.present? %>
+
           <div class="flipswitch">
-            <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs" checked>
+            <input type="checkbox" onclick='handleClick(this);' name="flipswitch" class="flipswitch-cb" id="fs" checked >
             <label class="flipswitch-label" for="fs">
               <div class="flipswitch-inner"></div>
               <div class="flipswitch-switch"></div>
@@ -23,11 +29,12 @@
 
 
 
-
-        <%= link_to "open", open_house_path(House.first), remote: true, class: "btn btn-primary" %>
-        <%= link_to "close", close_house_path(House.first), remote: true ,class: "btn btn-danger" %>
+        <%= link_to "open", open_house_path(@house), remote: true, id: "openDoor", class: "hidden" %>
+        <%= link_to "close", close_house_path(@house), remote: true ,id: "closeDoor", class: "hidden" %>
         <% end%>
+        <% end %>
 
+<!-- Fin du master -->
       <% else %>
         <%= link_to "Profile", new_profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end  %>
@@ -41,7 +48,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <% if current_user.profile %>
-                <%= link_to profile_path(current_user) do %>
+                <%= link_to profile_path do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "My Profile") %>
                 <% end %>
               <% end %>
@@ -77,7 +84,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
               <% if current_user && current_user.profile %>
-                <%= link_to profile_path(current_user) do %>
+                <%= link_to profile_path do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "My Profile") %>
                 <% end %>
               <% end %>
@@ -104,3 +111,16 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  function handleClick() {
+    console.log();
+    if (document.getElementById('fs').checked) {
+      // close
+      document.getElementById('closeDoor').click();
+    } else {
+      // open
+      document.getElementById('openDoor').click();
+    }
+  }
+</script>

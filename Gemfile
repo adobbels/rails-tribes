@@ -27,6 +27,8 @@ gem 'jquery-fileupload-rails'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'money-rails'
+gem 'stripe'
 
 gem 'mail_form'
 
