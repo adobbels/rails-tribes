@@ -87,11 +87,11 @@ ActiveRecord::Schema.define(version: 20171212091605) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.integer "price_cents", default: 0, null: false
-    t.string "planid"
     t.string "idlock"
     t.string "ipaddress"
     t.string "idbridge"
+    t.integer "price_cents", default: 0, null: false
+    t.string "planid"
   end
 
   create_table "orders", force: :cascade do |t|
