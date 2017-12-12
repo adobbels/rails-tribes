@@ -10,7 +10,7 @@ gem 'rails', '5.1.4'
 gem 'redis'
 
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-sass'
 gem 'sass-rails'
 gem 'simple_form'
@@ -24,12 +24,18 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
-
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
 gem 'money-rails'
 gem 'stripe'
+
+gem 'mail_form'
+
+gem 'omniauth-facebook'
+
+gem 'meta-tags'
+
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

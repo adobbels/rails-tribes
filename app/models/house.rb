@@ -28,4 +28,5 @@ class House < ApplicationRecord
   :amount => price_cents,
 )
   end
+
 end

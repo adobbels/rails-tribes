@@ -22,28 +22,39 @@ class BookingsController < ApplicationController
     @booking.profile = @profile
     authorize @booking
 
-    if @profile.nil?
-      flash[:alert] = 'Please complete your profile before booking.'
-      return redirect_to new_profile_path(@profile)
-    end
-
-    @profile.attributes.each do |key, value|
-      if value.nil? && key != "biography" && key != "photo"
-        flash[:alert] = 'Please complete your profile before booking.'
-        return redirect_to edit_profile_path(@profile)
-      end
-    end
-
-    if @booking.save
-      flash[:notice] = 'Booking was successfully created.'
-      BookingMailer.creation_confirmation(@booking).deliver_now
-      BookingAdminMailer.admin_creation_confirmation(@booking).deliver_now
-      redirect_to profile_path(@profile)
-    else
-      flash[:alert] = 'Booking has been not created'
-      BookingMailer.no_creation_confirmation(@booking).deliver_now
-      BookingAdminMailer.admin_no_creation_confirmation(@booking).deliver_now
+    if @booking.start_date.nil?
+      flash[:alert] = "Please choose a date !"
       redirect_to house_path(@house)
+    elsif @booking.start_date < DateTime.now
+      flash[:alert] = "Your booking date can't be in the past !"
+      redirect_to house_path(@house)
+    else
+
+      if @profile.nil?
+        flash[:alert] = 'Please complete your profile before booking.'
+        return redirect_to new_profile_path(@profile)
+      end
+
+
+      @profile.attributes.each do |key, value|
+        if value.nil? && key != "biography" && key != "photo"
+          flash[:alert] = 'Please complete your profile before booking.'
+          return redirect_to edit_profile_path(@profile)
+        end
+      end
+
+      if @booking.save
+        flash[:notice] = 'Booking was successfully created.'
+        BookingMailer.creation_confirmation(@booking).deliver_now
+        BookingAdminMailer.admin_creation_confirmation(@booking).deliver_now
+         redirect_to profile_path(@profile)
+      else
+        flash[:alert] = 'Booking has been not created'
+        BookingMailer.no_creation_confirmation(@booking).deliver_now
+        BookingAdminMailer.admin_no_creation_confirmation(@booking).deliver_now
+        redirect_to house_path(@house)
+      end
+
     end
   end
 

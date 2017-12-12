@@ -1,0 +1,101 @@
+.info-group {
+  display: flex;
+  padding: 20px;
+  position: relative;
+
+
+}
+
+.bloc-info {
+margin-bottom: 1px;
+}
+
+.panel-body {
+  padding: 0px;
+  padding-top: 0px;
+}
+
+.panel {
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+
+.panel-heading {
+  background-color: white !important;
+  border-color: #ddd !important;
+  border-bottom: none;
+}
+
+.panel-success {
+  border-color: #ddd;
+}
+
+
+
+.photo-booking-profile {
+  height: 150px;
+  width: 223px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+
+}
+
+.booking-city {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.booking-dashboard {
+display: flex;
+align-items: center;
+}
+.booking-city p {
+  font-size: 16px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+  padding-left: 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.booking-house {
+  font-size: 16px;
+  color: rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+.booking-house {
+  padding-left: 97px;
+  color: rgba(0,0,0,0.4);
+}
+.booking-house strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+
+.booking-status {
+  position: absolute;
+  right: 8em;
+}
+.iziToast {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  vertical-align: center;
+  min-width: 105px;
+}
+.iziToast p {
+  margin: 0px;
+  padding: 0px;
+  line-height: 50px;
+  padding: 0px 20px 0px 20px;
+}
+.btn.btn-rounded.btn-secondary.to-pay {
+  background-color: #50c6e9;
+}
+.btn.btn-rounded.btn-secondary.cancel {
+  background-color: #ff5252;
+}

@@ -1,11 +1,15 @@
-<div class="banner-bas" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
-  <div style="display: flex; align-items: flex-start;">
 
+<% nofollow %>
+<% noindex %>
+
+<div class="banner-profile">
+  <div class="banner-profile-content">
     <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
-    <h2>Welcome <%= @profile.first_name %> !</h2>
+    <h1>Welcome <%= @profile.first_name %> !</h1>
     <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded btn-secondary' %></p>
-    </div>
+  </div>
 </div>
+
 
 <div class="container padding-bottom-3x mb-2">
   <div class="row">

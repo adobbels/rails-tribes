@@ -30,6 +30,7 @@ class ReviewsController < ApplicationController
 
     @review.house = @house
     @review.profile = @profile
+
     if @review.save
       redirect_to house_path(@house)
     else

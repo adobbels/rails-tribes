@@ -14,10 +14,13 @@ height: 225px;
 position:relative;
 }
 
+.only-good-stuff {
+  color: #606975;
+}
 .text-right  {
   position: absolute;
   bottom: 70px;
-  text-align: center;
+  text-align: center !important;
 
 
 }
@@ -48,7 +51,7 @@ position:relative;
 }
 
 .our-vision h3 {
-
+color: #606975;
 }
 
 .our-vision p {

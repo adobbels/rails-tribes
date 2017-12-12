@@ -3,10 +3,26 @@
     <%= cl_image_tag house.photos[0].path, class:"card-img-top" %>
   <% end %>
     <div class="card-body">
+      <div class="bandeau-house">
+        <div class="bandeau-house-ratings">
+
+          <%= render "shared/rating_stars", house: house %>
+        </div>
+        <div class="bandeau-house-profiles">
+          <div class="profiles-absolus">
+            <ul class="list-inline">
+              <% house.bookings.where(house_id: house).where(status: "pending").each_with_index do |booking, i| %>
+                <li style="right: <%= (i) * 25 %>px;"><%= cl_image_tag booking.profile.photo.path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <h4 class="card-title"><%= house.name %></h4>
       <p class="card-text"><%= house.description.first(80) %>...</p>
         <div class="show-this-one">
-        <%= link_to  house_path(house), class:"col-xs-offset-4 btn btn-primary btn-sm" do %>
+        <%= link_to  house_path(house), class:"btn btn-primary btn-sm" do %>
           Show this one
         <% end %>
       </div>

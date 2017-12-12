@@ -16,9 +16,10 @@ House.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-Feature.create!(name: "Television")
-Feature.create!(name: "Wifi")
-Feature.create!(name: "Pets allowed")
+feature_tv = Feature.create!(name: "television")
+feature_wifi = Feature.create!(name: "wifi")
+feature_pets = Feature.create!(name: "paw")
+feature_douche = Feature.create!(name: "shower")
 
 puts "***--- USER & PROFILE CREATION ---***"# USER & PROFILE CREATION
 
@@ -39,6 +40,7 @@ puts "***--- HOUSE MANAGER #1 CREATION ---***"
     country: "France",
     photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512130127/fpoonxdaz3et6ngzu82d.png",
     user_id: user.id,
+    biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   )
 
 puts "***--- HOUSE MANAGER #2 CREATION ---***"
@@ -58,6 +60,7 @@ puts "***--- HOUSE MANAGER #2 CREATION ---***"
     country: "France",
     photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512480876/profil_wkcgwb.png",
     user_id: user.id,
+    biography: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
   )
 
 puts "***--- TENANT #1 CREATION ---***"
@@ -99,7 +102,8 @@ puts "***--- TENANT #2 CREATION ---***"
   )
 
 puts "***--- HOUSE CREATION ---***"# USER & PROFILE CREATION
-House.create!(
+
+h = House.create!(
     name:"Stylish house close to river thames",
     description:"Double and single bedroom in lovely house are available in Baron's Court. Walking distance to river thames at Hammersmith with great traditional English pubs, theatre and restaurants. The Tube station is a short 7 minutes walk away, 16 minutes by tube to Piccadilly Circus (Westend/Soho) 8-10 minutes to Knightsbridge (Harrods) and Hyde Park.There are excellent transport links and direct tubes from Heathrow airport (Piccadilly line) Perfect for an extended holiday or for someone away on business needing a place to stay while away from home. My home is a Classic Victorian terrace house,situated in a quiet location.",
     price_cents: "80000",
@@ -121,10 +125,13 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727250/9_gszjn5.jpg",
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #1 DONE ---***"
 sleep 2
 
-House.create!(
+
+h = House.create!(
     name:"Lorem ipsum dolor sit amet",
     description:"Aliquam sit amet tortor nisi. Proin interdum turpis vitae enim varius, et interdum eros ullamcorper. Morbi venenatis ac odio et luctus. Etiam ultricies diam ipsum, tempor fringilla ante suscipit ac.",
     price_cents: "85000",
@@ -147,9 +154,12 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727562/10_lta0pn.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #2 DONE ---***"
 sleep 2
-House.create!(
+
+h = House.create!(
     name:"consectetur adipiscing elit.",
     description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
     price_cents: "90000",
@@ -169,11 +179,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727747/7_rnepyg.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #3 DONE ---***"
 sleep 2
-House.create!(
-    name:"consectetur adipiscing elit.",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
+
+h = House.create!(
+     name:"The Muse Haus I - Black Sheep.",
+    description:"The Muse Haus is pioneering a new and unique concept of hospitality: it merges accessibility and hotel standard quality with homelike comfort and the privacy of serviced apartments, mobilised and driven by modern internet and smart phone technology. The Muse Haus endeavours to make guests feel at home the moment they enter the house, with the ability to store belongings and food, use of a common kitchen and living space. Mingle with Muse Haus mates or hang out on your own, work, rest or play.",
     price_cents: "77000",
     capacity: "3",
     address:"23 rue de Metz",
@@ -189,11 +202,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727966/5_eyqfny.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #4 DONE ---***"
 sleep 2
-House.create!(
-    name:"Lorem ipsum dolor sit amet.",
-    description:"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+
+h = House.create!(
+    name:"Designer Artist Studio.",
+    description:"arrive in under 30mins from Heathrow - 20mins heathrow express 4mins taxi or 8mins walk - 2 blocks away from Paddington station. Indulge yourself in this spectacular former studio of full of carefully curated pieces- Ideal for business travel as its secure with furniture and finishes to rival hotel suites at the Ritz or Lansborough Hotels. We can arrange concierge service. We are super excited to star in Plum Guide award for top 254 properties (2017) out if 25 hosting sites 40,000 properties",
     price_cents: "82500",
     capacity: "4",
     address:"23 Avenue de l'Hippodrome",
@@ -212,11 +228,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728060/8_t8amur.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #5 DONE ---***"
 sleep 2
-House.create!(
-    name:"Lorem ipsum dolor sit amet.",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere purus ac ex volutpat, ut lobortis ligula.",
+
+h = House.create!(
+    name:"Cute & Cosy 1 bed flat in Vauban.",
+    description:"A pretty and bright one bed flat with great balcony and fantastic views across South London. It is a located a short walk from Kennington tube with excellent transport links into the centre.",
     price_cents: "72500",
     capacity: "8",
     address:"23 rue Godefroy",
@@ -235,11 +254,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728791/8_w0hj9w.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #6 DONE ---***"
 sleep 2
-House.create!(
-    name:"vitae porttitor elit dui vitae felis.",
-    description:"Nunc ornare auctor nibh, ac pellentesque neque ultricies rhoncus. Cras vehicula, odio eget pharetra varius, metus turpis efficitur erat, quis sagittis eros massa et leo.",
+
+h = House.create!(
+    name:"Gorgeous Glass Box Penthouse (w/Huge room & wine)!.",
+    description:"Please only women and couples, thank you for your understanding. Kick back, relax, indulge in free wine as you sit and enjoy the stunning London skyline. An exceptional, elegant, architect-designed flat the Glass Box penthouse is extended by a private roof terrace with a floral bistro setting. 5 mins to the nearest tube station, the Glass Box is based near the center of London equipped with all the essentials. Your large private room is awaiting...all you need to do is bring you & a suitcase!",
     price_cents: "77500",
     capacity: "8",
     address:"74 Avenue du Maréchal Foch",
@@ -264,11 +286,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728569/14_bxnarq.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #7 DONE ---***"
 sleep 2
-House.create!(
-    name:"Maecenas porttitor lorem et accumsan vulputate",
-    description:"Nulla molestie aliquet turpis, in ultrices sem egestas consequat. Morbi feugiat fermentum neque, sed rhoncus magna faucibus eget. Nulla eleifend lacus vitae placerat ornare.",
+
+h = House.create!(
+    name:"Flat Fantastic Location Near Nationale Street",
+    description:"Luxury modern one king bedroom top floor flat, openzen like living room & fully equipped kitchen in the heart of central london. High end furnishing and pieces. Less than 2 minutes walk from Goodge street station (links to Oxford circus & Leicester square). The apartment is in a quiet location within the Fitzrovia district of W1 , only 50 metres from popular Charlotte Street and a short walk from leafy Soho Square. Near London's best bars, restaurants, cafes, West end for shopping!",
     price_cents: "90000",
     capacity: "8",
     address:"103 avenue Foch",
@@ -283,11 +308,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/4_ffjlci.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #8 DONE ---***"
 sleep 2
-House.create!(
-    name:"Curabitur faucibus arcu orci",
-    description:"Vivamus ipsum massa, mollis id viverra tincidunt, rutrum sit amet magna. Suspendisse nibh risus, scelerisque id molestie vitae, tincidunt euismod lorem. Nam lacinia vestibulum velit nec congue. Aliquam scelerisque tortor eu odio iaculis viverra.",
+
+h = House.create!(
+    name:"Large 2 Bedroom Central Wimbledon Flat",
+    description:"Our vast modern 2 bedroom flat in quiet location in Central Wimbledon is 2-3 minutes walk from Wimbledon Station with frequent trains to Central London taking less than 20 mins and running late into the night. Local shops, restaurants and bars including San Lorenzo and Sushi and Sticks are even closer. Other local facilities include Wimbledon and Polka Childrens Theatres, Wimbledon library, two gyms and a cinema. Walking distance to Wimbledon Village, Common and of course WIMBLEDON TENNIS.",
     price_cents: "69000",
     capacity: "8",
     address:"19 rue Alsace Lorraine",
@@ -305,11 +333,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728995/7_s9uptb.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #9 DONE ---***"
 sleep 2
-House.create!(
-    name:"Lorem ipsum dolor sit amet 1",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+
+h = House.create!(
+    name:"Beautiful flat in heart of Hackney",
+    description:"Welcome to Hackney! One of the most vibrant and creative parts of London. Your own appartement in the heart of Dalston. A beautiful bright space in a Victorian period building.  We created great room volume through making the traditional London butterfly roof visible. Not far from Central London, connected through 3 near by Overground stations and multiple bus stops.Broadway Market, two parks and Regents Canal are easy to reach by foot. A perfect starting point to explore London.",
     price_cents: "78000",
     capacity: "6",
     address:"16 rue Voltaire",
@@ -330,11 +361,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/10_lgmudl.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #10 DONE ---***"
 sleep 2
-House.create!(
-    name:"Lorem ipsum dolor sit amet",
-    description:"Aliquam sit amet tortor nisi. Proin interdum turpis vitae enim varius, et interdum eros ullamcorper. Morbi venenatis ac odio et luctus. Etiam ultricies diam ipsum, tempor fringilla ante suscipit ac.",
+
+h = House.create!(
+    name:"Stunning NY loft style S/C studio",
+    description:"Peaceful, light, bright, self catering studio in converted attic of large house. 35 sqm private space and 3m high ceiling. Ensuite shower. Same day service wash and dry cleaning less than 100 yards. Sheets and towel change once a week for longer lets. Cleaner charge £10.00 added to each booking. Fast broadband access/ Wi-fi. Close to Jubilee line and overground Brondesbury at Cricklewood, West Hampstead , easy access to numerous major train stations, airports, centre of town. Residents parking only or pay and display. The neighbourhood is mainly family based , residential, leafy, Victorian /Edwardian red brick houses with large gardens. Friendly and safe. Many Persian restaurants, Eastern European delicatessens and famous bagel bakery , near the Jewish quarter of London. Very multi cultural. Not far from Brent Cross shopping centre or Ikea at Wembley. Easy access to Oxford Street/ Covent Garden and the centre for shopping , also easy access to Portobello and Notting Hill. I have hosted ( short term lets in my previous property ) for about 5 years and have always had fantastic feedback and fabulous lodgers.  Huge success with Airbnb.",
     price_cents: "86000",
     capacity: "8",
     address:"73 rue Eugène Jacquet",
@@ -354,11 +388,14 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/9_alkwii.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #11 DONE ---***"
 sleep 2
-House.create!(
-    name:"consectetur adipiscing elit.",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
+
+h = House.create!(
+    name:"Central Scandi Boutique Style Studio - Hyde Park.",
+    description:"Fancy some local life in London? Then our Scandi style studio is the right pick for you. Centrally located, next to Hyde Park & Kensington Gardens, close to Notting Hill & Portobello Road, Oxford Street & Marylebone. You get a fantastic and safe location, a cool & trendy neighbourhood, great restaurants, shops, markets & leisure facilities. Convenient for arrival and departure from/to all airports! Underground: Queensway (Central), Bayswater (Victoria & Circle Line) Several bus stops",
     price_cents: "79000",
     capacity: "4",
     address:"23 allée des Mésanges",
@@ -373,6 +410,8 @@ House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/4_qin0cp.jpg"
                 ]
   )
+HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #12 DONE ---***"
 sleep 2
 puts "***--- SEEDS DONE ---***"

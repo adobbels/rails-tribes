@@ -15,6 +15,7 @@ background-position: 25% 75%;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   font-family: 'Nunito Sans', sans-serif;
+  color: white;
 
 }
 
@@ -43,4 +44,11 @@ background-position: 25% 75%;
   margin-top: 70px;
   bottom: 4.5em;
 
+}
+
+
+.banner-bas input[type="submit"] {
+  background: none;
+  border: solid 0.2em;
+  padding: 1em 1.5em;
 }
