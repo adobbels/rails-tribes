@@ -2,55 +2,113 @@
 <% nofollow %>
 <% noindex %>
 
-<div class="banner-profile">
-  <div class="banner-profile-content">
-    <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
-    <h1>Welcome <%= @profile.first_name %> !</h1>
-    <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded btn-secondary' %></p>
+
+<section class="dashboard__header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <h1>Hello <%= @profile.first_name %> !</h1>
+          <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded' %></p>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
+<section class="dashboard__mydetails margin-top-50">
+  <div class="container">
+    <h2>My Details </h2>
+      <hr>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <p><strong>First Name:</strong> <%= @profile.first_name%></p>
+        <p><strong>Last Name:</strong> <%= @profile.last_name %></p>
+        <p><strong>Birthday:</strong> <%= @profile.birthday %></p>
+        <p><strong>Adress:</strong> <%= @profile.address %></p>
+      </div>
 
-<div class="container padding-bottom-3x mb-2">
-  <div class="row">
-    <div class="col-lg-9 col-md-8 push-lg-3 push-md-4">
-      <h6 class="text-muted text-normal text-uppercase">Tabs with Dropdown</h6>
-      <hr class="margin-bottom-1x">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item"><a class="nav-link active" href="#home1" data-toggle="tab" role="tab"><i class="icon-help"></i>My Journeys</a></li>
-        <li class="nav-item"><a class="nav-link" href="#payment1" data-toggle="tab" role="tab">My Payments</a></li>
-        <li class="nav-item"><a class="nav-link" href="#profile1" data-toggle="tab" role="tab"></i>My Profile</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane fade show active" id="home1" role="tabpanel">
-        <% current_user.profile.bookings.each do |booking|%>
-          <div style="display: flex; align-items: center">
-            <p><%= cl_image_tag booking.house.photos[0].path , class: "avatar" %></p>
-            <p><%= booking.house.city %></p>
-            <p><%= booking.start_date %></p>
-            <p><%= booking.house.name %></p>
+      <div class="col-xs-12 col-md-6">
+        <p><strong>Post Code:</strong> <%= @profile.post_code%></p>
+        <p><strong>City:</strong> <%= @profile.city %></p>
+        <p><strong>Country:</strong> <%= @profile.country %></p>
+        <p><strong>Phone Number:</strong> <%= @profile.phone_number%></p>
+      </div>
 
-            <% if booking.status.downcase === "to be paid" %>
-              <%= form_tag orders_path do %>
-                <%= hidden_field_tag 'house_id', booking.house_id %>
-                <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-              <% end %>
+    </div>
 
-            <% elsif booking.status.downcase === "paid"%>
-              <%= link_to  "End your journey",  pages_cancel_check_path  %>
-              <%= link_to "Add a review", new_house_review_path(:house_id)%>
-            <% else  %>
-              <p><%= booking.status.capitalize %></p>
-            <% end %>
+    <div class="row">
+      <div class="col-xs-12 biography">
+        <p><strong>Biography:</strong> <%= @profile.biography%></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dashboard__myjourney padding-top-50">
+  <div class="container">
+    <h2>My Journeys</h2>
+    <hr>
+
+    <% @profile.bookings.each do |booking| %>
+      <div class="reservation-items">
+        <div class="row">
+          <div class="house-item">
+
+            <div class="col-xs-12 col-md-3">
+              <div class="item-house">
+                <div class="item-house-image">
+                  <%= cl_image_tag booking.house.photos[0].path %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+              <div class="house-details">
+                <div>
+                <p><%= booking.house.city %></p>
+                <p><%= booking.start_date%></p>
+                <p><%= booking.house.name%></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-md-3">
+              <div class="reservation-status">
+
+                <%case booking.status.downcase %>
+                  <% when "pending" %>
+                    <p class="status">Pending</p>
+                  <% when "to be paid"  %>
+                    <%= form_tag orders_path do %>
+                      <%= hidden_field_tag 'house_id', booking.house_id %>
+                      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                    <% end %>
+                  <% when "paid" || "validates" %>
+                    <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path  %></p>
+                    <p class="btn"><%= link_to "Add a review", new_house_review_path(:house_id) %></p>
+                  <% else %>
+                    <p class="status">Pending</p>
+                <% end%>
+
+              </div><!-- Fin de reservation status-->
+            </div><!-- Fin du col -->
           </div>
-        <% end%>
+        </div><!-- Fin de la row-->
+      </div><!-- Fin de reservation-items -->
+      <hr>
+    <% end %>
+  </div><!-- Fin du container -->
+</section>
 
-        </div>
-<!-- Payments tab -->
-        <div class="tab-pane fade" id="payment1" role="tabpanel">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="Mypayments">
+        <h2>My Payments</h2>
           <% if @customer %>
-            <h2>Next Payment details</h2>
-
+            <h3>Next Payment details</h3>
               <% if @upcoming_invoice%>
                 <p>Next Payment Date <%= Time.at(@upcoming_invoice["next_payment_attempt"]).strftime("%m/%d/%Y") %></p>
                 <p>Period : From <%= Time.at(@upcoming_invoice["period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(@upcoming_invoice["period_end"]).strftime("%m/%d/%Y") %></p>
@@ -58,42 +116,29 @@
               <% else  %>
                 <p>No further payments to come</p>
               <% end  %>
-            <h2>Last Payments</h2>
-            <% @orders.each do |order| %>
-              <div>
-                <p>Payment Date : <%= order.created_at.strftime("%m/%d/%Y") %></p>
-                <p>Period : From <%= Time.at(JSON.parse(order.payment)["current_period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(JSON.parse(order.payment)["current_period_end"]).strftime("%m/%d/%Y") %></p>
-                <p>State : <%= order.state.capitalize %></p>
-              </div>
-            <% end %>
+            <h3>Last Payments</h3>
+              <% @orders.each do |order| %>
+                <div>
+                  <p>Payment Date : <%= order.created_at.strftime("%m/%d/%Y") %></p>
+                  <p>Period : From <%= Time.at(JSON.parse(order.payment)["current_period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(JSON.parse(order.payment)["current_period_end"]).strftime("%m/%d/%Y") %></p>
+                  <p>State : <%= order.state.capitalize %></p>
+                </div>
+              <% end %>
 
             <h3>Stripe Customer Invoices</h3>
               <% @invoices.each do |invoice| %>
                 <p><%= "Invoice number :  #{invoice.id} " %></p>
                 <p><%= "Invoice Start Periode :  #{invoice.id} " %></p>
+              <% end  %>
+            <% else %>
+              <h3>No Payment yet</h3>
             <% end  %>
-          <% else %>
-          <h2>No Payment yet</h2>
-          <% end  %>
-        </div>
-<!-- Profile tab -->
-        <div class="tab-pane fade" id="profile1" role="tabpanel">
-          <p><%= @profile.first_name %></p>
-          <p><%= @profile.last_name %></p>
-          <p><%= @profile.address %></p>
-          <p><%= @profile.city %></p>
-          <p><%= @profile.post_code %></p>
-          <p><%= @profile.country %></p>
-          <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded btn-secondary' %></p>
-        </div>
-      </div>
-    </div>
+          </div>
   </div>
+
+  </div>
+  </div><!-- Fin de la Row-->
 </div>
-
-
-
-
 
 
 
