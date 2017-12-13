@@ -6,6 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+puts "***--- DELETING STRIPE PLANS ---***"
+if Stripe::Plan.list.first.nil?
+else
+  all_stripe_plans = Stripe::Plan.list
+  all_stripe_plans.each do |plan|
+   plan_id = plan.id
+  plan = Stripe::Plan.retrieve(plan_id)
+  plan.delete
+  end
+fail
+end
+
+puts "***--- STRIPE PLANS DELETED ---***"
+
 puts "***--- SEEDING PROCESS ---***"
 
 Feature.destroy_all

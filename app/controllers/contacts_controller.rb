@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new]
+
   def new
     skip_authorization
     @contact = Contact.new
@@ -16,4 +18,5 @@ class ContactsController < ApplicationController
       render :new
     end
   end
+
 end

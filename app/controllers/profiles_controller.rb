@@ -32,6 +32,7 @@ class ProfilesController < ApplicationController
   end
 
   def new
+    skip_authorization
     @profile = Profile.new
     skip_authorization
   end

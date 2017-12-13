@@ -38,7 +38,7 @@
 
             <% elsif booking.status.downcase === "paid"%>
               <%= link_to  "End your journey",  pages_cancel_check_path  %>
-              <%= link_to "Add a review", new_house_review_path(:house_id)%>
+              <%= link_to "Add a review", new_house_review_path(booking.house)%>
             <% else  %>
               <p><%= booking.status.capitalize %></p>
             <% end %>

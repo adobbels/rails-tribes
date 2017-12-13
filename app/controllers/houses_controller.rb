@@ -81,6 +81,7 @@ class HousesController < ApplicationController
     authorize @house
     nuki = NukiLock.new(@house.idlock, @house.idbridge, @house.ipaddress)
     nuki.close
+
     respond_to do |format|
       format.js
     end
@@ -88,6 +89,6 @@ class HousesController < ApplicationController
 
   private
   def house_params
-  params.require(:house).permit(:name, :price_cents, :capacity, :description, :photos [], :address, :post_code, :city, :country, :idlock, :idbridge, :ipaddress)
+  params.require(:house).permit(:name, :price_cents, :capacity, :description, :photos [], :address, :post_code, :city, :country, :house_id, :idlock, :idbridge, :ipaddress)
   end
 end

@@ -1,7 +1,7 @@
-<h1>Order</h1>
+<h1>Welcome on board !</h1>
+<p>Please find the details of your booking here below :</p>
 <ul>
   <li>Status: <%= @order.state %></li>
-  <li>House id: <%= @order.house_id %></li>
   <li>House name: <%= @order.house_id %></li>
 
   <li>Amount: <%= humanized_money_with_symbol(@order.amount.to_i / 100) %></li>
