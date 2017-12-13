@@ -54,12 +54,12 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "/" do %>
+              <%= link_to profile_path(current_user.profile) do %>
                 <i class="fa fa-credit-card"></i>  <%= t(".profile", default: "My Payments") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "/" do %>
+              <%= link_to profile_path(current_user.profile) do %>
                 <i class="fa fa-clock-o"></i>  <%= t(".sign_out", default: "My Bookings") %>
               <% end %>
             </li>
