@@ -62,6 +62,7 @@
           <div class="body-info-review padding-top-50">
             <div class="liste">
               <h2>Reviews</h2>
+              <div class="ratings-moyenne">
               <% if @house.reviews.count != 0 %>
                 <% stars = (@house_ratings / @house.reviews.count) %>
                 <% if stars < 5 %>
@@ -81,11 +82,12 @@
                   <i class="fa fa-star-o" aria-hidden="true"></i>
                 <% end %>
               <% end%>
+            </div>
 
               <% @reviews = @house.reviews%>
               <% if @house.reviews %>
                 <% @reviews.each do |review| %>
-                  <div class="message">
+                  <div class="message-ratings">
                     <%= cl_image_tag review.profile.photo.path, class: "avatar-navbar"%>
                     <div class="message-body">
                       <p><strong><%=review.profile.city.capitalize%></strong></p>
@@ -95,7 +97,7 @@
                       <p><strong><%= review.title_review%></strong></p>
                       <p><%=review.content_review%></p>
                     </div>
-                    <div class="message-rating">
+                    <div class="message-body-ratings">
                       <% review.rating.times do %>
                       <i class="fa fa-star" aria-hidden="true"></i>
                       <% end %>
