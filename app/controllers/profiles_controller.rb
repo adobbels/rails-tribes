@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
   # before_action :skip_pundit, only: :new
   def index
-    @profiles = Profile.all
+    @profiles = policy_scope(Profile)
+    authorize @profiles
   end
 
   def show
