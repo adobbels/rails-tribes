@@ -46,12 +46,12 @@
             <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar dropdown-toggle hidden-xs", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end  %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
               <% if current_user.profile %>
+            <li>
                 <%= link_to profile_path(current_user.profile) do %>
                   <i class="fa fa-user"></i> <%= t(".profile", default: "My Profile") %>
                 <% end %>
-              <% end %>
+
             </li>
             <li>
               <%= link_to profile_path(current_user.profile) do %>
@@ -63,6 +63,7 @@
                 <i class="fa fa-clock-o"></i>  <%= t(".sign_out", default: "My Bookings") %>
               <% end %>
             </li>
+            <% end %>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
