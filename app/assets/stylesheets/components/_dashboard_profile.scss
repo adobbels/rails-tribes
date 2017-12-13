@@ -29,3 +29,28 @@ width: 100%;
 .biography {
   margin-top: 30px;
 }
+
+
+.dashboard-header {
+display: flex;
+justify-content: center;
+width: 100%;
+}
+
+.titre-profile {
+  text-align: center;
+}
+.mydetail1 {
+  text-align: center;
+  justify-content: center;
+  padding-left: 40px;
+
+}
+
+
+.reservation-status {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
