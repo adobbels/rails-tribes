@@ -5,8 +5,12 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
+    def new?
+      create?
+    end
+
     def create?
-      true #Tous les users peuvent créer des reviews
+      true
     end
 
     def destroy?
