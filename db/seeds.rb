@@ -16,7 +16,6 @@ else
   plan = Stripe::Plan.retrieve(plan_id)
   plan.delete
   end
-fail
 end
 
 puts "***--- STRIPE PLANS DELETED ---***"
