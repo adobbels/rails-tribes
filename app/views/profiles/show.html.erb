@@ -89,7 +89,7 @@
                     <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path, class: 'btn btn-primary' %></p>
                     <p class="btn"><%= link_to "Add a review", new_house_review_path(:house_id), class: 'btn btn-primary' %></p>
                   <% else %>
-                    <p class="status">Pending</p>
+                    <p class="status"><%= booking.status.capitalize %></p>
                 <% end%>
 
               </div><!-- Fin de reservation status-->
