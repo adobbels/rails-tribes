@@ -1,4 +1,8 @@
-<div class="containerprof" style="background-image: url('http://res.cloudinary.com/dwkqph9as/image/upload/v1511970291/BannerImage_vp7iqa.jpg');">
+<div class="title" style="text-align: center; height:30px; margin-top: 100px;">
+  <i class="fa fa-sign-in fa-5x" aria-hidden="true"><h2>Please, Sign-Up !</h2></i>
+</div>
+
+<div class="containerprof" >
   <div class="containerformprofile" style="text-align: center;">
     <div class="row" style=" height: 380px;">
       <div class="col-xs-12 col-md-12">
@@ -7,9 +11,9 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true %>
-            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-            <%= f.input :password_confirmation, required: true %>
+            <%= f.input :email, required: true, autofocus: true , input_html: {style: 'height:35px;'}%>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: {style: 'height:35px;'} %>
+            <%= f.input :password_confirmation, required: true , input_html: {style: 'height:35px;'}%>
           </div>
 
           <div class="form-actions">
