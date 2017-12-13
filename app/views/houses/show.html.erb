@@ -1,95 +1,125 @@
 <% title "Coliving in #{@house.name}" %>
 <% description "See the details of this house" %>
 <!-- Beautiful and cozy yet spacious Hollywood home. This duplex was remodeled in 2016 and is appointed with all the comforts you could ever want in a home away from home. -->
-  <div class="bloc-house">
-    <div id="formhousebooking">
-      <%= render "shared/formshowhouse" %>
+
+<section class="house-header ">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="house__slider">
+        <%= render 'shared/caroussel2' %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="house__info">
+        <div>
+          <div class="house__info-title">
+            <p>Coliving in</p>
+            <h3> <%= @house.name %></h3>
+          </div>
+          <div class="house__info-description">
+            <br>
+            <br>
+            <div id="formhousebooking">
+              <%= render "shared/formshowhouse" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="caroussel-show">
-    <%= render 'shared/caroussel2' %>
-    <div class="titre-house-info">
+</section>
 
-      <h1>Coliving in <%= @house.name %></h1>
-
-      <p><%= @house.description %></p>
-    </div>
-  </div>
-
-<!-- Debut du travail de Maxime -->
-  <div class="main-container">
-    <div class="description-container">
-        <div class="row">
-          <div class=" col-xs-12 bloc-list">
-
+<section class="house__body padding-bottom-100 padding-top-50">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="house__body-info padding-top-50">
+          <div class="body-info-capacity">
             <div class="capacity-restante">
-              <p>Remaining Capacity: <%= @house.capacity - @bookings_house.count %></p>
+              <p>
+                Remaining Capacity: <%= @house.capacity - @bookings_house.count %>
+              </p>
+              <div class="liste">
+                <h2>Description</h2>
+                <p><%= @house.description %></p>
+              </div>
+              <div class="liste">
+                <h2>Capacity</h2>
+                <p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity%></p>
+              </div>
             </div>
+          </div>
 
-            <div class="liste">
-              <h2>Capacity</h2>
-              <p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity%></p>
-            </div>
+          <div class="body-info-amenities padding-top-50">
             <div class="liste">
               <h2>Amenities</h2>
-                <div id="features">
-                  <%= render "shared/feature_list" %>
-                </div>
+              <div id="features">
+                <%= render "shared/feature_list" %>
+              </div>
             </div>
-            <h2>Reviews</h2>
-<!-- Fin du travail de Maxime -->
+          </div>
 
-            <% if @house.reviews.count != 0 %>
-              <% stars = (@house_ratings / @house.reviews.count) %>
+          <div class="body-info-review padding-top-50">
+            <div class="liste">
+              <h2>Reviews</h2>
+              <% if @house.reviews.count != 0 %>
+                <% stars = (@house_ratings / @house.reviews.count) %>
                 <% if stars < 5 %>
                   <% stars.times do %>
                     <i class="fa fa-star" aria-hidden="true"></i>
                   <% end %>
 
-                <% stars_vides = 5 - stars %>
+                  <% stars_vides = 5 - stars %>
                   <% stars_vides.times do %>
                     <i class="fa fa-star-o" aria-hidden="true"></i>
                   <% end %>
                 <% end %>
-            <% end %>
+              <% end %>
 
-             <% if @house.reviews.count == 0 %>
-                  <% 5.times do %>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <% end %>
+              <% if @house.reviews.count == 0 %>
+                <% 5.times do %>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                <% end %>
               <% end%>
 
-
-
-            <% @reviews = @house.reviews%>
-            <% if @house.reviews %>
-              <% @reviews.each do |review| %>
-                <div class="message">
-                  <%= cl_image_tag review.profile.photo, class: "avatar-navbar"%>
-                  <div class="message-body">
-                    <p><strong><%=review.profile.city.capitalize%></strong></p>
-                    <p><%=review.created_at%></p>
+              <% @reviews = @house.reviews%>
+              <% if @house.reviews %>
+                <% @reviews.each do |review| %>
+                  <div class="message">
+                    <%= cl_image_tag review.profile.photo, class: "avatar-navbar"%>
+                    <div class="message-body">
+                      <p><strong><%=review.profile.city.capitalize%></strong></p>
+                      <p><%=review.created_at%></p>
+                    </div>
+                    <div class="message-body" >
+                      <p><strong><%= review.title_review%></strong></p>
+                      <p><%=review.content_review%></p>
+                    </div>
+                    <div class="message-status">
+                    </div>
                   </div>
-                  <div class="message-body" >
-                    <p><strong><%= review.title_review%></strong></p>
-                    <p><%=review.content_review%></p>
-                  </div>
-                  <div class="message-status">
-                  </div>
-                </div>
+                <%end%>
               <%end%>
-            <%end%>
+            </div>
+          </div>
+
+          <div class="body-info-review padding-top-50">
+            <div id="biographies">
+              <h2>Current Tenants</h2>
+              <div class="liste">
+                <%= render "shared/biography" %>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
+</section>
+
 
 
   <!-- Espace Biographie-->
-  <div id="biographies">
-    <h2>Current Tenants</h2>
-    <%= render "shared/biography" %>
-  </div>
 
 
   <div class="map_show">

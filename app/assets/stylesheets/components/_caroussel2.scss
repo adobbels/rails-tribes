@@ -1,8 +1,9 @@
 .mySlides {
   display: none;
-height: 100vh;
-width: 821px;
-
+  height: 70vh;
+  width: 100%;
+  background-size: cover;
+  position: relative;
 }
 .w3-left, .w3-right, .w3-badge {cursor:pointer}
 .w3-badge {height:13px;width:13px;padding:0}
@@ -10,13 +11,12 @@ width: 821px;
 
 .caroussel-show{
   display: flex;
-  position: relative;
   z-index: 1;
 }
 .w3-left.w3-hover-text-khaki {
   position: absolute;
-  left: 17px;
-  top: 329px;
+  left: 40px;
+  top: 50%;
   font-size: 50px;
   color: white;
 }
@@ -24,8 +24,8 @@ width: 821px;
   padding: 0px;
   margin: 0px;
   position: absolute;
-  right: 577px;
-  top: 329px;
+  right: 40px;
+  top: 50%;
   font-size: 50px;
   color: white;
 }
