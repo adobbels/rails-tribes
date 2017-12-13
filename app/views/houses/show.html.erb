@@ -95,7 +95,14 @@
                       <p><strong><%= review.title_review%></strong></p>
                       <p><%=review.content_review%></p>
                     </div>
-                    <div class="message-status">
+                    <div class="message-rating">
+                      <% review.rating.times do %>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <% end %>
+                      <% stars_vides = 5 - review.rating %>
+                      <% stars_vides.times do %>
+                      <i class="fa fa-star-o" aria-hidden="true"></i>
+                      <% end %>
                     </div>
                   </div>
                 <%end%>
