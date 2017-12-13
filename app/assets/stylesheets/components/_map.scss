@@ -6,7 +6,7 @@
 }
 .house-main {
   display: flex;
-  @media all and (max-width: 414px){
+  @media all and (max-width: 700px){
     .map-index {
       display: none;
     }
