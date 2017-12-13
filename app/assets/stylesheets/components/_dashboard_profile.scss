@@ -1,0 +1,31 @@
+.dashboard__header {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.house-item {
+  width:100%;
+  height:100%;
+}
+
+.item-house {
+  display:flex;
+  align-items:center;
+  justify-content: flex-start;
+}
+
+.item-house img {
+  position: cover !important;
+  // position: center;
+}
+
+.house-details {
+display: flex;
+align-items: center;
+height: 100%;
+width: 100%;
+}
+.biography {
+  margin-top: 30px;
+}
