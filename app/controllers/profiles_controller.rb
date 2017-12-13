@@ -27,11 +27,11 @@ class ProfilesController < ApplicationController
   end
 
   def new
+    skip_authorization
     @profile = Profile.new
     @profile.first_name = current_user.first_name
     @profile.last_name = current_user.last_name
     # authorize @profile
-    skip_authorization
   end
 
   def create
