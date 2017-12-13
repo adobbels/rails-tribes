@@ -25,3 +25,15 @@
   text-align: left;
   border-bottom: 1px solid rgba(220,224,244,0.4);
 }
+
+#formhousebooking input[type="submit"] {
+  background: none;
+  border: solid 0.2em;
+  padding: 1em 1.5em;
+}
+
+#formhousebooking:hover input[type="submit"] {
+background-color: red;
+  border: solid 0.2em;
+
+}
