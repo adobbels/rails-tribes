@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+zclass ContactsController < ApplicationController
   def new
     skip_authorization
     @contact = Contact.new
