@@ -32,7 +32,7 @@ class HousesController < ApplicationController
       marker.lng house.longitude
       # marker.infowindow render_to_string(partial: "/houses/map_box", locals: { house: house })
     end
-    @bookings_house = Booking.all.where(house_id: @house).where(status: "Validates")
+    @bookings_house = Booking.all.where(house_id: @house).where(status: "paid")
 
     @house_ratings = 0
     @house.reviews.each do |review| @house_ratings += review.rating end
