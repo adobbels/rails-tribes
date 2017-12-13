@@ -39,7 +39,7 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-12 biography">
+      <div class="col-xs-12">
         <p><strong>Biography:</strong> <%= @profile.biography%></p>
       </div>
     </div>
@@ -86,8 +86,8 @@
                       <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
                     <% end %>
                   <% when "paid" || "validates" %>
-                    <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path  %></p>
-                    <p class="btn"><%= link_to "Add a review", new_house_review_path(:house_id) %></p>
+                    <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path, class: 'btn btn-primary' %></p>
+                    <p class="btn"><%= link_to "Add a review", new_house_review_path(:house_id), class: 'btn btn-primary' %></p>
                   <% else %>
                     <p class="status">Pending</p>
                 <% end%>
