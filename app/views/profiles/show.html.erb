@@ -108,42 +108,42 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="Mypayments">
-        <h2>My Payments</h2>
-          <hr>
-          <% if @customer %>
-            <h3>Next Payment details</h3>
-              <% if @upcoming_invoice%>
-                <p>Next Payment Date <%= Time.at(@upcoming_invoice["next_payment_attempt"]).strftime("%m/%d/%Y") %></p>
-                <p>Period : From <%= Time.at(@upcoming_invoice["period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(@upcoming_invoice["period_end"]).strftime("%m/%d/%Y") %></p>
-                <p>Amount due €<%= @upcoming_invoice["amount_due"] / 100 %></p>
-              <% else  %>
-                <p>No further payments to come</p>
-              <% end  %>
-            <h3>Last Payments</h3>
-              <% @orders.each do |order| %>
-                <div>
-                  <p>Payment Date : <%= order.created_at.strftime("%m/%d/%Y") %></p>
-                  <p>Period : From <%= Time.at(JSON.parse(order.payment)["current_period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(JSON.parse(order.payment)["current_period_end"]).strftime("%m/%d/%Y") %></p>
-                  <p>State : <%= order.state.capitalize %></p>
-                </div>
-              <% end %>
+      <h2>My Payments</h2>
+        <hr>
+        <% if @customer %>
+          <h3>Next Payment details</h3>
+          <% if @upcoming_invoice%>
+            <p>Next Payment Date <%= Time.at(@upcoming_invoice["next_payment_attempt"]).strftime("%m/%d/%Y") %></p>
+            <p>Period : From <%= Time.at(@upcoming_invoice["period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(@upcoming_invoice["period_end"]).strftime("%m/%d/%Y") %></p>
+            <p>Amount due €<%= @upcoming_invoice["amount_due"] / 100 %></p>
+          <% else  %>
+            <p>No further payments to come</p>
+          <% end  %>
 
-            <h3>Stripe Customer Invoices</h3>
-              <% @invoices.each do |invoice| %>
-                <p><%= "Invoice number :  #{invoice.id} " %></p>
-                <p><%= "Invoice Start Periode :  #{invoice.id} " %></p>
-              <% end  %>
-            <% else %>
-              <div class="row profile_bio">
-                <div class="col-xs-12">
-                  <p><strong>Too bad.</strong> It seems you didn't book your room yet! Don't lose time and check your next home <%= link_to "here", houses_path%> !</p>
-                </div>
-              </div>
-            <% end  %>
+          <h3>Last Payments</h3>
+          <% @orders.each do |order| %>
+            <div>
+              <p>Payment Date : <%= order.created_at.strftime("%m/%d/%Y") %></p>
+              <p>Period : From <%= Time.at(JSON.parse(order.payment)["current_period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(JSON.parse(order.payment)["current_period_end"]).strftime("%m/%d/%Y") %></p>
+              <p>State : <%= order.state.capitalize %></p>
+            </div>
+          <% end %>
+
+          <h3>Stripe Customer Invoices</h3>
+          <% @invoices.each do |invoice| %>
+            <p><%= "Invoice number :  #{invoice.id} " %></p>
+            <p><%= "Invoice Start Periode :  #{invoice.id} " %></p>
+          <% end  %>
+        <% else %>
+          <div class="row profile_bio">
+            <div class="col-xs-12">
+              <p><strong>Too bad.</strong> It seems you didn't book your room yet! Don't lose time and check your next home <%= link_to "here", houses_path%> !</p>
+            </div>
           </div>
-  </div>
+        <% end  %>
 
-  </div>
+      </div>
+    </div>
   </div><!-- Fin de la Row-->
 </div>
 
