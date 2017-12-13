@@ -4,40 +4,42 @@
 
 
 <section class="dashboard__header">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-3">
+  <div class="dashboard-header">
+      <div class="titre-profile">
         <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
-      </div>
-      <div class="col-xs-12 col-md-9">
         <h1>Hello <%= @profile.first_name %> !</h1>
-          <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded' %></p>
+        <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded' %></p>
       </div>
-    </div>
   </div>
 </section>
 
 <section class="dashboard__mydetails margin-top-50">
   <div class="container">
-    <h2>My Details </h2>
+    <div class="titre-profile">
+      <h2>My Details </h2>
+    </div>
       <hr>
     <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <p><strong>First Name:</strong> <%= @profile.first_name%></p>
-        <p><strong>Last Name:</strong> <%= @profile.last_name %></p>
-        <p><strong>Birthday:</strong> <%= @profile.birthday %></p>
-        <p><strong>Adress:</strong> <%= @profile.address %></p>
+      <div class="col-md-4 col-md-offset-1">
+        <div class="mydetail1">
+          <p><strong>First Name:</strong> <%= @profile.first_name%></p>
+          <p><strong>Last Name:</strong> <%= @profile.last_name %></p>
+          <p><strong>Birthday:</strong> <%= @profile.birthday %></p>
+          <p><strong>Adress:</strong> <%= @profile.address %></p>
+        </div>
       </div>
 
-      <div class="col-xs-12 col-md-6">
-        <p><strong>Post Code:</strong> <%= @profile.post_code%></p>
-        <p><strong>City:</strong> <%= @profile.city %></p>
-        <p><strong>Country:</strong> <%= @profile.country %></p>
-        <p><strong>Phone Number:</strong> <%= @profile.phone_number%></p>
+      <div class="col-md-5 col-md-offset-1">
+        <div class="mydetail1">
+          <p><strong>Post Code:</strong> <%= @profile.post_code%></p>
+          <p><strong>City:</strong> <%= @profile.city %></p>
+          <p><strong>Country:</strong> <%= @profile.country %></p>
+          <p><strong>Phone Number:</strong> <%= @profile.phone_number%></p>
+        </div>
       </div>
 
     </div>
-
+    <br>
     <div class="row">
       <div class="col-xs-12">
         <p><strong>Biography:</strong> <%= @profile.biography%></p>
@@ -48,7 +50,9 @@
 
 <section class="dashboard__myjourney padding-top-50">
   <div class="container">
+  <div class="titre-profile">
     <h2>My Journeys</h2>
+  </div>
     <hr>
 
     <% @profile.bookings.each do |booking| %>
@@ -76,7 +80,7 @@
 
             <div class="col-xs-12 col-md-3">
               <div class="reservation-status">
-
+              <div>
                 <%case booking.status.downcase %>
                   <% when "pending" %>
                     <p class="status">Pending</p>
@@ -86,12 +90,14 @@
                       <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
                     <% end %>
                   <% when "paid" || "validates" %>
+
                     <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path, class: 'btn btn-primary' %></p>
                     <p class="btn"><%= link_to "Add a review", new_house_review_path(booking.house), class: 'btn btn-primary' %></p>
                   <% else %>
                     <p class="status"><%= booking.status.capitalize %></p>
                 <% end%>
 
+              </div>
               </div><!-- Fin de reservation status-->
             </div><!-- Fin du col -->
           </div>
@@ -106,7 +112,9 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="Mypayments">
-        <h2>My Payments</h2>
+        <div class="titre-profile">
+          <h2>My Payments</h2>
+        </div>
           <hr>
           <% if @customer %>
             <h3>Next Payment details</h3>
