@@ -16,7 +16,6 @@ else
   plan = Stripe::Plan.retrieve(plan_id)
   plan.delete
   end
-fail
 end
 
 puts "***--- STRIPE PLANS DELETED ---***"
@@ -128,6 +127,9 @@ h = House.create!(
     city:"Lille",
     country: "France",
     planid: "id1",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "https://res.cloudinary.com/dwkqph9as/image/upload/v1512727249/1_uicwqs.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727249/2_b49amc.jpg",
@@ -156,6 +158,9 @@ h = House.create!(
     city:"Lille",
     country: "France",
     planid: "id2",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/1_t2pzs4.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/2_bwx83c.jpg",
@@ -184,6 +189,9 @@ h = House.create!(
     city:"Lille",
     country: "France",
     planid: "id3",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/1_pffddn.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/2_dulylg.jpg",
@@ -209,6 +217,9 @@ h = House.create!(
     city:"Lille",
     country: "France",
     planid: "id4",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727967/1_pqzwsz.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727966/2_dzdedm.jpg",
@@ -232,6 +243,9 @@ h = House.create!(
     city:"Lambersart",
     country: "France",
     planid: "id5",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/1_iutplb.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/2_h0df62.jpg",
@@ -258,6 +272,9 @@ h = House.create!(
     city:"La Madeleine",
     country: "France",
     planid: "id6",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/1_g8xpxc.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/2_slt0ma.jpg",
@@ -284,6 +301,9 @@ h = House.create!(
     city:"Marcq-en-Baroeul",
     country: "France",
     planid: "id7",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/1_gjjzx0.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/2_iwy4ug.jpg",
@@ -316,6 +336,9 @@ h = House.create!(
     city:"Marcq-en-Baroeul",
     country: "France",
     planid: "id8",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/2_m6gp0i.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/1_j4dlmg.jpg",
@@ -338,6 +361,9 @@ h = House.create!(
     city:"Mouvaux",
     country: "France",
     planid: "id9",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728995/1_usnf9d.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/2_kn3ane.jpg",
@@ -363,6 +389,9 @@ h = House.create!(
     city:"Wasquehal",
     country: "France",
     planid: "id10",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729401/1_hzz9vf.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729401/2_ny7sef.jpg",
@@ -391,6 +420,9 @@ h = House.create!(
     city:"Marcq-en-Baroeul",
     country: "France",
     planid: "id11",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/1_sa34qb.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/2_j8gbsy.jpg",
@@ -418,6 +450,9 @@ h = House.create!(
     city:"Bondues",
     country: "France",
     planid: "id12",
+    idlock: "216634041",
+    idbridge: "hP1S5i",
+    ipaddress: "http://10.10.105.21:8080",
     photo_urls:[
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/1_bxs2xl.jpg",
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/2_xvsvpd.jpg",
