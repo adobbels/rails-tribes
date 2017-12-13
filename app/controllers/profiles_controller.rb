@@ -5,7 +5,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
+
     @profile = current_user.profile
+
+    authorize @profile
+
     @orders = current_user.orders
     if @orders.first and @orders.first.payment
       stripe_customer_id = JSON.parse(@orders.first.payment)["customer"]
@@ -28,9 +32,6 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
-    @profile.first_name = current_user.first_name
-    @profile.last_name = current_user.last_name
-    # authorize @profile
     skip_authorization
   end
 
