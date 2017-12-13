@@ -6,12 +6,13 @@
 <section class="dashboard__header">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-3">
+      <div class="col-xs-12 col-md-4">
         <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
       </div>
-      <div class="col-xs-12 col-md-9">
+      <div class="col-xs-12 col-md-8">
         <h1>Hello <%= @profile.first_name %> !</h1>
-          <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded' %></p>
+          <p>Happy Triber since <%= @profile.created_at.strftime("%m/%Y") %></p>
+          <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded'%></p>
       </div>
     </div>
   </div>
@@ -21,24 +22,25 @@
   <div class="container">
     <h2>My Details </h2>
       <hr>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
+    <div class="row profile_details">
+      <div class="col-xs-12 col-md-4">
         <p><strong>First Name:</strong> <%= @profile.first_name%></p>
         <p><strong>Last Name:</strong> <%= @profile.last_name %></p>
         <p><strong>Birthday:</strong> <%= @profile.birthday %></p>
-        <p><strong>Adress:</strong> <%= @profile.address %></p>
       </div>
-
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-4">
+        <p><strong>Adress:</strong> <%= @profile.address %></p>
         <p><strong>Post Code:</strong> <%= @profile.post_code%></p>
         <p><strong>City:</strong> <%= @profile.city %></p>
-        <p><strong>Country:</strong> <%= @profile.country %></p>
+      </div>
+      <div class="col-xs-12 col-md-4">
         <p><strong>Phone Number:</strong> <%= @profile.phone_number%></p>
+        <p><strong>Country:</strong> <%= @profile.country %></p>
       </div>
 
     </div>
 
-    <div class="row">
+    <div class="row profile_bio">
       <div class="col-xs-12">
         <p><strong>Biography:</strong> <%= @profile.biography%></p>
       </div>
@@ -132,7 +134,11 @@
                 <p><%= "Invoice Start Periode :  #{invoice.id} " %></p>
               <% end  %>
             <% else %>
-              <h3>No Payment yet</h3>
+              <div class="row profile_bio">
+                <div class="col-xs-12">
+                  <p><strong>Too bad.</strong> It seems you didn't book your room yet! Don't lose time and check your next home <%= link_to "here", houses_path%> !</p>
+                </div>
+              </div>
             <% end  %>
           </div>
   </div>
