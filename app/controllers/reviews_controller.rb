@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def new
-    @house = House.find(params[:house_id])
     @review = Review.new
+    @house = House.find(params[:house_id])
     authorize @review
     if user_signed_in?
       if current_user.profile.present?
