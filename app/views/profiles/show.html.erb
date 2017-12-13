@@ -6,7 +6,11 @@
 <section class="dashboard__header">
   <div class="dashboard-header">
       <div class="titre-profile">
-        <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
+        <% if current_user.profile.photo.present? %>
+          <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
+        <% else %>
+          <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar-extra-large" %>
+        <% end %>
         <h1>Hello <%= @profile.first_name %> !</h1>
         <p><%= link_to 'Edit my profile', edit_profile_path(@profile), class: 'btn btn-rounded' %></p>
       </div>
@@ -50,59 +54,53 @@
 
 <section class="dashboard__myjourney padding-top-50">
   <div class="container">
-  <div class="titre-profile">
-    <h2>My Journeys</h2>
-  </div>
+    <div class="titre-profile">
+      <h2>My Journeys</h2>
+    </div>
     <hr>
-
-    <% @profile.bookings.each do |booking| %>
-      <div class="reservation-items">
-        <div class="row">
-          <div class="house-item">
-
-            <div class="col-xs-12 col-md-3">
-              <div class="item-house">
-                <div class="item-house-image">
-                  <%= cl_image_tag booking.house.photos[0].path %>
+      <% @profile.bookings.each do |booking| %>
+        <div class="reservation-items">
+          <div class="row">
+            <div class="house-item">
+              <div class="col-xs-12 col-md-3">
+                <div class="item-house">
+                  <div class="item-house-image">
+                    <%= cl_image_tag booking.house.photos[0].path %>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div class="col-xs-12 col-md-6">
-              <div class="house-details">
+              <div class="col-xs-12 col-md-6">
+                <div class="house-details">
+                  <div>
+                    <p><%= booking.house.city %></p>
+                    <p><%= booking.start_date%></p>
+                    <p><%= booking.house.name%></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-3">
+                <div class="reservation-status">
                 <div>
-                <p><%= booking.house.city %></p>
-                <p><%= booking.start_date%></p>
-                <p><%= booking.house.name%></p>
-                </div>
-              </div>
+                  <%case booking.status.downcase %>
+                    <% when "pending" %>
+                      <p class="status">Pending</p>
+                    <% when "to be paid"  %>
+                      <%= form_tag orders_path do %>
+                        <%= hidden_field_tag 'house_id', booking.house_id %>
+                        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                      <% end %>
+                    <% when "paid" || "validates" %>
+                      <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path, class: 'btn btn-primary' %></p>
+                      <p class="btn"><%= link_to "Add a review", new_house_review_path(booking.house), class: 'btn btn-primary' %></p>
+                    <% else %>
+                      <p class="status"><%= booking.status.capitalize %></p>
+                    <% end%>
+                  </div>
+                </div><!-- Fin de reservation status-->
+              </div><!-- Fin du col -->
             </div>
-
-            <div class="col-xs-12 col-md-3">
-              <div class="reservation-status">
-              <div>
-                <%case booking.status.downcase %>
-                  <% when "pending" %>
-                    <p class="status">Pending</p>
-                  <% when "to be paid"  %>
-                    <%= form_tag orders_path do %>
-                      <%= hidden_field_tag 'house_id', booking.house_id %>
-                      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-                    <% end %>
-                  <% when "paid" || "validates" %>
-
-                    <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path, class: 'btn btn-primary' %></p>
-                    <p class="btn"><%= link_to "Add a review", new_house_review_path(booking.house), class: 'btn btn-primary' %></p>
-                  <% else %>
-                    <p class="status"><%= booking.status.capitalize %></p>
-                <% end%>
-
-              </div>
-              </div><!-- Fin de reservation status-->
-            </div><!-- Fin du col -->
-          </div>
-        </div><!-- Fin de la row-->
-      </div><!-- Fin de reservation-items -->
+          </div><!-- Fin de la row-->
+        </div><!-- Fin de reservation-items -->
       <hr>
     <% end %>
   </div><!-- Fin du container -->
@@ -118,34 +116,32 @@
           <hr>
           <% if @customer %>
             <h3>Next Payment details</h3>
-              <% if @upcoming_invoice%>
-                <p>Next Payment Date <%= Time.at(@upcoming_invoice["next_payment_attempt"]).strftime("%m/%d/%Y") %></p>
-                <p>Period : From <%= Time.at(@upcoming_invoice["period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(@upcoming_invoice["period_end"]).strftime("%m/%d/%Y") %></p>
-                <p>Amount due €<%= @upcoming_invoice["amount_due"] / 100 %></p>
-              <% else  %>
-                <p>No further payments to come</p>
-              <% end  %>
-            <h3>Last Payments</h3>
-              <% @orders.each do |order| %>
-                <div>
-                  <p>Payment Date : <%= order.created_at.strftime("%m/%d/%Y") %></p>
-                  <p>Period : From <%= Time.at(JSON.parse(order.payment)["current_period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(JSON.parse(order.payment)["current_period_end"]).strftime("%m/%d/%Y") %></p>
-                  <p>State : <%= order.state.capitalize %></p>
-                </div>
-              <% end %>
-
-            <h3>Stripe Customer Invoices</h3>
-              <% @invoices.each do |invoice| %>
-                <p><%= "Invoice number :  #{invoice.id} " %></p>
-                <p><%= "Invoice Start Periode :  #{invoice.id} " %></p>
-              <% end  %>
-            <% else %>
-              <h3>No Payment yet</h3>
+            <% if @upcoming_invoice%>
+              <p>Next Payment Date <%= Time.at(@upcoming_invoice["next_payment_attempt"]).strftime("%m/%d/%Y") %></p>
+              <p>Period : From <%= Time.at(@upcoming_invoice["period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(@upcoming_invoice["period_end"]).strftime("%m/%d/%Y") %></p>
+              <p>Amount due €<%= @upcoming_invoice["amount_due"] / 100 %></p>
+            <% else  %>
+              <p>No further payments to come</p>
             <% end  %>
-          </div>
-  </div>
-
-  </div>
+            <h3>Last Payments</h3>
+            <% @orders.each do |order| %>
+              <div>
+                <p>Payment Date : <%= order.created_at.strftime("%m/%d/%Y") %></p>
+                <p>Period : From <%= Time.at(JSON.parse(order.payment)["current_period_start"]).strftime("%m/%d/%Y") %> to <%= Time.at(JSON.parse(order.payment)["current_period_end"]).strftime("%m/%d/%Y") %></p>
+                <p>State : <%= order.state.capitalize %></p>
+              </div>
+            <% end %>
+            <h3>Stripe Customer Invoices</h3>
+            <% @invoices.each do |invoice| %>
+              <p><%= "Invoice number :  #{invoice.id} " %></p>
+              <p><%= "Invoice Start Periode :  #{invoice.id} " %></p>
+            <% end  %>
+          <% else %>
+            <h3>No Payment yet</h3>
+          <% end  %>
+        </div>
+      </div>
+    </div>
   </div><!-- Fin de la Row-->
 </div>
 

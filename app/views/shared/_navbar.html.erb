@@ -31,7 +31,7 @@
       <% end  %>
         <div class="navbar-wagon-item">
           <div class="dropdown">
-            <% if current_user.profile %>
+            <% if current_user.profile && current_user.profile.photo.present? %>
               <%= cl_image_tag current_user.profile.photo.path, class: "avatar dropdown-toggle hidden-xs", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <% else %>
               <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar dropdown-toggle hidden-xs", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
