@@ -86,7 +86,7 @@
               <% if @house.reviews %>
                 <% @reviews.each do |review| %>
                   <div class="message">
-                    <%= cl_image_tag review.profile.photo, class: "avatar-navbar"%>
+                    <%= cl_image_tag review.profile.photo.path, class: "avatar-navbar"%>
                     <div class="message-body">
                       <p><strong><%=review.profile.city.capitalize%></strong></p>
                       <p><%=review.created_at%></p>
