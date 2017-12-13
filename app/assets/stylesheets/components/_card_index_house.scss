@@ -4,7 +4,9 @@
 }
 
 .card {
-  height: 500px;
+
+  min-height: 490px;
+
   margin-bottom: 50px;
   position: relative;
 }
@@ -22,6 +24,12 @@
   justify-content: space-between;
   height: 40px;
   align-items: center;
+  position: relative;
+}
+.bandeau-house-profiles{
+  position: absolute;
+  right: 0px;
+  top: -22px;
 }
 
 .profiles-absolus {
