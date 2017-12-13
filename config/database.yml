@@ -83,3 +83,4 @@ production:
   database: _rails-tribes_production
   username: _rails-tribes
   password: <%= ENV['_RAILS-TRIBES_DATABASE_PASSWORD'] %>
+  raise_not_found_error: false

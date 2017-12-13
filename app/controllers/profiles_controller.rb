@@ -1,11 +1,16 @@
 class ProfilesController < ApplicationController
   # before_action :skip_pundit, only: :new
   def index
-    @profiles = Profile.all
+    @profiles = policy_scope(Profile)
+    authorize @profiles
   end
 
   def show
+
     @profile = current_user.profile
+
+    authorize @profile
+
     @orders = current_user.orders
     if @orders.first and @orders.first.payment
       stripe_customer_id = JSON.parse(@orders.first.payment)["customer"]
@@ -27,10 +32,8 @@ class ProfilesController < ApplicationController
   end
 
   def new
+    skip_authorization
     @profile = Profile.new
-    @profile.first_name = current_user.first_name
-    @profile.last_name = current_user.last_name
-    # authorize @profile
     skip_authorization
   end
 
