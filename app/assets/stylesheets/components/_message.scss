@@ -1,8 +1,16 @@
-.message {
+.message-ratings {
   display: flex;
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+  text-align: left;
+  padding: 0px;
+  margin-top: 15px;
+  padding-bottom: 5px;
+}
+.message-ratings {
+  justify-content: space-between;
+
 }
 .message:last-child {
   border-bottom: none;
@@ -26,6 +34,7 @@
   padding-left: 10px;
   font-size: 13px;
   color: rgba(0,0,0,0.7);
+  max-width: 200px;
 }
 .message-body strong{
   color: rgba(0,0,0,0.9);
@@ -37,4 +46,7 @@
 .message-status {
   font-size: 14px;
   font-weight: bold;
+}
+.message-body-rating {
+  text-align: left;
 }

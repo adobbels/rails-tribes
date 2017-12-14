@@ -1,7 +1,7 @@
 <div class="card">
   <%= link_to  house_path(house), class:"card-clic" do %>
     <%= cl_image_tag house.photos[0].path, class:"card-img-top" %>
-  <% end %>
+
     <div class="card-body">
       <div class="bandeau-house">
         <div class="bandeau-house-ratings">
@@ -21,10 +21,7 @@
 
       <h4 class="card-title"><%= house.name %></h4>
       <p class="card-text"><%= house.description.first(80) %>...</p>
-        <div class="show-this-one">
-        <%= link_to  house_path(house), class:"btn btn-primary btn-sm" do %>
-          Show this one
-        <% end %>
-      </div>
+
     </div>
+  <% end %>
 </div>
