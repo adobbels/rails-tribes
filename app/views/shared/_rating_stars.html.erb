@@ -4,7 +4,7 @@
       <% house_ratings += review.rating %>
       <% end %>
     <% stars = house_ratings / house.reviews.count %>
-  <% if stars < 5 %>
+  <% if stars <= 5 %>
     <% stars.times do %>
       <i class="fa fa-star" aria-hidden="true"></i>
     <% end %>
