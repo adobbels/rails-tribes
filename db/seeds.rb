@@ -30,10 +30,19 @@ House.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-feature_tv = Feature.create!(name: "television")
+feature_key = Feature.create!(name: "key")
 feature_wifi = Feature.create!(name: "wifi")
+feature_stripe = Feature.create!(name: "cc-stripe")
+feature_slack = Feature.create!(name: "slack")
+feature_tv = Feature.create!(name: "television")
 feature_pets = Feature.create!(name: "paw")
 feature_douche = Feature.create!(name: "shower")
+feature_bath = Feature.create!(name: "bath")
+feature_handshake = Feature.create!(name: "handshake-o")
+feature_bicycle = Feature.create!(name: "bicycle")
+feature_coffee = Feature.create!(name: "coffee")
+feature_cutlery = Feature.create!(name: "cutlery")
+feature_gamepad = Feature.create!(name: "gamepad")
 
 puts "***--- USER & PROFILE CREATION ---***"# USER & PROFILE CREATION
 
@@ -143,7 +152,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_coffee, house: h)
+HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #1 DONE ---***"
 sleep 2
 
@@ -175,7 +189,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_bicycle, house: h)
+HouseOption.create!(feature: feature_bath, house: h)
 puts "***--- HOUSE #2 DONE ---***"
 sleep 2
 
@@ -203,6 +222,11 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_douche, house: h)
 HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #3 DONE ---***"
 sleep 2
@@ -229,6 +253,11 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_cutlery, house: h)
 HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #4 DONE ---***"
 sleep 2
@@ -258,7 +287,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_handshake, house: h)
+HouseOption.create!(feature: feature_bicycle, house: h)
 puts "***--- HOUSE #5 DONE ---***"
 sleep 2
 
@@ -286,8 +320,14 @@ h = House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728791/8_w0hj9w.jpg"
                 ]
   )
+  )
 HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
 HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #6 DONE ---***"
 sleep 2
 
@@ -322,7 +362,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_bath, house: h)
+HouseOption.create!(feature: feature_cutlery, house: h)
 puts "***--- HOUSE #7 DONE ---***"
 sleep 2
 
@@ -347,7 +392,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_handshake, house: h)
+HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #8 DONE ---***"
 sleep 2
 
@@ -375,7 +425,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_douche, house: h)
+HouseOption.create!(feature: feature_bicycle, house: h)
 puts "***--- HOUSE #9 DONE ---***"
 sleep 2
 
@@ -406,7 +461,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
 HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_cutlery, house: h)
 puts "***--- HOUSE #10 DONE ---***"
 sleep 2
 
@@ -436,7 +496,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_bath, house: h)
+HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #11 DONE ---***"
 sleep 2
 
@@ -461,7 +526,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_handshake, house: h)
+HouseOption.create!(feature: feature_douche, house: h)
 puts "***--- HOUSE #12 DONE ---***"
 sleep 2
 puts "***--- SEEDS DONE ---***"
