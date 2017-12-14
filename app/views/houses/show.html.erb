@@ -4,49 +4,34 @@
 
 <section class="house-header ">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="house__slider">
         <%= render 'shared/caroussel2' %>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="house__info">
-        <div>
-          <div class="house__info-title">
-            <p>Coliving in</p>
-            <h3> <%= @house.name %></h3>
-          </div>
-          <div class="house__info-description">
-            <br>
-            <br>
-            <div id="formhousebooking">
-              <%= render "shared/formshowhouse" %>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="house__body padding-bottom-100 padding-top-50">
+<section class="house__body padding-bottom-100 padding-top-20">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <div class="house__body-info padding-top-50">
+    <div class="row">
+      <div class="col-xs-12 col-md-8">
+        <div class="trib-house__title">
+          <h1> <%= @house.name %></h1>
+        </div>
+
+        <div class="house__body-info">
           <div class="body-info-capacity">
             <div class="capacity-restante">
-              <% booking = Booking.where({house_id: @house.id, status: ["validates","paid"]}) %>
-              <% num = booking.count %>
-              <p>
-                Remaining Capacity: <%= @house.capacity - num %>
-              </p>
               <div class="liste">
-                <h2>Description</h2>
+                <h3>Description</h3>
+                <hr>
                 <p><%= @house.description %></p>
+                <br>
               </div>
               <div class="liste">
-                <h2>Capacity</h2>
+                <h3>Capacity</h3>
+                <hr>
                 <p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity%></p>
               </div>
             </div>
@@ -54,7 +39,8 @@
 
           <div class="body-info-amenities padding-top-50">
             <div class="liste">
-              <h2>Amenities</h2>
+              <h3>Amenities</h3>
+              <hr>
               <div id="features">
                 <%= render "shared/feature_list" %>
               </div>
@@ -63,7 +49,8 @@
 
           <div class="body-info-review padding-top-50">
             <div class="liste">
-              <h2>Reviews</h2>
+              <h3>Reviews</h3>
+              <hr>
               <div class="ratings-moyenne">
               <% if @house.reviews.count != 0 %>
                 <% stars = (@house_ratings / @house.reviews.count) %>
@@ -116,10 +103,21 @@
 
           <div class="body-info-review padding-top-50">
             <div id="biographies">
-              <h2>Current Tenants</h2>
               <div class="liste">
+              <h3 class="text-left">Current Tenants</h3>
+              <hr>
                 <%= render "shared/biography" %>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4">
+        <div class="house__booking">
+          <div class="house__info-description">
+            <div id="formhousebooking">
+              <%= render "shared/formshowhouse" %>
             </div>
           </div>
         </div>

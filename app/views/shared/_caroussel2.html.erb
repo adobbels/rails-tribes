@@ -1,4 +1,4 @@
-<div class="w3-content w3-display-container" style="width:100%">
+<div class="w3-content w3-display-container">
   <% @house.photos.each do |photo| %>
     <%= cl_image_tag photo.path, class: 'mySlides' %>
   <% end %>

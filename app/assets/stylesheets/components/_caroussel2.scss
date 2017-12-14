@@ -1,8 +1,7 @@
 .mySlides {
-  display: none;
   height: 70vh;
   width: 100%;
-  background-size: cover;
+  background-size: cover !important ;
   position: relative;
 }
 .w3-left, .w3-right, .w3-badge {cursor:pointer}
