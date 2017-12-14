@@ -31,10 +31,19 @@ Profile.destroy_all
 Order.destroy_all
 User.destroy_all
 
-feature_tv = Feature.create!(name: "television")
+feature_key = Feature.create!(name: "key")
 feature_wifi = Feature.create!(name: "wifi")
+feature_stripe = Feature.create!(name: "cc-stripe")
+feature_slack = Feature.create!(name: "slack")
+feature_tv = Feature.create!(name: "television")
 feature_pets = Feature.create!(name: "paw")
 feature_douche = Feature.create!(name: "shower")
+feature_bath = Feature.create!(name: "bath")
+feature_handshake = Feature.create!(name: "handshake-o")
+feature_bicycle = Feature.create!(name: "bicycle")
+feature_coffee = Feature.create!(name: "coffee")
+feature_cutlery = Feature.create!(name: "cutlery")
+feature_gamepad = Feature.create!(name: "gamepad")
 
 puts "***--- USER & PROFILE CREATION ---***"# USER & PROFILE CREATION
 
@@ -144,14 +153,19 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_coffee, house: h)
+HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #1 DONE ---***"
 sleep 2
 
 
 h = House.create!(
-    name:"Stylish house close to river thames",
-    description:"Double and single bedroom in lovely house are available in Baron's Court. Walking distance to river thames at Hammersmith with great traditional English pubs, theatre and restaurants. The Tube station is a short 7 minutes walk away, 16 minutes by tube to Piccadilly Circus (Westend/Soho) 8-10 minutes to Knightsbridge (Harrods) and Hyde Park. There are excellent transport links and direct tubes from Heathrow airport (Piccadilly line) Perfect for an extended holiday or for someone away on business needing a place to stay while away from home.",
+    name:"Hyde Park Designer Artist Studio",
+    description:"arrive in under 30mins from Heathrow - 20mins heathrow express 4mins taxi or 8mins walk - 2 blocks away from Paddington station Indulge yourself in this spectacular former studio of full of carefully curated pieces- Ideal for business travel as its secure with furniture and finishes to rival hotel suites at the Ritz or Lansborough Hotels. We can arrange concierge service. we are super excited to star in Plum Guide award for top 254 properties (2017) out if 25 hosting sites 40,000 properties",
     price_cents: "85000",
     capacity: "8",
     address:"73 rue Royale",
@@ -176,7 +190,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_bicycle, house: h)
+HouseOption.create!(feature: feature_bath, house: h)
 puts "***--- HOUSE #2 DONE ---***"
 sleep 2
 
@@ -204,6 +223,11 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_douche, house: h)
 HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #3 DONE ---***"
 sleep 2
@@ -230,6 +254,11 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_cutlery, house: h)
 HouseOption.create!(feature: feature_pets, house: h)
 puts "***--- HOUSE #4 DONE ---***"
 sleep 2
@@ -259,7 +288,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_handshake, house: h)
+HouseOption.create!(feature: feature_bicycle, house: h)
 puts "***--- HOUSE #5 DONE ---***"
 sleep 2
 
@@ -288,7 +322,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
 HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #6 DONE ---***"
 sleep 2
 
@@ -323,7 +362,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_bath, house: h)
+HouseOption.create!(feature: feature_cutlery, house: h)
 puts "***--- HOUSE #7 DONE ---***"
 sleep 2
 
@@ -348,7 +392,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_handshake, house: h)
+HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #8 DONE ---***"
 sleep 2
 
@@ -376,7 +425,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_douche, house: h)
+HouseOption.create!(feature: feature_bicycle, house: h)
 puts "***--- HOUSE #9 DONE ---***"
 sleep 2
 
@@ -407,7 +461,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
 HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_cutlery, house: h)
 puts "***--- HOUSE #10 DONE ---***"
 sleep 2
 
@@ -437,7 +496,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_bath, house: h)
+HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #11 DONE ---***"
 sleep 2
 
@@ -462,7 +526,12 @@ h = House.create!(
                 ]
   )
 HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
+HouseOption.create!(feature: feature_key, house: h)
+HouseOption.create!(feature: feature_wifi, house: h)
+HouseOption.create!(feature: feature_stripe, house: h)
+HouseOption.create!(feature: feature_slack, house: h)
+HouseOption.create!(feature: feature_handshake, house: h)
+HouseOption.create!(feature: feature_douche, house: h)
 puts "***--- HOUSE #12 DONE ---***"
 sleep 2
 puts "***--- SEEDS DONE ---***"
