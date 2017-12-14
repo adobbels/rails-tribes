@@ -1,19 +1,21 @@
+<div class="reviews_form">
 <div class="container">
-  <div class="title" style="text-align: center; height:30px; margin-top: 35px">
-    <i class="fa fa-pencil fa-5x" aria-hidden="true"><h2>Please, write your Review !</h2></i>
-  </div>
-  <div class="containerprof" >
-    <div class="containerformprofile" style="text-align: center; padding: 30px;">
-      <div class="row" style=" height: 350px;">
-        <div class="col-xs-12 col-md-12">
-          <%= simple_form_for [@house, @review] do |f| %>
-            <%= f.input :title_review, input_html: {style: 'height:35px;'}  %>
-            <%= f.input :content_review, input_html: {style: 'height:100px;'}  %>
-            <%= f.input :rating, collection: 0..5, input_html: {style: 'height:35px;'}  %>
-            <%= f.submit "add a review", class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="formulaire-reviews">
+        <h2>Please, write your Review !</h2>
+
+        <%= simple_form_for [@house, @review] do |f| %>
+        <%= f.input :title_review, input_html: {style: 'height:35px;'}  %>
+        <%= f.input :content_review  %>
+        <%= f.input :rating, collection: 0..5, input_html: {style: 'height:35px;'}  %>
+        <%= f.submit "add a review", class: "btn btn-primary bloc-abc" %>
           <% end %>
-        </div>
       </div>
+      <p></p>
+      <p></p>
     </div>
-  </div>
+
+</div><!-- Fin de la row-->
+</div>
 </div>
