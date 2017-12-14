@@ -1,6 +1,8 @@
 <div id="features-list">
-  <% @house.features.each do |feature| %>
-    <p><%=raw "<i class='fa fa-#{feature.name}' aria-hidden='true'></i>" %></p>
-  <% end %>
+  <ul class="list-inline">
+    <% @house.features.each do |feature| %>
+      <li class="list-inline-item"><p><%=raw "<i class='fa fa-#{feature.name}' aria-hidden='true'></i>" %></p></li>
+    <% end %>
+  </ul>
 </div>
 
