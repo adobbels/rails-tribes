@@ -1,7 +1,7 @@
 #formhousebooking {
   flex: 0 0 550px;
   margin-top: 15px;
-  position: sticky;
+
   top: 0;
   border: 2px solid rgba(220,224,244,0.4);
   padding: 15px;
@@ -21,4 +21,8 @@
 
 .call-to-action-form {
   width: 100%;
+}
+
+.house__booking{
+  top: 30px;
 }
