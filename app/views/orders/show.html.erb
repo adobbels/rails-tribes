@@ -8,6 +8,7 @@
         <li>House name: <%= House.find(@order.house_id).name %></li>
         <li>Amount: <%= humanized_money_with_symbol(@order.amount.to_i / 100) %></li>
       <ul>
+      <p class="btn"><%= link_to  "Thank You",  profile_path(current_user.profile), class: 'btn btn-primary' %></p>
     </div>
   </div>
 </div>
