@@ -63,8 +63,13 @@
   padding-right: 25px;
 }
 .card-clic {
-  text-decoration: none;
+color: #606974;
+&:hover {
+    color: #606974;
+  }
 }
+
+
 
 .card-clic:hover {
   text-decoration: none;
