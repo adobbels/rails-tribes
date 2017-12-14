@@ -1,13 +1,18 @@
 
 <% @bookings_house.each do |booking| %>
-<div class="biography-bloc">
-  <div class="biography-entete">
-    <%= cl_image_tag booking.profile.photo.path, class:"avatar-large" %>
-    <p><%= booking.profile.first_name %></p>
+<div class="col-xs-12 colonne-biography">
+
+  <div class="biography-bloc">
+    <div class="biography-entete">
+      <%= cl_image_tag booking.profile.photo.path, class:"avatar-large" %>
+      <p><strong><%= booking.profile.first_name %></strong></p>
+    </div>
+
+    <div class="biography-text">
+      <p><%= booking.profile.biography %></p>
+    </div>
   </div>
-  <div class="biography-text">
-    <p><%= booking.profile.biography %></p>
-  </div>
+
 </div>
 <% end %>
 

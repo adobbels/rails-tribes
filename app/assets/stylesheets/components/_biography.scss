@@ -4,18 +4,30 @@
   color: black;
   text-align: center;
 }
-.biography-bloc {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  margin: auto;
-  padding: 8px;
+.colonne-biography{
+  margin-top: 55px;
 }
+
+.biography-bloc {
+  position: relative;
+  }
 .biography-entete {
   text-align: center;
+  position: absolute;
+  top: -48px;
+  left: 42.5%;
+  .avatar-large{
+    width: 80px;
+    height: 80px;
+  }
 }
 .biography-text {
-  display: flex;
-  padding-left: 30px;
-  text-align: left;
+  border: solid 2px #f8f9fa;
+  border-radius: 3px;
+  padding-top: 60px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.container.biography-items {
+  width: 75%;
 }
