@@ -320,7 +320,6 @@ h = House.create!(
                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728791/8_w0hj9w.jpg"
                 ]
   )
-  )
 HouseOption.create!(feature: feature_tv, house: h)
 HouseOption.create!(feature: feature_key, house: h)
 HouseOption.create!(feature: feature_wifi, house: h)
