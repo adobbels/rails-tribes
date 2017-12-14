@@ -1,3 +1,62 @@
 .form-group label {
   padding: 0;
 }
+
+.titre-login {
+  text-align: center;
+}
+
+.bloc-log {
+  height: 70vh;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.remerber-me {
+padding-left: 18px;
+}
+
+.form-actions-signin {
+justify-content: center;
+
+}
+
+.remeber-forgot {
+  display: flex;
+}
+
+.forgot-password {
+  padding-top: 14px;
+  padding-left: 51px;
+  text-decoration: none;
+  font-size: 13px;
+
+}
+.forgot-password a {
+  color: #606975;
+  font-weight: normal;
+  }
+.forgot-password:hover {
+  text-decoration: none;
+}
+
+.form-actions input[type="submit"]{
+  width: 50%;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.links {
+  text-align: center;
+  margin-top: 20px;
+  padding-right: 15px;
+
+}
+
+.links a {
+  color: #606975;
+}
