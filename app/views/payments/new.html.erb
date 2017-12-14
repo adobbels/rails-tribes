@@ -1,27 +1,30 @@
-<div class="container">
-  <div class="containertitle" style="text-align: center; min-height: 50px; margin-top: 50px">
-    <i class="fa fa-cc-stripe fa-5x"><h1 >Purchase your booking !  <%=  House.find(@order.house_id).planid %></h1></i>
-    <h2><%=  House.find(@order.house_id).planid %></h2>
-  </div>
-  <div class="containerprof" style=" height: 60vh;" >
-    <div class="containerformprofile" style="text-align: center; padding: 30px;">
-      <div class="row" style="height: 100px;">
-        <div class="col-xs-12 col-md-12">
-          <%= form_tag order_payments_path(@order) do %>
-            <article>
-              <label class="amount">
-                <span>Amount: <%= humanized_money_with_symbol(@order.amount.to_i / 100) %></span>
-              </label>
-            </article>
-            <!--   # Commented for the lecture, remove comments. -->
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-name="My House"
-            data-email="<%= current_user.email %>"
-            data-description="House <%= @order.house_id %>"
-            data-amount="<%= @order.amount_cents.to_i / 100 %>"
-            data-currency="<%= @order.amount.currency %>"></script>
-          <% end %>
+<div class="main_payment_new">
+  <div class="container">
+    <div class="containertitle" style="text-align: center; min-height: 50px; margin-top: 50px">
+
+          <h1 >Well done! You are booking your room for: <%=  House.find(@order.house_id).name %></h1>
+
+    </div>
+    <div class="containerprof" style=" height: 20vh;" >
+      <div style="text-align: center; padding: 50px;">
+        <div class="row" >
+          <div class="col-xs-12 col-md-12">
+            <%= form_tag order_payments_path(@order) do %>
+              <article>
+                <label class="amount"  style=" font-size: 1.3em">
+                  <span>Amount: <%= humanized_money_with_symbol(@order.amount.to_i / 100) %></span>
+                </label>
+              </article>
+              <!--   # Commented for the lecture, remove comments. -->
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-name="Your new Home"
+              data-email="<%= current_user.email %>"
+              data-description="House <%= @order.house_id %>"
+              data-amount="<%= @order.amount_cents.to_i / 100 %>"
+              data-currency="<%= @order.amount.currency %>"></script>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
