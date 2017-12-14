@@ -1,5 +1,5 @@
+<%= link_to  house_path(house), class:"card-clic" do %>
 <div class="card">
-  <%= link_to  house_path(house), class:"card-clic" do %>
     <%= cl_image_tag house.photos[0].path, class:"card-img-top" %>
 
     <div class="card-body">
@@ -23,5 +23,5 @@
       <p class="card-text"><%= house.description.first(80) %>...</p>
 
     </div>
-  <% end %>
 </div>
+ <% end %>
