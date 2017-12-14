@@ -50,3 +50,12 @@
 .message-body-rating {
   text-align: left;
 }
+.message-body-review {
+  display: flex;
+  flex-wrap: wrap;
+}
+.liste-ratings-moyenne {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
