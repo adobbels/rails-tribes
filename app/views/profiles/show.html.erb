@@ -4,10 +4,15 @@
 
 
 <section class="dashboard__header">
+
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-4">
-        <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
+        <% if current_user.profile.photo.present? %>
+          <%= cl_image_tag @profile.photo.path, class: "avatar-extra-large" %>
+        <% else %>
+          <%= cl_image_tag "http://res.cloudinary.com/dwkqph9as/image/upload/v1512050406/default_avatar_picture_zpo1in.png", class: "avatar-extra-large" %>
+        <% end %>
       </div>
       <div class="col-xs-12 col-md-8">
         <h1>Hello <%= @profile.first_name %> !</h1>
@@ -55,59 +60,53 @@
 
 <section class="dashboard__myjourney padding-top-50">
   <div class="container">
-  <div class="titre-profile">
-    <h2>My Journeys</h2>
-  </div>
+    <div class="titre-profile">
+      <h2>My Journeys</h2>
+    </div>
     <hr>
-
-    <% @profile.bookings.each do |booking| %>
-      <div class="reservation-items">
-        <div class="row">
-          <div class="house-item">
-
-            <div class="col-xs-12 col-md-3">
-              <div class="item-house">
-                <div class="item-house-image">
-                  <%= cl_image_tag booking.house.photos[0].path %>
+      <% @profile.bookings.each do |booking| %>
+        <div class="reservation-items">
+          <div class="row">
+            <div class="house-item">
+              <div class="col-xs-12 col-md-3">
+                <div class="item-house">
+                  <div class="item-house-image">
+                    <%= cl_image_tag booking.house.photos[0].path %>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div class="col-xs-12 col-md-6">
-              <div class="house-details">
+              <div class="col-xs-12 col-md-6">
+                <div class="house-details">
+                  <div>
+                    <p><%= booking.house.city %></p>
+                    <p><%= booking.start_date%></p>
+                    <p><%= booking.house.name%></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-3">
+                <div class="reservation-status">
                 <div>
-                <p><%= booking.house.city %></p>
-                <p><%= booking.start_date%></p>
-                <p><%= booking.house.name%></p>
-                </div>
-              </div>
+                  <%case booking.status.downcase %>
+                    <% when "pending" %>
+                      <p class="status">Pending</p>
+                    <% when "to be paid"  %>
+                      <%= form_tag orders_path do %>
+                        <%= hidden_field_tag 'house_id', booking.house_id %>
+                        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                      <% end %>
+                    <% when "paid" || "validates" %>
+                      <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path, class: 'btn btn-primary' %></p>
+                      <p class="btn"><%= link_to "Add a review", new_house_review_path(booking.house), class: 'btn btn-primary' %></p>
+                    <% else %>
+                      <p class="status"><%= booking.status.capitalize %></p>
+                    <% end%>
+                  </div>
+                </div><!-- Fin de reservation status-->
+              </div><!-- Fin du col -->
             </div>
-
-            <div class="col-xs-12 col-md-3">
-              <div class="reservation-status">
-              <div>
-                <%case booking.status.downcase %>
-                  <% when "pending" %>
-                    <p class="status">Pending</p>
-                  <% when "to be paid"  %>
-                    <%= form_tag orders_path do %>
-                      <%= hidden_field_tag 'house_id', booking.house_id %>
-                      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-                    <% end %>
-                  <% when "paid" || "validates" %>
-
-                    <p class="btn"><%= link_to  "End your journey",  pages_cancel_check_path, class: 'btn btn-primary' %></p>
-                    <p class="btn"><%= link_to "Add a review", new_house_review_path(booking.house), class: 'btn btn-primary' %></p>
-                  <% else %>
-                    <p class="status"><%= booking.status.capitalize %></p>
-                <% end%>
-
-              </div>
-              </div><!-- Fin de reservation status-->
-            </div><!-- Fin du col -->
-          </div>
-        </div><!-- Fin de la row-->
-      </div><!-- Fin de reservation-items -->
+          </div><!-- Fin de la row-->
+        </div><!-- Fin de reservation-items -->
       <hr>
     <% end %>
   </div><!-- Fin du container -->
@@ -152,7 +151,7 @@
 
           </div>
         <% end  %>
-
+        
       </div>
     </div>
   </div><!-- Fin de la Row-->

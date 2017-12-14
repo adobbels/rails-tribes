@@ -36,8 +36,10 @@
         <div class="house__body-info padding-top-50">
           <div class="body-info-capacity">
             <div class="capacity-restante">
+              <% booking = Booking.where({house_id: @house.id, status: ["Validates","Paid"]}) %>
+              <% num = booking.count %>
               <p>
-                Remaining Capacity: <%= @house.capacity - @bookings_house.count %>
+                Remaining Capacity: <%= @house.capacity - num %>
               </p>
               <div class="liste">
                 <h2>Description</h2>
