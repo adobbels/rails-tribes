@@ -28,6 +28,7 @@ Review.destroy_all
 Booking.destroy_all
 House.destroy_all
 Profile.destroy_all
+Order.destroy_all
 User.destroy_all
 
 feature_tv = Feature.create!(name: "television")
