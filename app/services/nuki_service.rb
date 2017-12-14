@@ -12,13 +12,19 @@ class NukiLock
 
 
   def open
-    log = RestClient.get(@base_url + "/lockaction?nukiId=#{@nuki_id}&Action=1&token=#{@token}" , headers={})
-    p log.body
+    begin
+      RestClient.get(@base_url + "/lockaction?nukiId=#{@nuki_id}&Action=1&token=#{@token}" , headers={})
+    rescue => error
+      p error
+    end
   end
 
   def close
-    log = RestClient.get(@base_url + "/lockaction?nukiId=#{@nuki_id}&Action=2&token=#{@token}" , headers={})
-    p log.body
+    begin
+      RestClient.get(@base_url + "/lockaction?nukiId=#{@nuki_id}&Action=2&token=#{@token}" , headers={})
+    rescue => error
+      p error
+    end
   end
 end
 
