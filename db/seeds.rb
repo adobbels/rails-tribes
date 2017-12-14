@@ -22,8 +22,8 @@ puts "***--- STRIPE PLANS DELETED ---***"
 
 puts "***--- SEEDING PROCESS ---***"
 
-Feature.destroy_all
 HouseOption.destroy_all
+Feature.destroy_all
 Review.destroy_all
 Booking.destroy_all
 House.destroy_all
@@ -149,8 +149,8 @@ sleep 2
 
 
 h = House.create!(
-    name:"Lorem ipsum dolor sit amet",
-    description:"Aliquam sit amet tortor nisi. Proin interdum turpis vitae enim varius, et interdum eros ullamcorper. Morbi venenatis ac odio et luctus. Etiam ultricies diam ipsum, tempor fringilla ante suscipit ac.",
+    name:"Stylish house close to river thames",
+    description:"Double and single bedroom in lovely house are available in Baron's Court. Walking distance to river thames at Hammersmith with great traditional English pubs, theatre and restaurants. The Tube station is a short 7 minutes walk away, 16 minutes by tube to Piccadilly Circus (Westend/Soho) 8-10 minutes to Knightsbridge (Harrods) and Hyde Park. There are excellent transport links and direct tubes from Heathrow airport (Piccadilly line) Perfect for an extended holiday or for someone away on business needing a place to stay while away from home.",
     price_cents: "85000",
     capacity: "8",
     address:"73 rue Royale",
@@ -180,8 +180,8 @@ puts "***--- HOUSE #2 DONE ---***"
 sleep 2
 
 h = House.create!(
-    name:"consectetur adipiscing elit.",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dignissim libero.",
+    name:"Light & Spacious Garden Flat London.",
+    description:"A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory. Close to Queens park station and all buses. Shops are very nearby as well as nice local restaurants.",
     price_cents: "90000",
     capacity: "4",
     address:"23 rue Nationale",
