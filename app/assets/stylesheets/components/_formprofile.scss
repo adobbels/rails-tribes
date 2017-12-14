@@ -12,6 +12,14 @@ background-color: rgba(240,240,240,1);
   align-items: center;
   justify-content: center;
   margin: 0px;
-  height: 100vh;
 
+
+}
+
+.action-form-edit input[type="submit"]{
+  width: 50%;
+}
+
+.action-form-edit {
+  text-align: center;
 }
