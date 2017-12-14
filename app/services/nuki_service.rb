@@ -12,7 +12,7 @@ class NukiLock
 
   def open
     begin
-      RestClient.post("https://api.nuki.io/smartlock/#{@nuki_id}/action", JSON.generate({"action" => 1}), {content_type: "application/json", accept: "application/json", authorization: "Bearer 125148b0cf2291a5dd60994d296d5cb5aaec3ad49798aaa5b2a7ee79f9510384ca94f5b8bbe47d83"})
+      RestClient.post("https://api.nuki.io/smartlock/#{@nuki_id}/action", JSON.generate({"action" => 1}), {content_type: "application/json", accept: "application/json", authorization: "Bearer #{ENV['NUKI_API_KEY']}"})
     rescue => error
       p error
     end
@@ -20,7 +20,7 @@ class NukiLock
 
   def close
     begin
-      RestClient.post("https://api.nuki.io/smartlock/#{@nuki_id}/action", JSON.generate({"action" => 2}), {content_type: "application/json", accept: "application/json", authorization: "Bearer 125148b0cf2291a5dd60994d296d5cb5aaec3ad49798aaa5b2a7ee79f9510384ca94f5b8bbe47d83"})
+      RestClient.post("https://api.nuki.io/smartlock/#{@nuki_id}/action", JSON.generate({"action" => 2}), {content_type: "application/json", accept: "application/json", authorization: "Bearer #{ENV['NUKI_API_KEY']}"})
 
     rescue => error
       p error
