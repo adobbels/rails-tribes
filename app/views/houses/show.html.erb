@@ -30,7 +30,7 @@
                 <br>
               </div>
               <div class="liste">
-                <h3>Capacity</h3>
+                <h3>Capacité totale</h3>
                 <hr>
                 <p><i class="fa fa-users" aria-hidden="true"></i> <%= @house.capacity%></p>
               </div>
@@ -39,7 +39,7 @@
 
           <div class="body-info-amenities padding-top-50">
             <div class="liste">
-              <h3>Amenities</h3>
+              <h3>Equipements</h3>
               <hr>
               <div id="features">
                 <%= render "shared/feature_list" %>
@@ -50,7 +50,7 @@
           <div class="body-info-review padding-top-50">
             <div class="liste">
               <div class="liste-ratings-moyenne">
-              <h3>Reviews</h3>
+              <h3>Commentaires</h3>
               <div class="ratings-moyenne">
               <% if @house.reviews.count != 0 %>
                 <% stars = (@house_ratings / @house.reviews.count) %>
@@ -121,7 +121,7 @@
           <div class="body-info-review padding-top-50">
             <div id="biographies">
               <div class="liste">
-              <h3 class="text-left">Current Tenants</h3>
+              <h3 class="text-left" style="color: #606975;">Locataires actuels</h3>
               <hr>
               <div class="container biography-items">
                 <div class="row">

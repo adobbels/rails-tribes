@@ -58,83 +58,25 @@ puts "***--- HOUSE MANAGER #1 CREATION ---***"
     last_name: "Dobbels",
     phone_number: "+352.661.14.24.31",
     birthday: "12/10/1982",
-    address: "10 rue de Gand",
-    post_code: 59800,
-    city: "Lille",
+    address: "22 avenue du général de gaulle",
+    post_code: 57100,
+    city: "Thionville",
     country: "France",
     photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512130127/fpoonxdaz3et6ngzu82d.png",
     user_id: user.id,
     biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   )
 
-puts "***--- HOUSE MANAGER #2 CREATION ---***"
-  user = User.create!(
-    email: "thomas@gmail.com",
-    password: "123456",
-    admin: true,
-  )
-  prof = Profile.create!(
-    first_name: "Thomas",
-    last_name: "Huncker",
-    phone_number: "+33.6.12.34.56.78",
-    birthday: "10/01/1992",
-    address: "10 rue des postes",
-    post_code: 59000,
-    city: "Lille",
-    country: "France",
-    photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512480876/profil_wkcgwb.png",
-    user_id: user.id,
-    biography: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-  )
-
-puts "***--- TENANT #1 CREATION ---***"
-  user = User.create!(
-    email: "antoine@gmail.com",
-    password: "123456",
-    admin: false,
-  )
-  prof = Profile.create!(
-    first_name: "Antoine",
-    last_name: "Staumont",
-    phone_number: "+33.6.98.76.54.32",
-    birthday: "20/02/1978",
-    address: "10 rue de cambrai",
-    post_code: 59000,
-    city: "Lille",
-    country: "France",
-    photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512142844/h1jmpwfacbmnb5bagah0.jpg",
-    user_id: user.id,
-  )
-
-puts "***--- TENANT #2 CREATION ---***"
-  user = User.create!(
-    email: "maxime@gmail.com",
-    password: "123456",
-    admin: false,
-  )
-  prof = Profile.create!(
-    first_name: "Maxime",
-    last_name: "Godart-Haupet",
-    phone_number: "+33.6.54.73.08.12",
-    birthday: "24/07/1995",
-    address: "45 rue de Marquillies",
-    post_code: 59000,
-    city: "Lille",
-    country: "France",
-    photo_url: "http://res.cloudinary.com/dwkqph9as/image/upload/v1512134866/grywolnslhab6bkayc3n.jpg",
-    user_id: user.id,
-  )
-
 puts "***--- HOUSE CREATION ---***"# USER & PROFILE CREATION
 
 h = House.create!(
-    name:"Stylish house close to river thames",
-    description:"Double and single bedroom in lovely house are available in Baron's Court. Walking distance to river thames at Hammersmith with great traditional English pubs, theatre and restaurants. The Tube station is a short 7 minutes walk away, 16 minutes by tube to Piccadilly Circus (Westend/Soho) 8-10 minutes to Knightsbridge (Harrods) and Hyde Park.There are excellent transport links and direct tubes from Heathrow airport (Piccadilly line) Perfect for an extended holiday or for someone away on business needing a place to stay while away from home. My home is a Classic Victorian terrace house,situated in a quiet location.",
-    price_cents: "80000",
-    capacity: "6",
-    address:"19 rue de Gand",
-    post_code:"59000",
-    city:"Lille",
+    name:"Magnifique maison de maitre de 1908",
+    description:"Bien plus qu'un simple logement, nous te proposons une nouvelle façon de vivre.     Que tu souhaites te relaxer avec tes colocataires après le boulot, inviter des amis à partager une bonne bouteille de vin ou simplement rester tranquille dans ta chambre, nous te proposons de découvrir le concept de Coliving.     Au travers des évènements organisés au sein de la maison, tu partageras des moments uniques avec d'autres personnes curieuses de partager leurs expériences et souhaitant découvrir de nouvelles cultures.     Nous t'offrons à fois la flexibilité d'une location courte durée et la possibilité de te faire de nouveaux amis, le tout dans une maison où chaque espace a été pensé avec minutie ; l'ambiance cosy qui s'y dégage te fera te sentir instantanément à la maison.     Nous proposons 20 belles chambres privées avec des espaces communs incroyables, le tout dans une maison de maitre construite en 1908.     La maison en elle-même se compose au rez-de-chaussée d'un hall d'entrée donnant accès à la cave située au sous-sol, d'une cuisine équipée ouverte sur une spacieuse salle à manger, d'un double séjour donnant accès au jardin, et d'un WC séparé.     Au 1er étage, tu découvriras 5 grandes suites chacune accompagnée d'une salle de douche et d'un WC.     Les 2e, 3e, 4e étages proposent la même disposition.     La cave a quant à elle était divisée en 2 avec d'une part en salle de sport et d'autre part en salle jeux / cinéma.     Cette belle bâtisse offre une situation idéale puisqu'elle est située à 700 mètres de la gare de Thionville et offre à proximité toutes les commodités nécessaires à la vie de tous les jours.      Ce qui est inclus dans ton loyer : Les charges classiques : eau, électricité, chauffage, taxe d'habitation.     Les plus sympas : une salle de fitness pour éliminer les excès de la veille, une salle de cinéma avec Netflix pour les dimanches après-midi, une borne d'arcade pour lancer des défis sur Street Fighter, une serrure connectée pour ne jamais oublier tes clés, et bien sur le wifi haut débit et le ménage bi-mensuel.     Sans oublier et surtout : partager des moments incroyables !     La seule condition : 3 mois minimum renouvelable chaque mois.",
+    price_cents: "50000",
+    capacity: "20",
+    address:"22 avenue du général de gaulle",
+    post_code:"57100",
+    city:"Thionville",
     country: "France",
     planid: "id1",
     idlock: "216634041",
@@ -155,10 +97,10 @@ h = House.create!(
 HouseOption.create!(feature: feature_tv, house: h)
 HouseOption.create!(feature: feature_key, house: h)
 HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
 HouseOption.create!(feature: feature_slack, house: h)
 HouseOption.create!(feature: feature_coffee, house: h)
 HouseOption.create!(feature: feature_gamepad, house: h)
+HouseOption.create!(feature: feature_bicycle, house: h)
 puts "***--- HOUSE #1 DONE ---***"
 sleep 2
 
@@ -331,209 +273,210 @@ HouseOption.create!(feature: feature_gamepad, house: h)
 puts "***--- HOUSE #6 DONE ---***"
 sleep 2
 
-h = House.create!(
-    name:"Gorgeous Glass Box Penthouse (w/Huge room & wine)!.",
-    description:"Please only women and couples, thank you for your understanding. Kick back, relax, indulge in free wine as you sit and enjoy the stunning London skyline. An exceptional, elegant, architect-designed flat the Glass Box penthouse is extended by a private roof terrace with a floral bistro setting. 5 mins to the nearest tube station, the Glass Box is based near the center of London equipped with all the essentials. Your large private room is awaiting...all you need to do is bring you & a suitcase!",
-    price_cents: "77500",
-    capacity: "8",
-    address:"74 Avenue du Maréchal Foch",
-    post_code:"59700",
-    city:"Marcq-en-Baroeul",
-    country: "France",
-    planid: "id7",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/1_gjjzx0.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/2_iwy4ug.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/3_tkwmld.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/4_pjimjv.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/5_epy0dl.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/6_nixkxn.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/7_dqkkbh.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/8_bvaduy.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/9_dleqqz.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/10_dokkbi.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/11_ofgb4i.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/12_oflvmr.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728569/13_hemfc5.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728569/14_bxnarq.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_bath, house: h)
-HouseOption.create!(feature: feature_cutlery, house: h)
-puts "***--- HOUSE #7 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Gorgeous Glass Box Penthouse (w/Huge room & wine)!.",
+#     description:"Please only women and couples, thank you for your understanding. Kick back, relax, indulge in free wine as you sit and enjoy the stunning London skyline. An exceptional, elegant, architect-designed flat the Glass Box penthouse is extended by a private roof terrace with a floral bistro setting. 5 mins to the nearest tube station, the Glass Box is based near the center of London equipped with all the essentials. Your large private room is awaiting...all you need to do is bring you & a suitcase!",
+#     price_cents: "77500",
+#     capacity: "8",
+#     address:"74 Avenue du Maréchal Foch",
+#     post_code:"59700",
+#     city:"Marcq-en-Baroeul",
+#     country: "France",
+#     planid: "id7",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/1_gjjzx0.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/2_iwy4ug.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/3_tkwmld.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/4_pjimjv.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/5_epy0dl.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/6_nixkxn.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/7_dqkkbh.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728567/8_bvaduy.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/9_dleqqz.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/10_dokkbi.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/11_ofgb4i.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728568/12_oflvmr.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728569/13_hemfc5.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728569/14_bxnarq.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_bath, house: h)
+# HouseOption.create!(feature: feature_cutlery, house: h)
+# puts "***--- HOUSE #7 DONE ---***"
+# sleep 2
 
-h = House.create!(
-    name:"Flat Fantastic Location Near Nationale Street",
-    description:"Luxury modern one king bedroom top floor flat, openzen like living room & fully equipped kitchen in the heart of central london. High end furnishing and pieces. Less than 2 minutes walk from Goodge street station (links to Oxford circus & Leicester square). The apartment is in a quiet location within the Fitzrovia district of W1 , only 50 metres from popular Charlotte Street and a short walk from leafy Soho Square. Near London's best bars, restaurants, cafes, West end for shopping!",
-    price_cents: "90000",
-    capacity: "8",
-    address:"103 avenue Foch",
-    post_code:"59700",
-    city:"Marcq-en-Baroeul",
-    country: "France",
-    planid: "id8",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/2_m6gp0i.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/1_j4dlmg.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/3_qydtew.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/4_ffjlci.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_handshake, house: h)
-HouseOption.create!(feature: feature_gamepad, house: h)
-puts "***--- HOUSE #8 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Flat Fantastic Location Near Nationale Street",
+#     description:"Luxury modern one king bedroom top floor flat, openzen like living room & fully equipped kitchen in the heart of central london. High end furnishing and pieces. Less than 2 minutes walk from Goodge street station (links to Oxford circus & Leicester square). The apartment is in a quiet location within the Fitzrovia district of W1 , only 50 metres from popular Charlotte Street and a short walk from leafy Soho Square. Near London's best bars, restaurants, cafes, West end for shopping!",
+#     price_cents: "90000",
+#     capacity: "8",
+#     address:"103 avenue Foch",
+#     post_code:"59700",
+#     city:"Marcq-en-Baroeul",
+#     country: "France",
+#     planid: "id8",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/2_m6gp0i.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/1_j4dlmg.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/3_qydtew.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728926/4_ffjlci.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_handshake, house: h)
+# HouseOption.create!(feature: feature_gamepad, house: h)
+# puts "***--- HOUSE #8 DONE ---***"
+# sleep 2
 
-h = House.create!(
-    name:"Large 2 Bedroom Central Wimbledon Flat",
-    description:"Our vast modern 2 bedroom flat in quiet location in Central Wimbledon is 2-3 minutes walk from Wimbledon Station with frequent trains to Central London taking less than 20 mins and running late into the night. Local shops, restaurants and bars including San Lorenzo and Sushi and Sticks are even closer. Other local facilities include Wimbledon and Polka Childrens Theatres, Wimbledon library, two gyms and a cinema. Walking distance to Wimbledon Village, Common and of course WIMBLEDON TENNIS.",
-    price_cents: "69000",
-    capacity: "8",
-    address:"19 rue Alsace Lorraine",
-    post_code:"59420",
-    city:"Mouvaux",
-    country: "France",
-    planid: "id9",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728995/1_usnf9d.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/2_kn3ane.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/3_zbmdaa.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/4_h6o3jd.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/5_vt3ihr.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/6_lkdsjd.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728995/7_s9uptb.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_douche, house: h)
-HouseOption.create!(feature: feature_bicycle, house: h)
-puts "***--- HOUSE #9 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Large 2 Bedroom Central Wimbledon Flat",
+#     description:"Our vast modern 2 bedroom flat in quiet location in Central Wimbledon is 2-3 minutes walk from Wimbledon Station with frequent trains to Central London taking less than 20 mins and running late into the night. Local shops, restaurants and bars including San Lorenzo and Sushi and Sticks are even closer. Other local facilities include Wimbledon and Polka Childrens Theatres, Wimbledon library, two gyms and a cinema. Walking distance to Wimbledon Village, Common and of course WIMBLEDON TENNIS.",
+#     price_cents: "69000",
+#     capacity: "8",
+#     address:"19 rue Alsace Lorraine",
+#     post_code:"59420",
+#     city:"Mouvaux",
+#     country: "France",
+#     planid: "id9",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728995/1_usnf9d.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/2_kn3ane.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/3_zbmdaa.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/4_h6o3jd.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/5_vt3ihr.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728994/6_lkdsjd.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728995/7_s9uptb.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_douche, house: h)
+# HouseOption.create!(feature: feature_bicycle, house: h)
+# puts "***--- HOUSE #9 DONE ---***"
+# sleep 2
 
-h = House.create!(
-    name:"Beautiful flat in heart of Hackney",
-    description:"Welcome to Hackney! One of the most vibrant and creative parts of London. Your own appartement in the heart of Dalston. A beautiful bright space in a Victorian period building.  We created great room volume through making the traditional London butterfly roof visible. Not far from Central London, connected through 3 near by Overground stations and multiple bus stops.Broadway Market, two parks and Regents Canal are easy to reach by foot. A perfect starting point to explore London.",
-    price_cents: "78000",
-    capacity: "6",
-    address:"16 rue Voltaire",
-    post_code:"59290",
-    city:"Wasquehal",
-    country: "France",
-    planid: "id10",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729401/1_hzz9vf.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729401/2_ny7sef.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/3_qwgfil.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/4_sdmnbr.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/5_crltbs.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/6_quvswi.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/7_xcf0ej.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/8_gze6ci.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/9_ig7834.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/10_lgmudl.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
-HouseOption.create!(feature: feature_cutlery, house: h)
-puts "***--- HOUSE #10 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Beautiful flat in heart of Hackney",
+#     description:"Welcome to Hackney! One of the most vibrant and creative parts of London. Your own appartement in the heart of Dalston. A beautiful bright space in a Victorian period building.  We created great room volume through making the traditional London butterfly roof visible. Not far from Central London, connected through 3 near by Overground stations and multiple bus stops.Broadway Market, two parks and Regents Canal are easy to reach by foot. A perfect starting point to explore London.",
+#     price_cents: "78000",
+#     capacity: "6",
+#     address:"16 rue Voltaire",
+#     post_code:"59290",
+#     city:"Wasquehal",
+#     country: "France",
+#     planid: "id10",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729401/1_hzz9vf.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729401/2_ny7sef.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/3_qwgfil.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/4_sdmnbr.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/5_crltbs.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/6_quvswi.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/7_xcf0ej.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/8_gze6ci.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/9_ig7834.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729402/10_lgmudl.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_pets, house: h)
+# HouseOption.create!(feature: feature_cutlery, house: h)
+# puts "***--- HOUSE #10 DONE ---***"
+# sleep 2
 
-h = House.create!(
-    name:"Stunning NY loft style S/C studio",
-    description:"Peaceful, light, bright, self catering studio in converted attic of large house. 35 sqm private space and 3m high ceiling. Ensuite shower. Same day service wash and dry cleaning less than 100 yards. Sheets and towel change once a week for longer lets. Cleaner charge £10.00 added to each booking. Fast broadband access/ Wi-fi. Close to Jubilee line and overground Brondesbury at Cricklewood, West Hampstead , easy access to numerous major train stations, airports, centre of town. Residents parking only or pay and display. The neighbourhood is mainly family based , residential, leafy, Victorian /Edwardian red brick houses with large gardens. Friendly and safe. Many Persian restaurants, Eastern European delicatessens and famous bagel bakery , near the Jewish quarter of London. Very multi cultural. Not far from Brent Cross shopping centre or Ikea at Wembley. Easy access to Oxford Street/ Covent Garden and the centre for shopping , also easy access to Portobello and Notting Hill. I have hosted ( short term lets in my previous property ) for about 5 years and have always had fantastic feedback and fabulous lodgers.  Huge success with Airbnb.",
-    price_cents: "86000",
-    capacity: "8",
-    address:"73 rue Eugène Jacquet",
-    post_code:"59700",
-    city:"Marcq-en-Baroeul",
-    country: "France",
-    planid: "id11",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/1_sa34qb.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/2_j8gbsy.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/3_sk9wb1.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/4_mn6cl9.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/5_qvzilj.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/6_gffhrn.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/7_qyaove.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/8_bu8kcy.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/9_alkwii.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_bath, house: h)
-HouseOption.create!(feature: feature_gamepad, house: h)
-puts "***--- HOUSE #11 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Stunning NY loft style S/C studio",
+#     description:"Peaceful, light, bright, self catering studio in converted attic of large house. 35 sqm private space and 3m high ceiling. Ensuite shower. Same day service wash and dry cleaning less than 100 yards. Sheets and towel change once a week for longer lets. Cleaner charge £10.00 added to each booking. Fast broadband access/ Wi-fi. Close to Jubilee line and overground Brondesbury at Cricklewood, West Hampstead , easy access to numerous major train stations, airports, centre of town. Residents parking only or pay and display. The neighbourhood is mainly family based , residential, leafy, Victorian /Edwardian red brick houses with large gardens. Friendly and safe. Many Persian restaurants, Eastern European delicatessens and famous bagel bakery , near the Jewish quarter of London. Very multi cultural. Not far from Brent Cross shopping centre or Ikea at Wembley. Easy access to Oxford Street/ Covent Garden and the centre for shopping , also easy access to Portobello and Notting Hill. I have hosted ( short term lets in my previous property ) for about 5 years and have always had fantastic feedback and fabulous lodgers.  Huge success with Airbnb.",
+#     price_cents: "86000",
+#     capacity: "8",
+#     address:"73 rue Eugène Jacquet",
+#     post_code:"59700",
+#     city:"Marcq-en-Baroeul",
+#     country: "France",
+#     planid: "id11",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/1_sa34qb.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/2_j8gbsy.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/3_sk9wb1.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/4_mn6cl9.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/5_qvzilj.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/6_gffhrn.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/7_qyaove.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/8_bu8kcy.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729134/9_alkwii.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_bath, house: h)
+# HouseOption.create!(feature: feature_gamepad, house: h)
+# puts "***--- HOUSE #11 DONE ---***"
+# sleep 2
 
-h = House.create!(
-    name:"Central Scandi Boutique Style Studio - Hyde Park.",
-    description:"Fancy some local life in London? Then our Scandi style studio is the right pick for you. Centrally located, next to Hyde Park & Kensington Gardens, close to Notting Hill & Portobello Road, Oxford Street & Marylebone. You get a fantastic and safe location, a cool & trendy neighbourhood, great restaurants, shops, markets & leisure facilities. Convenient for arrival and departure from/to all airports! Underground: Queensway (Central), Bayswater (Victoria & Circle Line) Several bus stops",
-    price_cents: "79000",
-    capacity: "4",
-    address:"23 allée des Mésanges",
-    post_code:"59910",
-    city:"Bondues",
-    country: "France",
-    planid: "id12",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/1_bxs2xl.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/2_xvsvpd.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/3_kudqsb.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/4_qin0cp.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_handshake, house: h)
-HouseOption.create!(feature: feature_douche, house: h)
-puts "***--- HOUSE #12 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Central Scandi Boutique Style Studio - Hyde Park.",
+#     description:"Fancy some local life in London? Then our Scandi style studio is the right pick for you. Centrally located, next to Hyde Park & Kensington Gardens, close to Notting Hill & Portobello Road, Oxford Street & Marylebone. You get a fantastic and safe location, a cool & trendy neighbourhood, great restaurants, shops, markets & leisure facilities. Convenient for arrival and departure from/to all airports! Underground: Queensway (Central), Bayswater (Victoria & Circle Line) Several bus stops",
+#     price_cents: "79000",
+#     capacity: "4",
+#     address:"23 allée des Mésanges",
+#     post_code:"59910",
+#     city:"Bondues",
+#     country: "France",
+#     planid: "id12",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/1_bxs2xl.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/2_xvsvpd.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/3_kudqsb.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512729293/4_qin0cp.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_handshake, house: h)
+# HouseOption.create!(feature: feature_douche, house: h)
+# puts "***--- HOUSE #12 DONE ---***"
+# sleep 2
+
 puts "***--- SEEDS DONE ---***"
 
 House.all.each do |house|
