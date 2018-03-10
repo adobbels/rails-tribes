@@ -5,7 +5,7 @@
   <% end %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
-  <%= link_to "La maison", house_path(1), class: "navbar-wagon-item navbar-wagon-link" %>
+  <%= link_to "La maison", houses_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
       <% if current_user.profile.present? %>

@@ -70,7 +70,7 @@ puts "***--- HOUSE MANAGER #1 CREATION ---***"
 puts "***--- HOUSE CREATION ---***"# USER & PROFILE CREATION
 
 h = House.create!(
-    name:"Magnifique maison de maitre de 1908",
+    name:"Magnifique maison de maître de 1908",
     description:"Bien plus qu'un simple logement, nous te proposons une nouvelle façon de vivre.     Que tu souhaites te relaxer avec tes colocataires après le boulot, inviter des amis à partager une bonne bouteille de vin ou simplement rester tranquille dans ta chambre, nous te proposons de découvrir le concept de Coliving.     Au travers des évènements organisés au sein de la maison, tu partageras des moments uniques avec d'autres personnes curieuses de partager leurs expériences et souhaitant découvrir de nouvelles cultures.     Nous t'offrons à fois la flexibilité d'une location courte durée et la possibilité de te faire de nouveaux amis, le tout dans une maison où chaque espace a été pensé avec minutie ; l'ambiance cosy qui s'y dégage te fera te sentir instantanément à la maison.     Nous proposons 20 belles chambres privées avec des espaces communs incroyables, le tout dans une maison de maitre construite en 1908.     La maison en elle-même se compose au rez-de-chaussée d'un hall d'entrée donnant accès à la cave située au sous-sol, d'une cuisine équipée ouverte sur une spacieuse salle à manger, d'un double séjour donnant accès au jardin, et d'un WC séparé.     Au 1er étage, tu découvriras 5 grandes suites chacune accompagnée d'une salle de douche et d'un WC.     Les 2e, 3e, 4e étages proposent la même disposition.     La cave a quant à elle était divisée en 2 avec d'une part en salle de sport et d'autre part en salle jeux / cinéma.     Cette belle bâtisse offre une situation idéale puisqu'elle est située à 700 mètres de la gare de Thionville et offre à proximité toutes les commodités nécessaires à la vie de tous les jours.      Ce qui est inclus dans ton loyer : Les charges classiques : eau, électricité, chauffage, taxe d'habitation.     Les plus sympas : une salle de fitness pour éliminer les excès de la veille, une salle de cinéma avec Netflix pour les dimanches après-midi, une borne d'arcade pour lancer des défis sur Street Fighter, une serrure connectée pour ne jamais oublier tes clés, et bien sur le wifi haut débit et le ménage bi-mensuel.     Sans oublier et surtout : partager des moments incroyables !     La seule condition : 3 mois minimum renouvelable chaque mois.",
     price_cents: "50000",
     capacity: "20",
@@ -105,173 +105,173 @@ puts "***--- HOUSE #1 DONE ---***"
 sleep 2
 
 
-h = House.create!(
-    name:"Hyde Park Designer Artist Studio",
-    description:"arrive in under 30mins from Heathrow - 20mins heathrow express 4mins taxi or 8mins walk - 2 blocks away from Paddington station Indulge yourself in this spectacular former studio of full of carefully curated pieces- Ideal for business travel as its secure with furniture and finishes to rival hotel suites at the Ritz or Lansborough Hotels. We can arrange concierge service. we are super excited to star in Plum Guide award for top 254 properties (2017) out if 25 hosting sites 40,000 properties",
-    price_cents: "85000",
-    capacity: "8",
-    address:"73 rue Royale",
-    post_code:"59800",
-    city:"Lille",
-    country: "France",
-    planid: "id2",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/1_t2pzs4.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/2_bwx83c.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/3_doai3r.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/4_iiwf17.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/5_mreckm.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/6_uzmtgg.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727561/7_sdaqtb.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727561/8_wffhnt.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727561/9_xhupuj.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727562/10_lta0pn.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_bicycle, house: h)
-HouseOption.create!(feature: feature_bath, house: h)
-puts "***--- HOUSE #2 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Hyde Park Designer Artist Studio",
+#     description:"arrive in under 30mins from Heathrow - 20mins heathrow express 4mins taxi or 8mins walk - 2 blocks away from Paddington station Indulge yourself in this spectacular former studio of full of carefully curated pieces- Ideal for business travel as its secure with furniture and finishes to rival hotel suites at the Ritz or Lansborough Hotels. We can arrange concierge service. we are super excited to star in Plum Guide award for top 254 properties (2017) out if 25 hosting sites 40,000 properties",
+#     price_cents: "85000",
+#     capacity: "8",
+#     address:"73 rue Royale",
+#     post_code:"59800",
+#     city:"Lille",
+#     country: "France",
+#     planid: "id2",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/1_t2pzs4.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/2_bwx83c.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/3_doai3r.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/4_iiwf17.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/5_mreckm.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727560/6_uzmtgg.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727561/7_sdaqtb.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727561/8_wffhnt.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727561/9_xhupuj.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727562/10_lta0pn.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_bicycle, house: h)
+# HouseOption.create!(feature: feature_bath, house: h)
+# puts "***--- HOUSE #2 DONE ---***"
+# sleep 2
 
-h = House.create!(
-    name:"Light & Spacious Garden Flat London.",
-    description:"A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory. Close to Queens park station and all buses. Shops are very nearby as well as nice local restaurants.",
-    price_cents: "90000",
-    capacity: "4",
-    address:"23 rue Nationale",
-    post_code:"59800",
-    city:"Lille",
-    country: "France",
-    planid: "id3",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/1_pffddn.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/2_dulylg.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/3_qbp6ka.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/4_y33lra.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/5_fwldyy.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727747/6_ibssku.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727747/7_rnepyg.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_douche, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
-puts "***--- HOUSE #3 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Light & Spacious Garden Flat London.",
+#     description:"A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory. Close to Queens park station and all buses. Shops are very nearby as well as nice local restaurants.",
+#     price_cents: "90000",
+#     capacity: "4",
+#     address:"23 rue Nationale",
+#     post_code:"59800",
+#     city:"Lille",
+#     country: "France",
+#     planid: "id3",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/1_pffddn.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/2_dulylg.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/3_qbp6ka.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/4_y33lra.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727746/5_fwldyy.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727747/6_ibssku.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727747/7_rnepyg.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_douche, house: h)
+# HouseOption.create!(feature: feature_pets, house: h)
+# puts "***--- HOUSE #3 DONE ---***"
+# sleep 2
 
-h = House.create!(
-     name:"The Muse Haus I - Black Sheep.",
-    description:"The Muse Haus is pioneering a new and unique concept of hospitality: it merges accessibility and hotel standard quality with homelike comfort and the privacy of serviced apartments, mobilised and driven by modern internet and smart phone technology. The Muse Haus endeavours to make guests feel at home the moment they enter the house, with the ability to store belongings and food, use of a common kitchen and living space. Mingle with Muse Haus mates or hang out on your own, work, rest or play.",
-    price_cents: "77000",
-    capacity: "3",
-    address:"23 rue de Metz",
-    post_code:"59800",
-    city:"Lille",
-    country: "France",
-    planid: "id4",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727967/1_pqzwsz.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727966/2_dzdedm.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727966/3_euk6ry.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727967/4_q5fh9x.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727966/5_eyqfny.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_cutlery, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
-puts "***--- HOUSE #4 DONE ---***"
-sleep 2
+# h = House.create!(
+#      name:"The Muse Haus I - Black Sheep.",
+#     description:"The Muse Haus is pioneering a new and unique concept of hospitality: it merges accessibility and hotel standard quality with homelike comfort and the privacy of serviced apartments, mobilised and driven by modern internet and smart phone technology. The Muse Haus endeavours to make guests feel at home the moment they enter the house, with the ability to store belongings and food, use of a common kitchen and living space. Mingle with Muse Haus mates or hang out on your own, work, rest or play.",
+#     price_cents: "77000",
+#     capacity: "3",
+#     address:"23 rue de Metz",
+#     post_code:"59800",
+#     city:"Lille",
+#     country: "France",
+#     planid: "id4",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727967/1_pqzwsz.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727966/2_dzdedm.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727966/3_euk6ry.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727967/4_q5fh9x.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512727966/5_eyqfny.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_cutlery, house: h)
+# HouseOption.create!(feature: feature_pets, house: h)
+# puts "***--- HOUSE #4 DONE ---***"
+# sleep 2
 
-h = House.create!(
-    name:"Designer Artist Studio.",
-    description:"arrive in under 30mins from Heathrow - 20mins heathrow express 4mins taxi or 8mins walk - 2 blocks away from Paddington station. Indulge yourself in this spectacular former studio of full of carefully curated pieces- Ideal for business travel as its secure with furniture and finishes to rival hotel suites at the Ritz or Lansborough Hotels. We can arrange concierge service. We are super excited to star in Plum Guide award for top 254 properties (2017) out if 25 hosting sites 40,000 properties",
-    price_cents: "82500",
-    capacity: "4",
-    address:"23 Avenue de l'Hippodrome",
-    post_code:"59130",
-    city:"Lambersart",
-    country: "France",
-    planid: "id5",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/1_iutplb.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/2_h0df62.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/3_b55gan.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/4_nbzu6l.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/5_yllsw1.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728060/6_chjc22.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728060/7_bbhrfx.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728060/8_t8amur.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_handshake, house: h)
-HouseOption.create!(feature: feature_bicycle, house: h)
-puts "***--- HOUSE #5 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Designer Artist Studio.",
+#     description:"arrive in under 30mins from Heathrow - 20mins heathrow express 4mins taxi or 8mins walk - 2 blocks away from Paddington station. Indulge yourself in this spectacular former studio of full of carefully curated pieces- Ideal for business travel as its secure with furniture and finishes to rival hotel suites at the Ritz or Lansborough Hotels. We can arrange concierge service. We are super excited to star in Plum Guide award for top 254 properties (2017) out if 25 hosting sites 40,000 properties",
+#     price_cents: "82500",
+#     capacity: "4",
+#     address:"23 Avenue de l'Hippodrome",
+#     post_code:"59130",
+#     city:"Lambersart",
+#     country: "France",
+#     planid: "id5",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/1_iutplb.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/2_h0df62.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/3_b55gan.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/4_nbzu6l.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728059/5_yllsw1.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728060/6_chjc22.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728060/7_bbhrfx.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728060/8_t8amur.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_handshake, house: h)
+# HouseOption.create!(feature: feature_bicycle, house: h)
+# puts "***--- HOUSE #5 DONE ---***"
+# sleep 2
 
-h = House.create!(
-    name:"Cute & Cosy 1 bed flat in Vauban.",
-    description:"A pretty and bright one bed flat with great balcony and fantastic views across South London. It is a located a short walk from Kennington tube with excellent transport links into the centre.",
-    price_cents: "72500",
-    capacity: "8",
-    address:"23 rue Godefroy",
-    post_code:"59110",
-    city:"La Madeleine",
-    country: "France",
-    planid: "id6",
-    idlock: "216634041",
-    idbridge: "hP1S5i",
-    ipaddress: "http://10.10.105.21:8080",
-    photo_urls:[
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/1_g8xpxc.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/2_slt0ma.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/3_tnjs1r.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/4_pmezxb.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/5_wnt2hu.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/6_o9vq8y.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/7_mk3cvs.jpg",
-                "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728791/8_w0hj9w.jpg"
-                ]
-  )
-HouseOption.create!(feature: feature_tv, house: h)
-HouseOption.create!(feature: feature_key, house: h)
-HouseOption.create!(feature: feature_wifi, house: h)
-HouseOption.create!(feature: feature_stripe, house: h)
-HouseOption.create!(feature: feature_slack, house: h)
-HouseOption.create!(feature: feature_pets, house: h)
-HouseOption.create!(feature: feature_gamepad, house: h)
-puts "***--- HOUSE #6 DONE ---***"
-sleep 2
+# h = House.create!(
+#     name:"Cute & Cosy 1 bed flat in Vauban.",
+#     description:"A pretty and bright one bed flat with great balcony and fantastic views across South London. It is a located a short walk from Kennington tube with excellent transport links into the centre.",
+#     price_cents: "72500",
+#     capacity: "8",
+#     address:"23 rue Godefroy",
+#     post_code:"59110",
+#     city:"La Madeleine",
+#     country: "France",
+#     planid: "id6",
+#     idlock: "216634041",
+#     idbridge: "hP1S5i",
+#     ipaddress: "http://10.10.105.21:8080",
+#     photo_urls:[
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/1_g8xpxc.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/2_slt0ma.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/3_tnjs1r.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/4_pmezxb.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/5_wnt2hu.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/6_o9vq8y.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728790/7_mk3cvs.jpg",
+#                 "http://res.cloudinary.com/dwkqph9as/image/upload/v1512728791/8_w0hj9w.jpg"
+#                 ]
+#   )
+# HouseOption.create!(feature: feature_tv, house: h)
+# HouseOption.create!(feature: feature_key, house: h)
+# HouseOption.create!(feature: feature_wifi, house: h)
+# HouseOption.create!(feature: feature_stripe, house: h)
+# HouseOption.create!(feature: feature_slack, house: h)
+# HouseOption.create!(feature: feature_pets, house: h)
+# HouseOption.create!(feature: feature_gamepad, house: h)
+# puts "***--- HOUSE #6 DONE ---***"
+# sleep 2
 
 # h = House.create!(
 #     name:"Gorgeous Glass Box Penthouse (w/Huge room & wine)!.",
