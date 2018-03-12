@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'pages/cancel_subscription'
   get 'pages/cancel_check'
+  get 'pages/test'
   resources :profiles
   resources :houses do
     member do
