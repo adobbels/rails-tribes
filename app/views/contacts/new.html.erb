@@ -1,24 +1,49 @@
-<div class="container">
-  <div class="title" style="text-align: center; height:30px; margin-top: 35px">
-    <i class="fa fa-pencil fa-5x" aria-hidden="true"><h2>Please, write your message !</h2></i>
-  </div>
-  <div class="containerprof" >
-<div class="containerformprofile" style="padding: 30px;">
-  <div class="row" style="height: 350px;">
-    <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
-      <div class="col-xs-12 col-md-6" style="padding: 30px;">
-        <%= f.input :first_name, :required => true, input_html: {style: 'height:35px;'} %>
-        <%= f.input :last_name, :required => true, input_html: {style: 'height:35px;'} %>
-        <%= f.input :phone_number, :required => true , input_html: {style: 'height:35px;'}%>
-        <%= f.input :email, :required => true, input_html: {style: 'height:35px;'} %>
+  <body>
+      <!-- Page Content-->
+      <div class="container padding-bottom-2x">
+        <div class="row">
+          <div class="col-xs-12">
+            <h6 class="text-muted text-normal text-uppercase margin-top-2x">Comment te contacter ?</h6>
+            <hr class="margin-bottom-1x">
+            <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+              <div class="form-group row">
+                <label class="col-2 col-form-label" for="text-input">Prénom</label>
+                <div class="col-10">
+                  <%= f.input :first_name, :required => true, class:"form-control", type:"text", id:"text-input", placeholder:"Ross", label: false %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-2 col-form-label" for="text-input">Nom</label>
+                <div class="col-10">
+                  <%= f.input :last_name, :required => true, class:"form-control", type:"text", id:"text-input", placeholder:"Geller", label: false %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-2 col-form-label" for="email-input">Email</label>
+                <div class="col-10">
+                  <%= f.input :email, :required => true, class:"form-control", type:"email", id:"email-input", placeholder:"ross@geller.com", label: false %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-2 col-form-label" for="tel-input">Téléphone</label>
+                <div class="col-10">
+                  <%= f.input :phone_number, :required => true, class:"form-control", type:"tel", id:"tel-input", placeholder:"(33)6.12.34.56.78", label: false %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-2 col-form-label" for="textarea-input">Message</label>
+                <div class="col-10">
+                  <%= f.input :phone_number, :required => true, class:"form-control", :as => :text, id:"textarea-input", rows:"5", placeholder:"Hola chico!", label: false %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-10">
+                  <%= f.button :submit, 'Envoyer le message', class:"btn btn-primary" %>
+                </div>
+              </div>
+            <% end  %>
+          </div>
+        </div>
       </div>
-      <div class="col-xs-12 col-md-6" style="padding: 30px;">
-        <%= f.input :message, :as => :text, :required => true, input_html: {style: 'height:200px;'} %>
-        <%= f.button :submit, 'Send message', class:"btn btn-primary" %>
-      </div>
-    <%end%>
-  </div>
-</div>
-</div>
-</div>
+    </div>
 
